@@ -16,7 +16,7 @@
 				src="http://es.wallapop.com/images/logos/img_logo_header.png"
 				id="img_logo">
 		</div>
-		
+
 		<div class="explorer">
 			<select>
 				<option>Daniel</option>
