@@ -21,7 +21,7 @@
 			<select>
 				<option>Daniel</option>
 				<option>Ketchup</option>
-				<option>Relish</option>
+				<option>el homo</option>
 			</select> <input type="text" placeholder="Buscar..." name="explorer_input"
 				class="explorer_input" />
 		</div>
