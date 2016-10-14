@@ -1,40 +1,47 @@
 @CHARSET "ISO-8859-1";
 
-body{
+body {
 	margin-top: 0;
 	margin-left: 0;
 	margin-right: 0;
 }
-a{
+
+a {
 	text-decoration: overline;
 	color: blue;
 }
-.header{
+
+.header {
 	height: 50px;
 	background-color: rgba(19, 193, 172, 93);
 }
-.logo{
-	display: inline-block;
-	float: left;
-	width: 33%;	
-	height: 100%;
-}
-.explorer{
+
+.logo {
 	display: inline-block;
 	float: left;
 	width: 33%;
 	height: 100%;
 }
-.explorer_input{
+
+.explorer {
+	display: inline-block;
+	float: left;
+	width: 33%;
+	height: 100%;
+}
+
+.explorer_input {
 	margin-top: 10px;
 }
-.account{
+
+.account {
 	display: inline-block;
 	float: left;
 	width: 33%;
 	height: 100%;
 }
-#img_logo{
+
+#img_logo {
 	width: 150px;
 	margin-top: 5px;
 }
