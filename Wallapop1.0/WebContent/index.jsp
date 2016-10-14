@@ -19,7 +19,7 @@
 		
 		<div class="explorer">
 			<select>
-				<option>Mustard</option>
+				<option>Daniel</option>
 				<option>Ketchup</option>
 				<option>Relish</option>
 			</select> <input type="text" placeholder="Buscar..." name="explorer_input"
