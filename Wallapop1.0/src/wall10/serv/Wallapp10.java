@@ -1,12 +1,15 @@
 package wall10.serv;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Wallapp10
@@ -28,6 +31,7 @@ public class Wallapp10 extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
+		System.out.println("Servlet iniciado");
 	}
 
 	/**
@@ -50,7 +54,15 @@ public class Wallapp10 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		System.out.println("Llega al doPost");
+		RequestDispatcher r=request.getRequestDispatcher("PerfilUsuario.jsp");
+		HttpSession session = request.getSession(true);
+		
+			
+			r.forward(request, response);
+			doGet(request, response);
+		
+	
 	}
 
 	/**

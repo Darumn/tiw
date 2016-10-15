@@ -35,7 +35,7 @@
 				class="explorer_input" />
 		</div>
 		<div class="account">
-			<a href="#" class="account_link">Cuenta</a>
+			<a href="Formulario.jsp" class="account_link">INICIAR SESIÓN | REGISTRO</a>
 		</div>
 	</div>
 	<nav>
