@@ -64,7 +64,7 @@ nav ul a {
 	
 }
 
-/*Product card*/
+/*Product card in index*/
 .card-product{
 	width: 90%;
 	margin-right: 3px;
@@ -98,4 +98,38 @@ nav ul a {
 .product-owner{
 	margin-top: 5px;
 	text-align: center;
+}
+
+
+/*user form*/
+#section{
+	display:flex;
+}
+
+#section1{
+	width:50%;
+	float: left;
+	text-align:center;
+}
+#section2{
+	width:50%;
+	text-align:center;
+}
+
+/*Product View*/
+.product-view-img-container{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.product-view-img-container>img{
+	width: 100%;
+	height: 100%;
+}
+.product-view-info-container{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
