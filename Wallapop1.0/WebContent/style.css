@@ -118,18 +118,36 @@ nav ul a {
 
 /*Product View*/
 .product-view-img-container{
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 .product-view-img-container>img{
 	width: 100%;
 	height: 100%;
 }
 .product-view-info-container{
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-top: 15px;
+	padding-left: 5px;
+	margin-right: 40px;
+	border-style: solid; 
+	border-width: thin;
+	border-radius: 16px;
+}
+.product-view-info-price{
+	margin-top: 30px;
+	padding-left: 5px;
+	color: rgba(19, 193, 172, 93);
+}
+.product-view-info-name{
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 25px;
+}
+.product-view-info-description{
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 20px;
+	padding-bottom: 10px;
 }
