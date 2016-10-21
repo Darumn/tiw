@@ -1,24 +1,5 @@
 <%@include file="includes/header.jsp"%>
 
-<div class="explorer">
-	<select>
-		<option>Tecnología e Informática</option>
-		<option>Coches y Motos</option>
-		<option>Deporte y Ocio</option>
-		<option>Muebles, Deco y Jardín</option>
-		<option>Consolas y Videojuegos</option>
-		<option>Libros, Películas y Música</option>
-		<option>Moda y Accesorios</option>
-		<option>Juguetes, Niños y Bebés</option>
-		<option>Inmobiliaria</option>
-		<option>Electrodomésticos</option>
-		<option>Servicios</option>
-		<option>Otros</option>
-	</select> <input type="text" placeholder="Buscar producto..."
-		name="explorer_input" class="explorer_input" />
-</div>
-
-</div>
 <div id="section">
 	<div id="section1">
 		<H3>INICIA SESIÓN</H3>

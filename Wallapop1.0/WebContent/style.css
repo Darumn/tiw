@@ -125,7 +125,12 @@ nav ul a {
 }
 .product-view-img-container>img{
 	width: 100%;
+	max-width: 400px;
 	height: 100%;
+	max-height: 400px;
+	border-style: solid;
+	border-radius: 16px;
+	border-width: thin;
 }
 .product-view-info-container{
 	margin-top: 15px;
