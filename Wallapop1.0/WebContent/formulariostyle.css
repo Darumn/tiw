@@ -1,4 +1,5 @@
 @CHARSET "ISO-8859-1";
+
 @CHARSET "ISO-8859-1";
 
 body {
@@ -47,16 +48,18 @@ a {
 	margin-top: 5px;
 	margin-left: 10px;
 }
-#section{
-	display:flex;
+
+#section {
+	display: flex;
 }
 
-#section1{
-	width:50%;
+#section1 {
+	width: 50%;
 	float: left;
-	text-align:center;
+	text-align: center;
 }
-#section2{
-	width:50%;
-	text-align:center;
+
+#section2 {
+	width: 50%;
+	text-align: center;
 }

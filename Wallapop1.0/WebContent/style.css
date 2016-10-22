@@ -47,83 +47,87 @@ a {
 	margin-left: 10px;
 }
 
-nav{
-	float:left;
-	max-width:160px;
-	margin:0;
-	padding: 1em;	
+nav {
+	float: left;
+	max-width: 160px;
+	margin: 0;
+	padding: 1em;
 }
 
-nav ul{
-	list-style-type:none;
-	padding:0;
-	}
-	
+nav ul {
+	list-style-type: none;
+	padding: 0;
+}
+
 nav ul a {
-	text-decoration:none;
-	
+	text-decoration: none;
 }
 
 /*Product card in index*/
-.card-product{
+.card-product {
 	width: 90%;
 	margin-right: 3px;
 	margin-left: 3px;
-	border-style: solid; 
+	border-style: solid;
 	border-width: thin;
 	border-radius: 16px;
 	height: 300px;
 }
-.image-product{
+
+.image-product {
 	height: 150px;
 	border-radius: 16px;
 }
-.image-product>img{
-	width:100%;
+
+.image-product>img {
+	width: 100%;
 	height: 100%;
 	border-radius: 16px;
 }
-.info-container{
+
+.info-container {
 	margin-top: 5px;
 	padding-left: 12px;
 }
-.product-price{
+
+.product-price {
 	color: rgba(19, 193, 172, 93);
 }
-.product-category{
+
+.product-category {
 	color: #b5b5b5;
 }
 
-
-.product-owner{
+.product-owner {
 	margin-top: 5px;
 	text-align: center;
 }
 
-
 /*user form*/
-#section{
-	display:flex;
+#section {
+	display: flex;
 }
 
-#section1{
-	width:50%;
+#section1 {
+	width: 50%;
 	float: left;
-	text-align:center;
+	text-align: center;
 }
-#section2{
-	width:50%;
-	text-align:center;
+
+#section2 {
+	width: 50%;
+	text-align: center;
 }
 
 /*Product View*/
-.product-view-img-container{
+.product-view-img-container {
 	margin-top: 15px;
 	margin-bottom: 15px;
 	padding-left: 50px;
 	padding-right: 50px;
 }
-.product-view-img-container>img{
+
+.product-view-img-container>img {
 	width: 100%;
 	max-width: 400px;
 	height: 100%;
@@ -132,25 +136,29 @@ nav ul a {
 	border-radius: 16px;
 	border-width: thin;
 }
-.product-view-info-container{
+
+.product-view-info-container {
 	margin-top: 15px;
 	padding-left: 5px;
 	margin-right: 40px;
-	border-style: solid; 
+	border-style: solid;
 	border-width: thin;
 	border-radius: 16px;
 }
-.product-view-info-price{
+
+.product-view-info-price {
 	margin-top: 30px;
 	padding-left: 5px;
 	color: rgba(19, 193, 172, 93);
 }
-.product-view-info-name{
+
+.product-view-info-name {
 	padding-left: 5px;
 	padding-right: 5px;
 	margin-top: 25px;
 }
-.product-view-info-description{
+
+.product-view-info-description {
 	padding-left: 5px;
 	padding-right: 5px;
 	margin-top: 20px;
