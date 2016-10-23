@@ -31,7 +31,7 @@
 			<div class="col-xs-4 col-md-3 col-lg-2">
 				<div class="card-product">
 					<div class="image-product">
-						<img src="images/casco.jpg" alt="Casco">
+						<a href="HomeController<%="?id="+1%>"><img src="images/casco.jpg" alt="Casco"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">
@@ -48,7 +48,7 @@
 			<div class="col-xs-4 col-md-3 col-lg-2">
 				<div class="card-product">
 					<div class="image-product">
-						<img src="images/casco.jpg" alt="Casco">
+						<a href="HomeController<%="?id="+2%>"><img src="images/casco.jpg" alt="Casco"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">
@@ -65,7 +65,7 @@
 			<div class="col-xs-4 col-md-3 col-lg-2">
 				<div class="card-product">
 					<div class="image-product">
-						<img src="images/casco.jpg" alt="Casco">
+						<a href="HomeController<%="?id="+3%>"><img src="images/casco.jpg" alt="Casco"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">
