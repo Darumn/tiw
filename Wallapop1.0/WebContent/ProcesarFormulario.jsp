@@ -7,6 +7,6 @@
 <title>Procesar formulario</title>
 </head>
 <body>
-	<h2>TUS PUTOS MUERTOS CABRON</h2>
+	<h2></h2>
 </body>
 </html>
