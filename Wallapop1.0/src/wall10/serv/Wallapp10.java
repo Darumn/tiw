@@ -50,7 +50,7 @@ public class Wallapp10 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request,response);
 	}
 
 	/**
@@ -67,11 +67,10 @@ public class Wallapp10 extends HttpServlet {
 			String _apellido=request.getParameter("surname");
 			insercion.insertar(_nombre,_apellido);
 		RequestDispatcher r = request.getRequestDispatcher("PerfilUsuario.jsp");
-		HttpSession session = request.getSession(true);
+		
 		
 		r.forward(request, response);
-		doGet(request, response);
-
+	
 	}
 
 	/**
