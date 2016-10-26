@@ -6,6 +6,7 @@ public class PruebaAccesoDatos {
 		// TODO Auto-generated method stub
 			AccesoDatos db=new AccesoDatos();
 			db.abrirConexion();
+			db.insertar("PEPE","PEREZ");
 			
 	}
 
