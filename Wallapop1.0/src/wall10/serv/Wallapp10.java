@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import datos.AccesoDatos;
+
 /**
  * Servlet implementation class Wallapp10
  */
@@ -59,9 +61,14 @@ public class Wallapp10 extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("Llega al doPost");
+		
+			AccesoDatos insercion=new AccesoDatos();
+			String _nombre=request.getParameter("name");
+			String _apellido=request.getParameter("surname");
+			insercion.insertar(_nombre,_apellido);
 		RequestDispatcher r = request.getRequestDispatcher("PerfilUsuario.jsp");
 		HttpSession session = request.getSession(true);
-
+		
 		r.forward(request, response);
 		doGet(request, response);
 
