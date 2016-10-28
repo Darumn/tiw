@@ -1,4 +1,4 @@
-package Servlets;
+package managers;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,8 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import logic.UserManager;
 import model.*;
-import Logic.*;
+
 
 /**
  * Servlet implementation class RegisterUserServlet

@@ -1,5 +1,5 @@
-package wall10.serv;
-
+package managers;
+import model.*;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;

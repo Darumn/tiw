@@ -1,5 +1,5 @@
-package wall10.serv;
-
+package managers;
+import model.*;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import datos.AccesoDatos;
+import logic.AccesoDatos;
 
 /**
  * Servlet implementation class Wallapp10
