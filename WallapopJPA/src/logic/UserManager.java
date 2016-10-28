@@ -1,4 +1,4 @@
-package datos;
+package logic;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -1,4 +1,4 @@
-package datos;
+package logic;
 import java.sql.*;
 import model.*;
 
