@@ -41,7 +41,7 @@ public class RegisterUserServlet extends HttpServlet {
 		User usuario = new User();
 		UserManager manager = new UserManager();
 		usuario.setName(((String)request.getParameter("name")));
-		usuario.setSurname((String)request.getParameter("surname"));7
+		usuario.setSurname((String)request.getParameter("surname"));
 		usuario.setEmail((String)request.getParameter("email"));
 		usuario.setPassword((String)request.getParameter("password"));
 		manager.createUser(usuario);
