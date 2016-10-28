@@ -1,7 +1,9 @@
 package datos;
 import java.sql.*;
-public class AccesoDatos {
+import model.*;
 
+public class AccesoDatos {
+	
 	Connection con;
 	Statement st;
 	//ResultSet rs;
@@ -11,6 +13,7 @@ public class AccesoDatos {
 		
 	/*Método para abrir la conexion*/
 	public void abrirConexion(){
+		
 		try{
 			System.out.println("Conexión a la BD");
 			Class.forName("com.mysql.jdbc.Driver").newInstance();

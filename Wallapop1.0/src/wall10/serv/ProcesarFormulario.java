@@ -80,6 +80,7 @@ public class ProcesarFormulario extends HttpServlet {
 		}
 
 		// conexion con bbdd
+		
 
 		RequestDispatcher r = request.getRequestDispatcher("PerfilUsuario.jsp");
 		HttpSession session = request.getSession(true);
