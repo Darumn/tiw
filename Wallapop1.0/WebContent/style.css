@@ -65,13 +65,13 @@ nav ul a {
 
 /*Product card in index*/
 .card-product {
-	width: 90%;
+	
 	margin-right: 3px;
 	margin-left: 3px;
 	border-style: solid;
 	border-width: thin;
 	border-radius: 16px;
-	height: 300px;
+	
 }
 
 .image-product {
@@ -190,3 +190,30 @@ nav ul a {
 	height: 100%;
 	cursor: pointer;
 }
+
+/* Sellers */
+
+#viewseller{
+	background-color:black;
+	color:black;
+}
+
+.card-profile-seller{
+	background-color: rgba(255,255,255,.95);
+    width: 460px;
+    padding: 2rem 4rem;
+    pointer-events: auto;
+    text-align: center;
+}
+
+.totalproductsseller{
+	text-align:center;
+}
+
+/* UPDATE PRODUCTS */
+#update-productos{
+	text-align:center;
+}
+
+
+

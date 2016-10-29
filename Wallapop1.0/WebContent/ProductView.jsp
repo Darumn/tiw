@@ -18,27 +18,14 @@
 					lal al al al a
 				</div>
 				<div class="product-view-info-owner-name">
-					Mario Gonzalo
+					<a href="Vendedor.jsp">Mario Gonzalo</a>
 				</div>
 				<div class="product-view-info-owner-chat">
 					<button class="btn-success">Contactar</button>
 				</div>
 			</div>
 			
-			<div class="other-products-container">
-				<p>Otros productos de Mario Gonzalo</p>
-				<div class="row">
-					<div class="col-xs-4">
-						<img src="images/casco.jpg" alt="Casco" class="other-products-img">
-					</div>
-					<div class="col-xs-4">
-						<img src="images/casco.jpg" alt="Casco" class="other-products-img">
-					</div>
-					<div class="col-xs-4">
-						<img src="images/casco.jpg" alt="Casco" class="other-products-img">
-					</div>
-				</div>
-			</div>
+			
 			
 		</div>
 	</div>

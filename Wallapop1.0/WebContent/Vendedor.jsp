@@ -1,32 +1,16 @@
 <%@include file="includes/header.jsp"%>
 <div class="main">
-	<div style="width: 20%; float: left;">
-		<nav>
-			<h3>Regiones Populares</h3>
-			<ul>
-				<li><a href="Formulario.jsp">Provincia de Alacant/Alicante</a>
-				<li><a href="Formulario.jsp">Provincia de Barcelona</a>
-				<li><a href="Formulario.jsp">Provincia de Madrid</a>
-				<li><a href="Formulario.jsp">Provincia de Málaga</a>
-				<li><a href="Formulario.jsp">Sevilla</a>
-				<li><a href="Formulario.jsp">Valencia</a>
-			</ul>
-			</br>
-			<h3>Ciudades Populares</h3>
-			<ul>
-				<li><a href="Formulario.jsp">Barcelona</a>
-				<li><a href="Formulario.jsp">Madrid</a>
-				<li><a href="Formulario.jsp">Málaga</a>
-				<li><a href="Formulario.jsp">Sevilla</a>
-				<li><a href="Formulario.jsp">Valencia</a>
-				<li><a href="Formulario.jsp">Zaragoza</a>
-			</ul>
-		</nav>
+	<div id="viewseller">
+		<div class="card-profile-seller">
+			<p>Mario</p>
+			<p>Link del perfil</p>
+			<p>Productos vendidos</p>
+		</div>
 	</div>
-	<div class="container-fluid" style="width: 80%; float: left;">
-		<h1 style="text-align: center;">BIENVENIDOS A WALLAPOP</h1>
-		<p style="text-align: center;">La web en la que podrás encontrar
-			productos de todo tipo de otros usuarios</p>
+	<div class="totalproductsseller">
+		<p> products</p>
+	</div>
+	<div id="productsseller">
 		<div class="row">
 			<div class="col-xs-4 col-md-3 col-lg-2">
 				<div class="card-product">
@@ -57,8 +41,7 @@
 					<div class="product-info">
 						<div class="info-container">
 							<p class="product-price">65$</p>
-							<a href="HomeController<%="?id="+1%>"><p class="product-name">Spartan Helmet</p>
-							</a>
+							<p class="product-name">Spartan Helmet</p>
 							<p class="product-category">Others...</p>
 						</div>
 						<div class="product-owner">
@@ -78,8 +61,7 @@
 					<div class="product-info">
 						<div class="info-container">
 							<p class="product-price">65$</p>
-							<a href="HomeController<%="?id="+1%>"><p class="product-name">Spartan Helmet</p>
-							</a>
+							<p class="product-name">Spartan Helmet</p>
 							<p class="product-category">Others...</p>
 						</div>
 						<div class="product-owner">
@@ -88,9 +70,11 @@
 								<button class="btn-success">Contactar</button>
 							</div>
 						</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
-	<%@include file="includes/footer.jsp"%>
+	
+</div>
+<%@include file="includes/footer.jsp"%>

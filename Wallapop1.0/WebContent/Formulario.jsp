@@ -3,7 +3,7 @@
 <div id="section">
 	<div id="section1">
 		<H3>INICIA SESIÓN</H3>
-		<form method="POST" action="Wallapp10">
+		<form method="POST" action="PerfilUsuario.jsp">
 			Usuario: <br> <input type="text" placeholder="Usuario...">
 			</p>
 			Contraseña:<br> <input type="password"
@@ -15,7 +15,7 @@
 	</div>
 	<div id="section2">
 		<H3>REGISTRO</H3>
-		<form method="POST" action="Wallapp10">
+		<form method="POST" action="PerfilUsuario.jsp">
 			<h4>Datos de identificación</h4>
 			E-mail:<br> <input name="email" type="text"
 				placeholder="Usuario...">

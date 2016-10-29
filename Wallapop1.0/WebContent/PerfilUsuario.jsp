@@ -7,8 +7,9 @@
 			</p>
 			Email:
 			</p>
-			<img alt="foto perfil" src="" id="img_logo">
-
+			<img alt="foto perfil" src="" id="img_logo"></p>
+			
+			<a href="Viewproductsseller.jsp">Ver productos</a></p>
 
 		</form>
 	</div>
