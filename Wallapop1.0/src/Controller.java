@@ -34,11 +34,7 @@ public class Controller extends HttpServlet {
 		//String action = request.getParameter("action");
 		String action = request.getParameter("redirect");
 		
-		Enumeration params = request.getParameterNames(); 
-		while(params.hasMoreElements()){
-		 String paramName = (String)params.nextElement();
-		 System.out.println("Parameter Name - "+paramName+", Value - "+request.getParameter(paramName));
-		}
+		
 		
 		Manager manager = null;
 		
