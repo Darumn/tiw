@@ -1,6 +1,8 @@
 
 import model.*;
 import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +31,15 @@ public class Controller extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		String action = request.getParameter("action");
+		//String action = request.getParameter("action");
+		String action = request.getParameter("redirect");
+		
+		Enumeration params = request.getParameterNames(); 
+		while(params.hasMoreElements()){
+		 String paramName = (String)params.nextElement();
+		 System.out.println("Parameter Name - "+paramName+", Value - "+request.getParameter(paramName));
+		}
+		
 		Manager manager = null;
 		
 		if(action != null && !action.equals("")){
@@ -38,14 +48,14 @@ public class Controller extends HttpServlet {
 				
 				manager = new LoginManager(request, response);
 				
-			}else if(action.equals("")){
+			}else if(action.equals("RegisterUserManager")){
+				manager = new RegisterUserManager(request, response);
 				
 			}else if(action.equals("")){
 				
 			}else if(action.equals("")){
 				
 			}
-			
 			manager.Execute();
 			
 		}

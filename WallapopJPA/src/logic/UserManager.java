@@ -2,30 +2,27 @@ package logic;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import model.*;
 
 public class UserManager {
 
 	private EntityManagerFactory emf;
+	public EntityManager em;
 	
 	public UserManager() {
 		// TODO Auto-generated constructor stub
+		this.emf = Persistence.createEntityManagerFactory("WallapopJPA");
+		this.em = this.emf.createEntityManager();
 	}
 
 	public UserManager(EntityManagerFactory emf) {
 		this.emf = emf;
 	}
-	private EntityManager getEntityManager() {
-		if (emf == null) {
-			throw new RuntimeException(
-					"The EntityManagerFactory is null.  This must be passed in to the constructor or set using the setEntityManagerFactory() method.");
-		}
-		return emf.createEntityManager();
-	}
+	
 	
 	public String createUser(User user) throws Exception {
-		EntityManager em = getEntityManager();
 		try {
 			em.getTransaction().begin();
 			em.persist(user);
@@ -46,7 +43,6 @@ public class UserManager {
 		return "";
 	}
 	public String deletePersona(User user) throws Exception {
-		EntityManager em = getEntityManager();
 		try {
 			em.getTransaction().begin();
 			user = em.merge(user);
@@ -69,7 +65,6 @@ public class UserManager {
 	}
 
 	public String updatePersona(User user) throws Exception {
-		EntityManager em = getEntityManager();
 		try {
 			em.getTransaction().begin();
 			user = em.merge(user);
