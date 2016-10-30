@@ -22,12 +22,14 @@ public class RegisterUserManager extends Manager{
 		usuario.setCity((String)request.getParameter("city"));
 		try{
 			manager.createUser(usuario);
+			request.getRequestDispatcher("./index.jsp").forward(request, response);
 		}
 		 catch (Exception e) {
 			// TODO: handle exception
 			 System.out.println(e.getMessage());
+			 
 		}
 		
-		request.getRequestDispatcher("index.jsp");
+		
 	}
 }

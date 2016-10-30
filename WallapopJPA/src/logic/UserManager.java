@@ -2,6 +2,8 @@ package logic;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Persistence;
 
 import model.*;
@@ -83,5 +85,15 @@ public class UserManager {
 			em.close();
 		}
 		return "";
+	}
+	
+	public void findUser(User user) throws Exception{
+		try{
+			user = (User) em.createQuery("SELECT c FROM user c WHERE c.email LIKE :varEmail AND c.password LIKE :varPassword").setParameter("varEmail", user.getEmail()).setParameter("varPassword", user.getPassword()).getSingleResult();
+		}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+		
 	}
 }

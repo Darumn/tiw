@@ -40,8 +40,7 @@ public class Controller extends HttpServlet {
 		
 		if(action != null && !action.equals("")){
 			
-			if(action.equals("login")){
-				
+			if(action.equals("Login")){
 				manager = new LoginManager(request, response);
 				
 			}else if(action.equals("RegisterUserManager")){

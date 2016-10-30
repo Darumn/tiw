@@ -3,10 +3,11 @@
 <div id="section">
 	<div id="section1">
 		<H3>INICIA SESIÓN</H3>
-		<form method="POST" action="PerfilUsuario.jsp">
-			Usuario: <br> <input type="text" placeholder="Usuario...">
+		<form method="GET" action="./Controller">
+		<input type="hidden" name="redirect" value="Login">
+			Usuario: <br> <input type="text" name="user" placeholder="Usuario...">
 			</p>
-			Contraseña:<br> <input type="password"
+			Contraseña:<br> <input type="password" name="password"
 				placeholder="Introduce la contraseña">
 			</p>
 			<input type="submit" value="Iniciar sesión">
