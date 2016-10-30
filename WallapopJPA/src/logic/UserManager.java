@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import model.*;
 
@@ -87,13 +88,19 @@ public class UserManager {
 		return "";
 	}
 	
-	public void findUser(User user) throws Exception{
+	public User findUser(String usuario, String pass) throws Exception{
+		
+		User user = null;
+		
 		try{
-			user = (User) em.createQuery("SELECT c FROM user c WHERE c.email LIKE :varEmail AND c.password LIKE :varPassword").setParameter("varEmail", user.getEmail()).setParameter("varPassword", user.getPassword()).getSingleResult();
+			Query query =em.createQuery("SELECT c FROM user c WHERE c.email LIKE :varEmail AND c.password LIKE :varPassword"); 
+			query.setParameter("varEmail", usuario);
+			query.setParameter("varPassword", pass);
+			user = (User)query.getSingleResult();
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());
 		}
-		
+		return user;
 	}
 }

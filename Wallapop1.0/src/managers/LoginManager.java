@@ -15,12 +15,10 @@ public class LoginManager extends Manager {
 
 	@Override
 	public void Execute() {
-		User usuario = new User();
+		User usuario = null;
 		UserManager manager = new UserManager();
-		usuario.setEmail(this.request.getParameter("user"));
-		usuario.setPassword(this.request.getParameter("password"));
 		try{
-			manager.findUser(usuario);
+			usuario = manager.findUser(this.request.getParameter("user"),this.request.getParameter("password"));
 			this.request.getRequestDispatcher("/index.jsp").forward(request, response);
             
 		}
