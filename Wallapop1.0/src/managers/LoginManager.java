@@ -9,8 +9,8 @@ public class LoginManager extends Manager {
 
 	public LoginManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
-		
-		//Nothing to do.
+
+		// Nothing to do.
 	}
 
 	@Override
@@ -20,18 +20,15 @@ public class LoginManager extends Manager {
 		usuario.setPassword(request.getParameter("password"));
 		usuario.setId(-1);
 		UserManager manager = new UserManager();
-		try{
+		try {
 			manager.findUser(usuario);
 			request.setAttribute("user", usuario);
-            
-		}
-		catch (Exception e){
+
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		//TODO COMPROBAR USUARIO Y CONTRASEÑA EN LA BD, ETC..
-		
+		// TODO COMPROBAR USUARIO Y CONTRASEÑA EN LA BD, ETC..
+
 	}
-	
-	
 
 }
