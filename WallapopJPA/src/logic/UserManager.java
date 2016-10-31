@@ -25,7 +25,7 @@ public class UserManager {
 	}
 	
 	
-	public String createUser(User user) throws Exception {
+	public void createUser(User user) throws Exception {
 		try {
 			em.getTransaction().begin();
 			em.persist(user);
@@ -43,7 +43,6 @@ public class UserManager {
 		} finally {
 			em.close();
 		}
-		return "";
 	}
 	public String deletePersona(User user) throws Exception {
 		try {
@@ -88,19 +87,19 @@ public class UserManager {
 		return "";
 	}
 	
-	public User findUser(String usuario, String pass) throws Exception{
-		
-		User user = null;
+	public void findUser(User usuario) throws Exception{
 		
 		try{
-			Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail AND c.password = :varPassword"); 
-			query.setParameter("varEmail", usuario);
-			query.setParameter("varPassword", pass);
-			user = (User)query.getSingleResult();
+			//Find user in login
+			if(usuario.getId() == -1){
+				Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail AND c.password = :varPassword"); 
+				query.setParameter("varEmail", usuario.getEmail());
+				query.setParameter("varPassword", usuario.getPassword());
+				usuario = (User)query.getSingleResult();
+			}
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());
 		}
-		return user;
 	}
 }

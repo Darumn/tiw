@@ -22,7 +22,8 @@ public class RegisterUserManager extends Manager{
 		usuario.setCity((String)request.getParameter("city"));
 		try{
 			manager.createUser(usuario);
-			request.getRequestDispatcher("./index.jsp").forward(request, response);
+			request.setAttribute("user", usuario);
+			
 		}
 		 catch (Exception e) {
 			// TODO: handle exception
