@@ -93,7 +93,7 @@ public class UserManager {
 		User user = null;
 		
 		try{
-			Query query =em.createQuery("SELECT c FROM user c WHERE c.email LIKE :varEmail AND c.password LIKE :varPassword"); 
+			Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail AND c.password = :varPassword"); 
 			query.setParameter("varEmail", usuario);
 			query.setParameter("varPassword", pass);
 			user = (User)query.getSingleResult();
