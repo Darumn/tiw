@@ -116,8 +116,8 @@ public class UserManager {
 	public User findUserById(int id) throws Exception{
 		User ret = null;
 		try{
-
-			Query query =em.createQuery("SELECT c FROM User c WHERE c.id = :varId "); 
+			ret = em.find(User.class, id);
+			/*Query query =em.createQuery("SELECT c FROM User c WHERE c.id = :varId "); 
 			System.out.println("QUERY "+query.toString());
 			query.setParameter("varId", id);
 			//usuario = (User)query.getResultList();
@@ -128,7 +128,7 @@ public class UserManager {
 			}
 			else{
 				System.out.println("Lista vacia ***********");
-			}
+			}*/
 
 		}
 		catch (Exception e){
