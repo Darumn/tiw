@@ -32,9 +32,7 @@ public class Controller extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		//String action = request.getParameter("action");
-		String action = request.getParameter("redirect");
-		
-		
+		String action = request.getParameter("redirect");	
 		
 		Manager manager = null;
 		
@@ -47,7 +45,9 @@ public class Controller extends HttpServlet {
 				manager = new RegisterUserManager(request, response);
 				request.getRequestDispatcher("./index.jsp").forward(request, response);
 				
-			}else if(action.equals("")){
+			}else if(action.equals("RegisterProductManager")){
+				manager = new RegisterProductManager(request, response);
+				request.getRequestDispatcher("./Viewproductsseller.jsp").forward(request, response);
 				
 			}else if(action.equals("")){
 				

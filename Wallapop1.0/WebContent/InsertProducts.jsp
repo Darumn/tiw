@@ -1,9 +1,9 @@
 <%@include file="includes/header.jsp"%>
 <div id="update-productos">
-		<H3>PRODUCTO</H3>
-		<form method="POST" action="#">
-			
+		<H3>PRODUCTO</H3>		
+		<form method="GET" action="./Controller">
 			<h4>Insertar datos producto</h4>
+			
 			Name: <input type="text" name="productname">
 			</p>
 			Descripción:<input type="text" name="descriptionproduct">

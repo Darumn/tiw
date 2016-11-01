@@ -2,8 +2,8 @@ package managers;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import logic.*;
 import model.*;
+import logic.*;
 
 public class RegisterUserManager extends Manager{
 	
@@ -14,6 +14,7 @@ public class RegisterUserManager extends Manager{
 	public void Execute(){
 		User usuario = new User();
 		UserManager manager = new UserManager();
+		
 		usuario.setName(((String)request.getParameter("name")));
 		usuario.setSurname((String)request.getParameter("surname"));
 		usuario.setEmail((String)request.getParameter("email"));
