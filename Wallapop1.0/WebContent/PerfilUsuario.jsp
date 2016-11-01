@@ -1,9 +1,11 @@
 <%@include file="includes/header.jsp"%>
+<jsp:useBean id="user" class="managers.UserProfileManager"
+	scope="session" />
 <div id="section">
 	<div id="section1">
 		<H3>Detalles del perfil</H3>
-		<form method="POST" action="Wallapp10">
-			Usuario:
+		<form method="POST" action="#">
+			Usuario:<%= user %>
 			</p>
 			Email:
 			</p>
