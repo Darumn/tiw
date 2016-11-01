@@ -1,5 +1,7 @@
 package logic;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NamedQueries;
@@ -87,19 +89,28 @@ public class UserManager {
 		return "";
 	}
 	
-	public void findUser(User usuario) throws Exception{
-		
+	public User findUser(User usuario) throws Exception{
+		User ret = null;
 		try{
 			//Find user in login
 			if(usuario.getId() == -1){
-				Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail AND c.password = :varPassword"); 
+				Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail "); 
+				System.out.println("QUERY "+query.toString());
 				query.setParameter("varEmail", usuario.getEmail());
-				query.setParameter("varPassword", usuario.getPassword());
-				usuario = (User)query.getSingleResult();
+				//usuario = (User)query.getResultList();
+				List lista = query.getResultList();
+				if(lista!=null && !lista.isEmpty()){
+					ret = (User)lista.get(0);
+					System.out.println(ret.getName());
+				}
+				else{
+					System.out.println("Lista vacia ***********");
+				}
 			}
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());
 		}
+		return ret;
 	}
 }

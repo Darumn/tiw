@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import managers.*;
 
 /**
@@ -34,6 +36,7 @@ public class Controller extends HttpServlet {
 		//String action = request.getParameter("action");
 		String action = request.getParameter("redirect");
 		
+		//HttpSession session = request.getSession(true);
 		
 		
 		Manager manager = null;
