@@ -13,7 +13,7 @@ public class ProductManager {
 
 	private EntityManagerFactory emf;
 	public EntityManager em;
-	
+
 	public ProductManager() {
 		// TODO Auto-generated constructor stub
 		this.emf = Persistence.createEntityManagerFactory("WallapopJPA");
@@ -23,8 +23,7 @@ public class ProductManager {
 	public ProductManager(EntityManagerFactory emf) {
 		this.emf = emf;
 	}
-	
-	
+
 	public void createProduct(Product product) throws Exception {
 		try {
 			em.getTransaction().begin();
@@ -44,6 +43,7 @@ public class ProductManager {
 			em.close();
 		}
 	}
+
 	public String deleteProduct(Product product) throws Exception {
 		try {
 			em.getTransaction().begin();
@@ -86,21 +86,21 @@ public class ProductManager {
 		}
 		return "";
 	}
-	
-	public void findProduct(Product product) throws Exception{
-		
-		try{
-			//Find user in login
-			if(product.getId() == -1){
-				Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail AND c.password = :varPassword"); 
+
+	public void findProduct(Product product) throws Exception {
+
+		try {
+			// Find user in login
+			if (product.getId() == -1) {
+				Query query = em
+						.createQuery("SELECT c FROM User c WHERE c.email = :varEmail AND c.password = :varPassword");
 				query.setParameter("varName", product.getName());
 				query.setParameter("varDescription", product.getDescription());
 				query.setParameter("varPrice", product.getPrice());
 				query.setParameter("varStatus", product.getStatus());
-				product = (Product)query.getSingleResult();
+				product = (Product) query.getSingleResult();
 			}
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}

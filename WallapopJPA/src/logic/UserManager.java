@@ -113,4 +113,27 @@ public class UserManager {
 		}
 		return ret;
 	}
+	public User findUserById(int id) throws Exception{
+		User ret = null;
+		try{
+
+			Query query =em.createQuery("SELECT c FROM User c WHERE c.id = :varId "); 
+			System.out.println("QUERY "+query.toString());
+			query.setParameter("varId", id);
+			//usuario = (User)query.getResultList();
+			List lista = query.getResultList();
+			if(lista!=null && !lista.isEmpty()){
+				ret = (User)lista.get(0);
+				System.out.println(ret.getName());
+			}
+			else{
+				System.out.println("Lista vacia ***********");
+			}
+
+		}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+		return ret;
+	}
 }

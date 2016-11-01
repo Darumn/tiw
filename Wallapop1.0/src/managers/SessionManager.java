@@ -31,7 +31,7 @@ public class SessionManager extends Manager{
 			try{
 				int id = Integer.parseInt(userID);
 				UserManager manager = new UserManager();
-				//ret = manager.findById(id);
+				ret = manager.findUserById(id);
 			}
 			catch (Exception e){
 				
