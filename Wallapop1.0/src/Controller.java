@@ -33,15 +33,10 @@ public class Controller extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		//String action = request.getParameter("action");
 
 		String action = request.getParameter("redirect");	
 
-		
-		
 		//HttpSession session = request.getSession(true);
-		
-
 		
 		Manager manager = null;
 		

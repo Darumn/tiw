@@ -16,15 +16,13 @@ public class RegisterProductManager extends Manager{
 	public void Execute(){
 		Product producto=new Product();
 		ProductManager manager=new ProductManager();
-		int idprod=Integer.parseInt(((String)request.getParameter("statusproduct")));
-		producto.setId(idprod);
 		producto.setDescription(((String)request.getParameter("descriptionproduct")));
 		producto.setName(((String)request.getParameter("productname")));
 		BigDecimal price=new BigDecimal(((String)request.getParameter("pricepproduct")));
 		producto.setPrice(price);
 		producto.setStatus(((String)request.getParameter("statusproduct")));
 		Category catproducto=new Category();
-		int catprod=Integer.parseInt((((String)request.getParameter("statusproduct"))));
+		int catprod=Integer.parseInt((((String)request.getParameter("idcategory"))));
 		catproducto.setId(catprod);
 		User userproduct=new User();
 		int iduser=Integer.parseInt((((String)request.getParameter("iduser"))));

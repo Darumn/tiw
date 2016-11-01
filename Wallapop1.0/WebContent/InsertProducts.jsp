@@ -2,6 +2,7 @@
 <div id="update-productos">
 		<H3>PRODUCTO</H3>		
 		<form method="GET" action="./Controller">
+			<input type="hidden" name="redirect" value="RegisterProductManager">
 			<h4>Insertar datos producto</h4>
 			
 			Name: <input type="text" name="productname">
