@@ -1,5 +1,7 @@
 package logic;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NamedQueries;
@@ -9,10 +11,14 @@ import javax.persistence.Query;
 
 import model.*;
 
-public class ProductManager {
+@NamedQueries({
+	@NamedQuery(name = "Product.findAll", query = "SELECT c FROM product c "), })
 
+public class ProductManager {
+	private String _unidadPersistencia;
 	private EntityManagerFactory emf;
 	public EntityManager em;
+	private List<Product> _listaProductos = null;
 
 	public ProductManager() {
 		// TODO Auto-generated constructor stub
@@ -23,6 +29,15 @@ public class ProductManager {
 	public ProductManager(EntityManagerFactory emf) {
 		this.emf = emf;
 	}
+	private void proxyCreateEntityManager() {
+
+		EntityManagerFactory factory = Persistence
+				.createEntityManagerFactory(_unidadPersistencia);
+
+		this.em = factory.createEntityManager();
+
+	}
+
 
 	public void createProduct(Product product) throws Exception {
 		try {
@@ -87,14 +102,19 @@ public class ProductManager {
 		return "";
 	}
 
-	public void findAll() throws Exception {
+	public List<Product> findAllProducts() {
 
 		try {
+			proxyCreateEntityManager();
+			Query query = em.createNamedQuery("Product.findAll",Product.class);
 			
 			
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			_listaProductos = query.getResultList();
+		} finally {
+			em.close();
 		}
+		return _listaProductos;
+
 	}
 	public Product findProductId(int product) throws Exception {
 
