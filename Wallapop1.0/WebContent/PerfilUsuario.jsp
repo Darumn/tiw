@@ -1,11 +1,12 @@
 <%@include file="includes/header.jsp"%>
-<jsp:useBean id="user" class="managers.UserProfileManager"
-	scope="session" />
+<%@page import="model.User"%>
+<% User usuario=(User)request.getAttribute("user");%>
 <div id="section">
 	<div id="section1">
 		<H3>Detalles del perfil</H3>
 		<form method="POST" action="#">
-			Usuario:<%= user %>
+			Usuario:
+			<%= usuario.getId() %>
 			</p>
 			Email:
 			</p>

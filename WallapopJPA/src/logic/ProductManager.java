@@ -104,4 +104,28 @@ public class ProductManager {
 			System.out.println(e.getMessage());
 		}
 	}
+	public Product findProductId(int product) throws Exception {
+
+		Product ret = null;
+		try{
+			ret = em.find(Product.class, product);
+			/*Query query =em.createQuery("SELECT c FROM User c WHERE c.id = :varId "); 
+			System.out.println("QUERY "+query.toString());
+			query.setParameter("varId", id);
+			//usuario = (User)query.getResultList();
+			List lista = query.getResultList();
+			if(lista!=null && !lista.isEmpty()){
+				ret = (User)lista.get(0);
+				System.out.println(ret.getName());
+			}
+			else{
+				System.out.println("Lista vacia ***********");
+			}*/
+
+		}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+		return ret;
+	}
 }
