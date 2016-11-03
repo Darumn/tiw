@@ -1,6 +1,6 @@
 <%@include file="includes/header.jsp"%>
 <%@page import="model.Product" %>
-<%Product producto=(Product)request.getAttribute("user"); %>
+<%Product producto=(Product)request.getAttribute("product"); %>
 <div class="main">
 	<div style="width: 20%; float: left;">
 		<nav>
