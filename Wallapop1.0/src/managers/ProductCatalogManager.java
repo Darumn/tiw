@@ -6,21 +6,20 @@ import logic.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ProductCatalogeManager extends Manager{
+public class ProductCatalogManager extends Manager{
 
-	public ProductCatalogeManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
+	public ProductCatalogManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
 		// TODO Auto-generated constructor stub
 	}
 	
 	public void Execute(){
 		// TODO Auto-generated method stub
-				String strid=this.request.getParameter("id");
-				int id=Integer.parseInt(strid);
+				int id=Integer.parseInt(this.request.getParameter("id"));
 				ProductManager manager=new ProductManager();
 				try{
 					Product product= manager.findProductId(id);
-					this.request.setAttribute("produtc", product);
+					this.request.setAttribute("product", product);
 					request.getRequestDispatcher("./index.jsp").forward(request, response);
 				}
 				catch(Exception e){

@@ -59,8 +59,8 @@ public class Controller extends HttpServlet {
 			} else if (action.equals("UserProfile")) {
 				manager = new UserProfileManager(request, response);
 
-			} else if(action.equals("ProductCataloge")){
-				manager = new ProductCatalogeManager(request,response);
+			} else if(action.equals("ProductCatalog")){
+				manager = new ProductCatalogManager(request,response);
 			}
 			
 			manager.Execute();
