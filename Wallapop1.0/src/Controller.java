@@ -66,6 +66,11 @@ public class Controller extends HttpServlet {
 			manager.Execute();
 
 		}
+		//Caso de index
+		else{
+			manager=new IndexManager(request,response);
+			manager.Execute();
+		}
 
 	}
 

@@ -34,7 +34,7 @@ public class SessionManager extends Manager{
 				ret = manager.findUserById(id);
 			}
 			catch (Exception e){
-				
+				System.out.println("Esto");
 			}
 			
 			

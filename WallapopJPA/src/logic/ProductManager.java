@@ -87,19 +87,11 @@ public class ProductManager {
 		return "";
 	}
 
-	public void findProduct(Product product) throws Exception {
+	public void findAll() throws Exception {
 
 		try {
-			// Find user in login
-			if (product.getId() == -1) {
-				Query query = em
-						.createQuery("SELECT c FROM User c WHERE c.email = :varEmail AND c.password = :varPassword");
-				query.setParameter("varName", product.getName());
-				query.setParameter("varDescription", product.getDescription());
-				query.setParameter("varPrice", product.getPrice());
-				query.setParameter("varStatus", product.getStatus());
-				product = (Product) query.getSingleResult();
-			}
+			
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -109,19 +101,7 @@ public class ProductManager {
 		Product ret = null;
 		try{
 			ret = em.find(Product.class, product);
-			/*Query query =em.createQuery("SELECT c FROM User c WHERE c.id = :varId "); 
-			System.out.println("QUERY "+query.toString());
-			query.setParameter("varId", id);
-			//usuario = (User)query.getResultList();
-			List lista = query.getResultList();
-			if(lista!=null && !lista.isEmpty()){
-				ret = (User)lista.get(0);
-				System.out.println(ret.getName());
-			}
-			else{
-				System.out.println("Lista vacia ***********");
-			}*/
-
+			
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());
