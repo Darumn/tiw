@@ -118,7 +118,7 @@ public class UserManager {
 		try{
 
 			Query query =em.createQuery("SELECT c FROM User c WHERE c.id = :varId "); 
-			System.out.println("QUERY "+query.toString());
+			//System.out.println("QUERY "+query.toString());
 			query.setParameter("varId", id);
 			//usuario = (User)query.getResultList();
 			List lista = query.getResultList();
