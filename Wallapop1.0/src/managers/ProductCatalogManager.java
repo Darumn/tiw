@@ -20,7 +20,7 @@ public class ProductCatalogManager extends Manager{
 				try{
 					Product product= manager.findProductId(id);
 					this.request.setAttribute("product", product);
-					request.getRequestDispatcher("./index.jsp").forward(request, response);
+					request.getRequestDispatcher("./Viewproductsseller.jsp").forward(request, response);
 				}
 				catch(Exception e){
 					

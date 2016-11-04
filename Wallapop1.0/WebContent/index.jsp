@@ -1,6 +1,8 @@
 <%@include file="includes/header.jsp"%>
 <%@page import="model.Product" %>
-<%Product producto=(Product)request.getAttribute("product"); %>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%Product producto=(Product)request.getAttribute("product");%>
 <div class="main">
 	<div style="width: 20%; float: left;">
 		<nav>
@@ -30,7 +32,7 @@
 		<p style="text-align: center;">La web en la que podrás encontrar
 			productos de todo tipo de otros usuarios</p>
 		<div class="row">
-			
+	
 			<div class="col-xs-4 col-md-3 col-lg-2">
 				<div class="card-product">
 					<div class="image-product">
@@ -38,14 +40,14 @@
 					</div>
 					<div class="product-info">
 						<div class="info-container">
-							<p class="product-price">65$</p>
-							id: <%= producto.getId() %>
-							<a href="HomeController<%="?id="+1%>"><p class="product-name">Spartan Helmet</p>
+							<p class="product-price"><%= producto.getPrice() %></p>
+						 
+							<a href="HomeController<%="?id="+1%>"><%= producto.getName() %><p class="product-name"></p>
 							</a>
 							<p class="product-category">Others...</p>
 						</div>
 						<div class="product-owner">
-							<a href="Vendedor.jsp"><p class="owner-name">Mario Gonzalo</p></a>
+							<a href="Vendedor.jsp"><p class="owner-name"><%= producto.getUser()%></p></a>
 							<div class="product-view-info-owner-chat">
 								<button class="btn-success">Contactar</button>
 							</div>

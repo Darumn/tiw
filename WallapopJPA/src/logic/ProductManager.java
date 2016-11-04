@@ -1,5 +1,7 @@
 package logic;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NamedQueries;
@@ -9,10 +11,14 @@ import javax.persistence.Query;
 
 import model.*;
 
-public class ProductManager {
+@NamedQueries({
+	@NamedQuery(name = "Product.findAll", query = "SELECT c FROM product c "), })
 
+public class ProductManager {
+	private String _unidadPersistencia;
 	private EntityManagerFactory emf;
 	public EntityManager em;
+	private List<Product> _listaProductos = null;
 
 	public ProductManager() {
 		// TODO Auto-generated constructor stub
@@ -23,6 +29,15 @@ public class ProductManager {
 	public ProductManager(EntityManagerFactory emf) {
 		this.emf = emf;
 	}
+	private void proxyCreateEntityManager() {
+
+		EntityManagerFactory factory = Persistence
+				.createEntityManagerFactory(_unidadPersistencia);
+
+		this.em = factory.createEntityManager();
+
+	}
+
 
 	public void createProduct(Product product) throws Exception {
 		try {
@@ -87,41 +102,26 @@ public class ProductManager {
 		return "";
 	}
 
-	public void findProduct(Product product) throws Exception {
+	public List<Product> findAllProducts() {
 
 		try {
-			// Find user in login
-			if (product.getId() == -1) {
-				Query query = em
-						.createQuery("SELECT c FROM User c WHERE c.email = :varEmail AND c.password = :varPassword");
-				query.setParameter("varName", product.getName());
-				query.setParameter("varDescription", product.getDescription());
-				query.setParameter("varPrice", product.getPrice());
-				query.setParameter("varStatus", product.getStatus());
-				product = (Product) query.getSingleResult();
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			proxyCreateEntityManager();
+			Query query = em.createNamedQuery("Product.findAll",Product.class);
+			
+			
+			_listaProductos = query.getResultList();
+		} finally {
+			em.close();
 		}
+		return _listaProductos;
+
 	}
 	public Product findProductId(int product) throws Exception {
 
 		Product ret = null;
 		try{
 			ret = em.find(Product.class, product);
-			/*Query query =em.createQuery("SELECT c FROM User c WHERE c.id = :varId "); 
-			System.out.println("QUERY "+query.toString());
-			query.setParameter("varId", id);
-			//usuario = (User)query.getResultList();
-			List lista = query.getResultList();
-			if(lista!=null && !lista.isEmpty()){
-				ret = (User)lista.get(0);
-				System.out.println(ret.getName());
-			}
-			else{
-				System.out.println("Lista vacia ***********");
-			}*/
-
+			
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());
