@@ -1,8 +1,15 @@
 <%@include file="includes/header.jsp"%>
-<%@page import="model.Product" %>
+<%@page import="model.*" %>
+<%@page import="managers.IndexManager" %>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%Product producto=(Product)request.getAttribute("product");%>
+<%@page import="java.math.BigDecimal"%>
+<%
+//IndexManager manager = new IndexManager();
+//List<Product> lista = manager.Execute();
+List<Product> lista = (List<Product>)request.getAttribute("product_list");
+%>
+
 <div class="main">
 	<div style="width: 20%; float: left;">
 		<nav>
@@ -32,22 +39,23 @@
 		<p style="text-align: center;">La web en la que podrás encontrar
 			productos de todo tipo de otros usuarios</p>
 		<div class="row">
+	<% for(int i=0; i<lista.size(); i++){%>
 	
-			<div class="col-xs-4 col-md-3 col-lg-2">
+			<div class="col-md-3">
 				<div class="card-product">
 					<div class="image-product">
 						<a href="HomeController<%="?id="+1%>"><img src="images/casco.jpg" alt="Casco"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">
-							<p class="product-price"><%= producto.getPrice() %></p>
+							<p class="product-price"><%= lista.get(i).getPrice() %></p>
 						 
-							<a href="HomeController<%="?id="+1%>"><%= producto.getName() %><p class="product-name"></p>
+							<a href="HomeController<%="?id="+1%>"><%= lista.get(i).getName() %><p class="product-name"></p>
 							</a>
 							<p class="product-category">Others...</p>
 						</div>
 						<div class="product-owner">
-							<a href="Vendedor.jsp"><p class="owner-name"><%= producto.getUser()%></p></a>
+							<a href="Vendedor.jsp"><p class="owner-name"><%= lista.get(i).getUser().getName()%></p></a>
 							<div class="product-view-info-owner-chat">
 								<button class="btn-success">Contactar</button>
 							</div>
@@ -55,48 +63,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-4 col-md-3 col-lg-2">
-				<div class="card-product">
-					<div class="image-product">
-						<a href="HomeController<%="?id="+2%>"><img src="images/casco.jpg" alt="Casco"></a>
-					</div>
-					<div class="product-info">
-						<div class="info-container">
-							<p class="product-price">65$</p>
-							<a href="HomeController<%="?id="+1%>"><p class="product-name">Spartan Helmet</p>
-							</a>
-							<p class="product-category">Others...</p>
-						</div>
-						<div class="product-owner">
-							<a href="Vendedor.jsp"><p class="owner-name">Mario Gonzalo</p></a>
-							<div class="product-view-info-owner-chat">
-								<button class="btn-success">Contactar</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-4 col-md-3 col-lg-2">
-				<div class="card-product">
-					<div class="image-product">
-						<a href="HomeController<%="?id="+3%>"><img src="images/casco.jpg" alt="Casco"></a>
-					</div>
-					<div class="product-info">
-						<div class="info-container">
-							<p class="product-price">65$</p>
-							<a href="HomeController<%="?id="+1%>"><p class="product-name">Spartan Helmet</p>
-							</a>
-							<p class="product-category">Others...</p>
-						</div>
-						<div class="product-owner">
-							<a href="Vendedor.jsp"><p class="owner-name">Mario Gonzalo</p></a>
-							<div class="product-view-info-owner-chat">
-								<button class="btn-success">Contactar</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+<%}%>
+	
+	
 		</div>
 	</div>
 	<%@include file="includes/footer.jsp"%>

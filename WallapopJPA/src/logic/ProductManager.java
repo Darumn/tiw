@@ -110,6 +110,7 @@ public class ProductManager {
 			
 			
 			_listaProductos = query.getResultList();
+			
 		} finally {
 			em.close();
 		}
