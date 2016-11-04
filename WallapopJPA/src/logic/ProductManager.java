@@ -15,10 +15,10 @@ import model.*;
 	@NamedQuery(name = "Product.findAll", query = "SELECT c FROM product c "), })
 
 public class ProductManager {
-	private String _unidadPersistencia;
+	
 	private EntityManagerFactory emf;
 	public EntityManager em;
-	private List<Product> _listaProductos = null;
+	
 
 	public ProductManager() {
 		// TODO Auto-generated constructor stub
@@ -29,15 +29,7 @@ public class ProductManager {
 	public ProductManager(EntityManagerFactory emf) {
 		this.emf = emf;
 	}
-	private void proxyCreateEntityManager() {
-
-		EntityManagerFactory factory = Persistence
-				.createEntityManagerFactory(_unidadPersistencia);
-
-		this.em = factory.createEntityManager();
-
-	}
-
+	
 
 	public void createProduct(Product product) throws Exception {
 		try {
@@ -103,26 +95,26 @@ public class ProductManager {
 	}
 
 	public List<Product> findAllProducts() {
-
+		List<Product> ret=null;
 		try {
-			proxyCreateEntityManager();
+			
 			Query query = em.createNamedQuery("Product.findAll",Product.class);
 			
 			
-			_listaProductos = query.getResultList();
+			ret = query.getResultList();
 			
 		} finally {
 			em.close();
 		}
-		return _listaProductos;
+		return ret;
 
 	}
-	public Product findProductId(int product) throws Exception {
-
-		Product ret = null;
+	public List<Product> findProductId(int product) throws Exception {
+		List<Product> ret=null;
+		
 		try{
-			ret = em.find(Product.class, product);
-			
+			Query query = em.createNamedQuery("Product.findAll",Product.class);
+			ret = query.getResultList();
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());

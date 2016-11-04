@@ -3,6 +3,8 @@ package managers;
 import model.*;
 import logic.*;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,11 +17,10 @@ public class ProductCatalogManager extends Manager{
 	
 	public void Execute(){
 		// TODO Auto-generated method stub
-				int id=Integer.parseInt(this.request.getParameter("id"));
-				ProductManager manager=new ProductManager();
+		ProductManager manager=new ProductManager();
 				try{
-					Product product= manager.findProductId(id);
-					this.request.setAttribute("product", product);
+					List<Product> lista= manager.findAllProducts();
+					this.request.setAttribute("product list", lista);
 					request.getRequestDispatcher("./Viewproductsseller.jsp").forward(request, response);
 				}
 				catch(Exception e){
