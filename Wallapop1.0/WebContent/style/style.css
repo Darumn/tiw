@@ -216,4 +216,35 @@ nav ul a {
 }
 
 
-
+/*CHAT ROOM*/
+.contacts-container{
+	float:left;
+	border-style: solid;
+	border-width: thin;
+	width: 20%;
+	
+}
+.messages-container{
+	float:left;
+	width: 80%;
+	min-height: 450px;
+	border-style: solid;
+	border-width: thin;
+}
+.contact-container{
+	height: 40px;
+	border-style: solid;
+	border-width: thin;
+}
+.messages{
+	height: 400px;
+}
+.receiver-side{
+	width: 40%;
+	float: left;
+}
+.sender-side{
+	width: 40%;
+	float: left;
+	padding-left: 20px;
+}
