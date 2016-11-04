@@ -109,12 +109,12 @@ public class ProductManager {
 		return ret;
 
 	}
-	public Product findProductId(int product) throws Exception {
-
-		Product ret = null;
+	public List<Product> findProductId(int product) throws Exception {
+		List<Product> ret=null;
+		
 		try{
-			ret = em.find(Product.class, product);
-			
+			Query query = em.createNamedQuery("Product.findAll",Product.class);
+			ret = query.getResultList();
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());
