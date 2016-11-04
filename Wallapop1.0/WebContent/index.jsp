@@ -7,7 +7,8 @@
 <%
 //IndexManager manager = new IndexManager();
 //List<Product> lista = manager.Execute();
-List<Product> lista = (List<Product>)request.getAttribute("product_list");
+Object o=request.getAttribute("product list");
+List<Product> lista = (List<Product>)o;
 %>
 
 <div class="main">
@@ -52,6 +53,7 @@ List<Product> lista = (List<Product>)request.getAttribute("product_list");
 						 
 							<a href="HomeController<%="?id="+1%>"><%= lista.get(i).getName() %><p class="product-name"></p>
 							</a>
+							
 							<p class="product-category">Others...</p>
 						</div>
 						<div class="product-owner">
