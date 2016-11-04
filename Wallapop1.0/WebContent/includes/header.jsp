@@ -11,10 +11,9 @@
 <body>
 	<div class="header">
 		<div class="logo">
-			<a href="index.jsp">
-				<img alt="logo"
-					src="http://es.wallapop.com/images/logos/img_logo_header.png"
-					id="img_logo">
+			<a href="index.jsp"> <img alt="logo"
+				src="http://es.wallapop.com/images/logos/img_logo_header.png"
+				id="img_logo">
 			</a>
 		</div>
 		<div class="explorer">

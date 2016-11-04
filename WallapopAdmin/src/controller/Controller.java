@@ -14,7 +14,7 @@ import managers.Manager;
 import managers.RegisterProductManager;
 import managers.RegisterUserManager;
 import managers.UserProfileManager;*/
-import managers.ShowTables;
+import managers.ShowUsers;
 
 /**
  * Servlet implementation class Controller
@@ -43,9 +43,9 @@ public class Controller extends HttpServlet {
 
 		if (action != null && !action.equals("")) {
 
-			if (action.equals("ShowTables")) {
-				manager = new ShowTables(request, response);
-				request.getRequestDispatcher("./admin.jsp").forward(request, response);
+			if (action.equals("ShowUsers")) {
+				manager = new ShowUsers(request, response);
+				request.getRequestDispatcher("./UsersList.jsp").forward(request, response);
 
 			} else {
 				request.getRequestDispatcher("./failure.jsp").forward(request, response);

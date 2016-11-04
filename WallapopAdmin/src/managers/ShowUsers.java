@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ShowTables extends Manager {
+public class ShowUsers extends Manager {
 	HttpServletRequest request;
 	HttpServletResponse response;
 
-	public ShowTables(HttpServletRequest pRequest, HttpServletResponse pResponse) {
+	public ShowUsers(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
 	}
 
