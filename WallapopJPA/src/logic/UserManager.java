@@ -95,10 +95,10 @@ public class UserManager {
 			//Find user in login
 			if(usuario.getId() == -1){
 				Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail "); 
-				System.out.println("QUERY "+query.toString());
+				//System.out.println("QUERY "+query.toString());
 				query.setParameter("varEmail", usuario.getEmail());
 				//usuario = (User)query.getResultList();
-				List lista = query.getResultList();
+				List<User> lista = query.getResultList();
 				if(lista!=null && !lista.isEmpty()){
 					ret = (User)lista.get(0);
 					System.out.println(ret.getName());
@@ -107,6 +107,30 @@ public class UserManager {
 					System.out.println("Lista vacia ***********");
 				}
 			}
+		}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+		return ret;
+	}
+	public User findUserById(int id) throws Exception{
+		User ret = null;
+		try{
+
+			Query query =em.createQuery("SELECT c FROM User c WHERE c.id = :varId "); 
+			//System.out.println("QUERY "+query.toString());
+			ret = em.find(User.class, id);
+			query.setParameter("varId", id);
+			//usuario = (User)query.getResultList();
+			List lista = query.getResultList();
+			if(lista!=null && !lista.isEmpty()){
+				ret = (User)lista.get(0);
+				System.out.println(ret.getName());
+			}
+			else{
+				System.out.println("Lista vacia ***********");
+			}
+
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());

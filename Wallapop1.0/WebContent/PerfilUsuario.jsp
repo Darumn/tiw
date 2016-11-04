@@ -1,9 +1,12 @@
 <%@include file="includes/header.jsp"%>
+<%@page import="model.User"%>
+<% User usuario=(User)request.getAttribute("user");%>
 <div id="section">
 	<div id="section1">
 		<H3>Detalles del perfil</H3>
-		<form method="POST" action="Wallapp10">
+		<form method="POST" action="#">
 			Usuario:
+			<%= usuario.getId() %>
 			</p>
 			Email:
 			</p>

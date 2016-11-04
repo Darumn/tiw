@@ -14,6 +14,9 @@
 		Status:<input type="text" name="statusproduct">
 		</p>
 		Category_id:<input type="text" name="idcategory">
+		<select>
+			<option></option>
+		</select>
 		</p>
 		User_id:<input type="text" name="iduser">
 		</p>

@@ -22,9 +22,9 @@ public class Controller extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
+
 	public Controller() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -56,11 +56,20 @@ public class Controller extends HttpServlet {
 				manager = new RegisterProductManager(request, response);
 				request.getRequestDispatcher("./Viewproductsseller.jsp").forward(request, response);
 
-			} else if (action.equals("")) {
+			} else if (action.equals("UserProfile")) {
+				manager = new UserProfileManager(request, response);
 
+			} else if (action.equals("ProductCatalog")) {
+				manager = new ProductCatalogManager(request, response);
 			}
+
 			manager.Execute();
 
+		}
+		// Caso de index
+		else {
+			manager = new IndexManager(request, response);
+			manager.Execute();
 		}
 
 	}
