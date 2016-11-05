@@ -12,8 +12,8 @@ import javax.persistence.Query;
 import model.*;
 
 @NamedQueries({
-	@NamedQuery(name = "Product.findAll", query = "SELECT c FROM product c "),
-	@NamedQuery(name = "Product.findById", query = "SELECT c FROM product c WHERE c.id = :varID "),
+	@NamedQuery(name = "Product.findAll", query = "SELECT c FROM Product c "),
+	@NamedQuery(name = "Product.findById", query = "SELECT c FROM Product c WHERE c.id = :varID "),
 	})
 
 public class ProductManager {
@@ -115,9 +115,9 @@ public class ProductManager {
 		Product ret=null;
 		
 		try{
-			Query query = em.createNamedQuery("Product.findById",Product.class);
+			//Query query = em.createNamedQuery("Product.findById",Product.class);
+			Query query = em.createQuery("SELECT c FROM Product c WHERE c.id = :varId ");
 			query.setParameter("varId", product);
-			
 			List<Product> list = query.getResultList();
 			
 			if(list!=null && list.size()>0){
