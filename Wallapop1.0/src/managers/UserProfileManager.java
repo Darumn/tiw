@@ -23,6 +23,7 @@ public class UserProfileManager extends Manager {
 			System.out.println("Usuario obtenido "+user.getEmail()+" 55555555555555");
 			request.setAttribute("user", user);
 			request.getRequestDispatcher("./PerfilUsuario.jsp").forward(request, response);
+
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());

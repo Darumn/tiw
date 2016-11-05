@@ -1,4 +1,3 @@
-<%@include file="includes/header.jsp"%>
 
 <div id="section">
 	<div id="section1">
@@ -51,5 +50,3 @@
 		</form>
 	</div>
 </div>
-
-<%@include file="includes/footer.jsp"%>
