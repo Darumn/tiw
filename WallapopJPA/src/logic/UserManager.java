@@ -93,7 +93,6 @@ public class UserManager {
 		User ret = null;
 		try{
 			//Find user in login
-			System.out.println("Valor del email **************** " +usuario.getEmail());
 			if(usuario.getId() == -1){
 				Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail "); 
 				//System.out.println("QUERY "+query.toString());
@@ -118,8 +117,7 @@ public class UserManager {
 		User ret = null;
 		try{
 
-			Query query =em.createQuery("SELECT c FROM User c WHERE c.id = :varId "); 
-			//System.out.println("QUERY "+query.toString());
+			Query query =em.createQuery("SELECT c FROM User c WHERE c.id = :varId ");
 			ret = em.find(User.class, id);
 			query.setParameter("varId", id);
 			//usuario = (User)query.getResultList();
