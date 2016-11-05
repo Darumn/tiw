@@ -91,10 +91,10 @@ public class UserManager {
 
 	public User findUser(User usuario) throws Exception {
 		User ret = null;
-		try{
-			//Find user in login
-			Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail "); 
-			//System.out.println("QUERY "+query.toString());
+		try {
+			// Find user in login
+			Query query = em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail ");
+			// System.out.println("QUERY "+query.toString());
 			query.setParameter("varEmail", usuario.getEmail());
 			// usuario = (User)query.getResultList();
 			List<User> lista = query.getResultList();
@@ -103,7 +103,7 @@ public class UserManager {
 			} else {
 				System.out.println("Lista vacia ***********");
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -132,6 +132,11 @@ public class UserManager {
 		}
 		return ret;
 	}
-	
-	//public UsersList<User> 
+
+	public List<User> showUsers() {
+		List<User> users;
+		Query query = em.createQuery("SELECT c FROM User c");
+		users = query.getResultList();
+		return users;
+	}
 }

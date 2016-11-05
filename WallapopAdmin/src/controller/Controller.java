@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import managers.EditUsers;
 import managers.IndexManager;
 import managers.LoginManager;
 import managers.Manager;
@@ -37,6 +38,7 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		String action = request.getParameter("redirect");
 
 		Manager manager = null;
@@ -45,13 +47,13 @@ public class Controller extends HttpServlet {
 
 			if (action.equals("ShowUsers")) {
 				manager = new ShowUsers(request, response);
-				request.getRequestDispatcher("./UsersList.jsp").forward(request, response);
-
+				manager.Execute();
+			} else if (action.equals("EditUsers")) {
+				manager = new EditUsers(request, response);
+				manager.Execute();
 			} else {
 				request.getRequestDispatcher("./failure.jsp").forward(request, response);
 			}
-
-			manager.Execute();
 
 		}
 		// Caso de index
