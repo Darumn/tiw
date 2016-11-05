@@ -33,8 +33,18 @@
 			</select> <input type="text" placeholder="Buscar producto..."
 				name="explorer_input" class="explorer_input" />
 		</div>
+<%@page import="managers.SessionManager" %>
+<%SessionManager session1 = (SessionManager)request.getAttribute("session"); %>
 		<div class="account">
+		<%if(session1 == null){ %>
 			<a href="Formulario.jsp" class="account_link">INICIAR SESIÓN |
 				REGISTRO</a>
+		<%} %>
+		<%if(session1 != null){ %>
+			<form method="post" action="./Controller">
+				<a  class="account_link"><%= session1.getUser().getName()%></a>
+				<input type="hidden" name="redirect" value="UserProfile">
+			</form>
+		<%} %>
 		</div>
 	</div>

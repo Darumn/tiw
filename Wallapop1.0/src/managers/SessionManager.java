@@ -26,12 +26,13 @@ public class SessionManager extends Manager{
 	public User getUser(){
 		User ret = null;
 		HttpSession session = this.request.getSession(true);
-		String userID = (String)session.getAttribute(CONS_USERID);
+		String userID = String.valueOf(session.getAttribute(CONS_USERID));
 		if(userID != null){
 			try{
 				int id = Integer.parseInt(userID);
 				UserManager manager = new UserManager();
 				ret = manager.findUserById(id);
+				
 			}
 			catch (Exception e){
 				System.out.println("Esto");

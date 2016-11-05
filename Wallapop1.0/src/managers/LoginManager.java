@@ -18,11 +18,13 @@ public class LoginManager extends Manager {
 		User usuario = new User();
 		usuario.setEmail(request.getParameter("user"));
 		usuario.setPassword(request.getParameter("password"));
-		usuario.setId(-1);
 		UserManager manager = new UserManager();
 		try {
-			manager.findUser(usuario);
-			request.setAttribute("user", usuario);
+			usuario = manager.findUser(usuario);
+			SessionManager session = new SessionManager(request, response);
+			session.setUser(usuario);
+			request.setAttribute("session", session);
+			//request.setAttribute("user", usuario);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

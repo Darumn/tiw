@@ -47,6 +47,8 @@ public class Controller extends HttpServlet {
 
 			if (action.equals("Login")) {
 				manager = new LoginManager(request, response);
+				manager.Execute();
+				request.getRequestDispatcher("./index.jsp").forward(request, response);
 
 			} else if (action.equals("RegisterUserManager")) {
 				manager = new RegisterUserManager(request, response);

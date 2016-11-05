@@ -91,22 +91,19 @@ public class UserManager {
 
 	public User findUser(User usuario) throws Exception {
 		User ret = null;
-
 		try{
 			//Find user in login
-			if(usuario.getId() == -1){
-				Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail "); 
-				//System.out.println("QUERY "+query.toString());
-				query.setParameter("varEmail", usuario.getEmail());
-				// usuario = (User)query.getResultList();
-				List<User> lista = query.getResultList();
-				if (lista != null && !lista.isEmpty()) {
-					ret = (User) lista.get(0);
-					System.out.println(ret.getName());
-				} else {
-					System.out.println("Lista vacia ***********");
-				}
+			Query query =em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail "); 
+			//System.out.println("QUERY "+query.toString());
+			query.setParameter("varEmail", usuario.getEmail());
+			// usuario = (User)query.getResultList();
+			List<User> lista = query.getResultList();
+			if (lista != null && !lista.isEmpty()) {
+				ret = (User) lista.get(0);
+			} else {
+				System.out.println("Lista vacia ***********");
 			}
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
