@@ -51,8 +51,7 @@ List<Product> lista = (List<Product>)o;
 						<div class="info-container">
 							<p class="product-price"><%= lista.get(i).getPrice() %></p>
 						 
-							<a href="HomeController<%="?id="+1%>"><%= lista.get(i).getName() %><p class="product-name"></p>
-							</a>
+							<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><%= lista.get(i).getName() %></a>
 							
 							<p class="product-category">Others...</p>
 						</div>
