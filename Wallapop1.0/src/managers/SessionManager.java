@@ -25,23 +25,17 @@ public class SessionManager extends Manager{
 	
 	public User getUser(){
 		User ret = null;
-		System.out.println("Dentro del get no se");
 		HttpSession session = request.getSession(true);
-		System.out.println("Sesion localizadaaaaaaaaaaaaaa");
 		String userID = String.valueOf(session.getAttribute(CONS_USERID));
-		System.out.println("ID localizado "+ userID+ " sadkhshjadashjahsdjasdhjdaskjsda");
 		if(userID != null){
 			try{
-				System.out.println("Antes del integer aprse int");
 				int id = Integer.parseInt(userID);
 				UserManager manager = new UserManager();
-				System.out.println("antes de find user");
 				ret = manager.findUserById(id);
-				System.out.println("Todo OKOKOKOKOKOKOKOKO");
 				
 			}
 			catch (Exception e){
-				System.out.println("Esto");
+				System.out.println(e.getMessage());
 			}
 			
 			
