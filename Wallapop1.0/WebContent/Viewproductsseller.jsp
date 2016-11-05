@@ -1,4 +1,4 @@
-<%@include file="includes/header.jsp"%>
+
 <%@page import="model.Product" %>
 <%@page import="java.util.List"%>
 <%
@@ -42,4 +42,3 @@ List<Product> lista = (List<Product>)o;
 	</div>
 	
 </div>
-<%@include file="includes/footer.jsp"%>

@@ -25,7 +25,8 @@ public class SessionManager extends Manager{
 	
 	public User getUser(){
 		User ret = null;
-		HttpSession session = this.request.getSession(true);
+		HttpSession session = request.getSession(true);
+		//SessionManager session =(SessionManager) request.getAttribute("session");
 		String userID = String.valueOf(session.getAttribute(CONS_USERID));
 		if(userID != null){
 			try{
@@ -35,7 +36,7 @@ public class SessionManager extends Manager{
 				
 			}
 			catch (Exception e){
-				System.out.println("Esto");
+				System.out.println(e.getMessage());
 			}
 			
 			

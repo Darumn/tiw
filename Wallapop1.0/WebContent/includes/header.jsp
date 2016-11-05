@@ -42,8 +42,8 @@
 		<%} %>
 		<%if(session1 != null){ %>
 			<form method="post" action="./Controller">
-				<a  class="account_link"><%= session1.getUser().getName()%></a>
-				<input type="hidden" name="redirect" value="UserProfile">
+				<button type="submit" class="btn-link"><%= session1.getUser().getName()%></button>
+				<input type="hidden" name="redirect" value="UserProfile" />
 			</form>
 		<%} %>
 		</div>

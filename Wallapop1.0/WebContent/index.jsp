@@ -1,4 +1,4 @@
-<%@include file="includes/header.jsp"%>
+
 <%@page import="model.*" %>
 <%@page import="managers.IndexManager" %>
 <%@page import="java.util.Iterator"%>
@@ -44,15 +44,15 @@ List<Product> lista = (List<Product>)o;
 	
 			<div class="col-md-3">
 				<div class="card-product">
+				
 					<div class="image-product">
-						<a href="HomeController<%="?id="+1%>"><img src="images/casco.jpg" alt="Casco"></a>
+						<a href="HomeController<%="?id="+1%>"><img src="images/casco.jpg" class="img-responsive" alt="Casco"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">
 							<p class="product-price"><%= lista.get(i).getPrice() %></p>
 						 
-							<a href="HomeController<%="?id="+1%>"><%= lista.get(i).getName() %><p class="product-name"></p>
-							</a>
+							<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><%= lista.get(i).getName() %></a>
 							
 							<p class="product-category">Others...</p>
 						</div>
@@ -63,6 +63,7 @@ List<Product> lista = (List<Product>)o;
 							</div>
 						</div>
 					</div>
+				
 				</div>
 			</div>
 <%}%>
@@ -70,4 +71,3 @@ List<Product> lista = (List<Product>)o;
 	
 		</div>
 	</div>
-	<%@include file="includes/footer.jsp"%>

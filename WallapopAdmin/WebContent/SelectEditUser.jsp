@@ -64,24 +64,27 @@
 		<%
 			}
 		%>
+		<form method="GET" action="./Controller">
+			<input type="hidden" name="redirect" value="EditUser"> <input
+				type="hidden" value="<%=userOld.getId()%>" name="oldId" /> <br />
+			<br />Nombre: <br> <input name="name" type="text"
+				placeholder="Usuario...">
+			</p>
 
-		<br /> <br />Nombre: <br> <input name="name" type="text"
-			placeholder="Usuario...">
-		</p>
-
-		Primer Apellido: <br> <input name="surname" type="text"
-			placeholder="Usuario...">
-		</p>
-		E-mail:<br> <input name="email" type="text"
-			placeholder="Usuario...">
-		</p>
-		Contraseña:<br> <input name="pass" type="password"
-			placeholder="Introduce la contraseña">
-		</p>
-		Ciudad:<br> <input name="city" type="text"
-			placeholder="Introduce tu ciudad">
-		</p>
-		<input type="submit" value="Actualizar">
+			Primer Apellido: <br> <input name="surname" type="text"
+				placeholder="Usuario...">
+			</p>
+			E-mail:<br> <input name="email" type="text"
+				placeholder="Usuario...">
+			</p>
+			Contraseña:<br> <input name="password" type="password"
+				placeholder="Introduce la contraseña">
+			</p>
+			Ciudad:<br> <input name="city" type="text"
+				placeholder="Introduce tu ciudad">
+			</p>
+			<input type="submit" value="Actualizar">
+		</form>
 	</div>
 </body>
 <footer> <br>

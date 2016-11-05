@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import managers.EditUsers;
+import managers.SelectEditUser;
+import managers.EditUser;
 import managers.IndexManager;
 import managers.LoginManager;
 import managers.Manager;
@@ -48,10 +49,15 @@ public class Controller extends HttpServlet {
 			if (action.equals("ShowUsers")) {
 				manager = new ShowUsers(request, response);
 				manager.Execute();
-			} else if (action.equals("EditUsers")) {
-				manager = new EditUsers(request, response);
+			} else if (action.equals("SelectEditUser")) {
+				manager = new SelectEditUser(request, response);
 				manager.Execute();
-			} else {
+			} else if(action.equals("EditUser")){
+				manager = new EditUser(request, response);
+				manager.Execute();
+			}
+			
+			else {
 				request.getRequestDispatcher("./failure.jsp").forward(request, response);
 			}
 

@@ -12,7 +12,9 @@ import javax.persistence.Query;
 import model.*;
 
 @NamedQueries({
-	@NamedQuery(name = "Product.findAll", query = "SELECT c FROM product c "), })
+	@NamedQuery(name = "Product.findAll", query = "SELECT c FROM Product c "),
+	@NamedQuery(name = "Product.findById", query = "SELECT c FROM Product c WHERE c.id = :varID "),
+	})
 
 public class ProductManager {
 	
@@ -109,15 +111,24 @@ public class ProductManager {
 		return ret;
 
 	}
-	public List<Product> findProductId(int product) throws Exception {
-		List<Product> ret=null;
+	public Product findProductById(int product) throws Exception {
+		Product ret=null;
 		
 		try{
-			Query query = em.createNamedQuery("Product.findAll",Product.class);
-			ret = query.getResultList();
+			//Query query = em.createNamedQuery("Product.findById",Product.class);
+			Query query = em.createQuery("SELECT c FROM Product c WHERE c.id = :varID ",Product.class);
+			query.setParameter("varId", product);
+			List<Product> list = query.getResultList();
+			
+			if(list!=null && list.size()>0){
+				ret = list.get(0);
+			}
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());
+		}
+		finally {
+			em.close();
 		}
 		return ret;
 	}

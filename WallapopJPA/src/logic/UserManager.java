@@ -91,15 +91,20 @@ public class UserManager {
 
 	public User findUser(User usuario) throws Exception {
 		User ret = null;
+
 		try {
 			// Find user in login
+			String password = usuario.getPassword();
 			Query query = em.createQuery("SELECT c FROM User c WHERE c.email = :varEmail ");
 			// System.out.println("QUERY "+query.toString());
+
 			query.setParameter("varEmail", usuario.getEmail());
 			// usuario = (User)query.getResultList();
 			List<User> lista = query.getResultList();
 			if (lista != null && !lista.isEmpty()) {
-				ret = (User) lista.get(0);
+				System.out.println("Contraseña 1 " + password + " COntrasela 2 " + lista.get(0).getPassword());
+				if (lista.get(0).getPassword().equals(password))
+					ret = (User) lista.get(0);
 			} else {
 				System.out.println("Lista vacia ***********");
 			}

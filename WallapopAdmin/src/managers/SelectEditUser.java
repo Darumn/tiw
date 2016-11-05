@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import logic.*;
 import model.*;
 
-public class EditUsers extends Manager {
+public class SelectEditUser extends Manager {
 
-	public EditUsers(HttpServletRequest pRequest, HttpServletResponse pResponse) {
+	public SelectEditUser(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
 	}
 
@@ -22,7 +22,7 @@ public class EditUsers extends Manager {
 		try {
 			userOld = manager.findUserById(idUser);
 			request.setAttribute("old user", userOld);
-			request.getRequestDispatcher("./EditUser.jsp").forward(request, response);
+			request.getRequestDispatcher("./SelectEditUser.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

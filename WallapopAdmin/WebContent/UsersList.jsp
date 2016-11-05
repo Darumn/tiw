@@ -37,8 +37,8 @@
 			<%=usersList.get(i).getName()%>
 			<form style="display: inline-block;" method="GET"
 				action="./Controller">
-				<input type="hidden" name="redirect" value="EditUsers"> <input
-					type="hidden" name="id_object" value="<%=i + 1%>"> <input
+				<input type="hidden" name="redirect" value="SelectEditUser">
+				<input type="hidden" name="id_object" value="<%=i + 1%>"> <input
 					style="display: inline-block;" type="submit" value="Edit">
 			</form>
 

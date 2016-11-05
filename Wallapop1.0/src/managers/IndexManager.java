@@ -22,7 +22,7 @@ public class IndexManager extends Manager {
 		try{
 			List<Product> lista= manager.findAllProducts();
 			this.request.setAttribute("product list", lista);
-			request.getRequestDispatcher("./index.jsp").forward(request, response);
+			request.getRequestDispatcher("./index.jsp").include(request, response);
 		}
 		catch(Exception e){
 			
