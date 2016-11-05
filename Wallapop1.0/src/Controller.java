@@ -54,11 +54,11 @@ public class Controller extends HttpServlet {
 
 			} else if (action.equals("RegisterUserManager")) {
 				manager = new RegisterUserManager(request, response);
-				request.getRequestDispatcher("./index.jsp").forward(request, response);
+				
 
 			} else if (action.equals("RegisterProductManager")) {
 				manager = new RegisterProductManager(request, response);
-				request.getRequestDispatcher("./Viewproductsseller.jsp").forward(request, response);
+				
 
 			} else if (action.equals("UserProfile")) {
 				manager = new UserProfileManager(request, response);
