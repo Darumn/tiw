@@ -15,16 +15,17 @@ public class UserProfileManager extends Manager {
 	@Override
 	public void Execute() {
 		// TODO Auto-generated method stub
-		String strid=this.request.getParameter("id");
-		int id=Integer.parseInt(strid);
-		UserManager manager=new UserManager();
+		SessionManager session= new SessionManager(request, response);
 		try{
-			User user= manager.findUserById(id);
-			this.request.setAttribute("user", user);
+			System.out.println("Obteniendo usaurio /////////////////");
+			if(session == null) System.out.println("Es null tio");
+			User user= session.getUser();
+			System.out.println("Usuario obtenido "+user.getEmail()+" 55555555555555");
+			request.setAttribute("user", user);
 			request.getRequestDispatcher("./PerfilUsuario.jsp").forward(request, response);
 		}
 		catch(Exception e){
-			
+			System.out.println(e.getMessage());
 		}
 	}
 	
