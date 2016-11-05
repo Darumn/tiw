@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="style/styleAdmin.css">
 <link rel="stylesheet" type="text/css"
 	href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-<title>WallapopAdmin</title>
+<title>Lista Productos</title>
 </head>
 <body>
 	<div class="header">
@@ -17,13 +17,6 @@
 				id="img_logo">
 		</div>
 	</div>
-	<div class="main">
-		<ul>
-			<li><a href="UsersList.jsp">Usuarios</a></li>
-			<li><a href="ProductsList.jsp">Productos</a></li>
-		</ul>
-	</div>
+	LISTA DE PRODUCTOS
 </body>
-<footer> <br>
-FOOTER </footer>
 </html>
