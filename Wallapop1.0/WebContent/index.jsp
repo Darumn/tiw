@@ -1,4 +1,4 @@
-<%@include file="includes/header.jsp"%>
+
 <%@page import="model.*" %>
 <%@page import="managers.IndexManager" %>
 <%@page import="java.util.Iterator"%>
@@ -69,4 +69,3 @@ List<Product> lista = (List<Product>)o;
 	
 		</div>
 	</div>
-	<%@include file="includes/footer.jsp"%>

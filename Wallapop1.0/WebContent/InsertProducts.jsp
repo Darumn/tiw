@@ -1,4 +1,4 @@
-<%@include file="includes/header.jsp"%>
+
 <div id="update-productos">
 	<H3>PRODUCTO</H3>
 	<form method="GET" action="./Controller">
@@ -25,4 +25,3 @@
 		<input type="submit" value="Incluir producto">
 	</form>
 </div>
-<%@include file="includes/footer.jsp"%>

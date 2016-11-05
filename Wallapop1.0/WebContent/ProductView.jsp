@@ -27,5 +27,3 @@ Product product = (Product)o;%>
 	</div>
 </div>
 
-
-<%@include file="includes/footer.jsp"%>

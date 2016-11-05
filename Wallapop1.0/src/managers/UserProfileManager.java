@@ -21,7 +21,7 @@ public class UserProfileManager extends Manager {
 		try{
 			User user= manager.findUserById(id);
 			this.request.setAttribute("user", user);
-			request.getRequestDispatcher("./PerfilUsuario.jsp").forward(request, response);
+			request.getRequestDispatcher("./PerfilUsuario.jsp").include(request, response);
 		}
 		catch(Exception e){
 			

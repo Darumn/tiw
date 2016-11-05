@@ -1,4 +1,4 @@
-<%@include file="includes/header.jsp"%>
+
 <div class="main">
 	<div id="viewseller">
 		<div class="card-profile-seller">
@@ -77,4 +77,3 @@
 	</div>
 	
 </div>
-<%@include file="includes/footer.jsp"%>

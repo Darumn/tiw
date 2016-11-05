@@ -21,7 +21,7 @@ public class ProductCatalogManager extends Manager{
 				try{
 					List<Product> lista= manager.findAllProducts();
 					this.request.setAttribute("product list", lista);
-					request.getRequestDispatcher("./Viewproductsseller.jsp").forward(request, response);
+					request.getRequestDispatcher("./Viewproductsseller.jsp").include(request, response);
 				}
 				catch(Exception e){
 					

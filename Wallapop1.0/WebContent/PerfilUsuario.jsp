@@ -1,4 +1,4 @@
-<%@include file="includes/header.jsp"%>
+
 <%@page import="model.User"%>
 <% User usuario=(User)request.getAttribute("user");%>
 <div id="section">
@@ -46,4 +46,3 @@
 		</form>
 	</div>
 </div>
-<%@include file="includes/footer.jsp"%>

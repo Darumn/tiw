@@ -35,7 +35,7 @@ public class RegisterProductManager extends Manager {
 		try {
 			manager.createProduct(producto);
 			request.setAttribute("product", producto);
-			request.getRequestDispatcher("./Viewproductsseller.jsp").forward(request, response);
+			request.getRequestDispatcher("./Viewproductsseller.jsp").include(request, response);
 
 		} catch (Exception e) {
 			// TODO: handle exception
