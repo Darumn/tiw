@@ -21,9 +21,12 @@ public class LoginManager extends Manager {
 		UserManager manager = new UserManager();
 		try {
 			usuario = manager.findUser(usuario);
-			SessionManager session = new SessionManager(request, response);
-			session.setUser(usuario);
-			request.setAttribute("session", session);
+			if(usuario != null){
+				SessionManager session = new SessionManager(request, response);
+				session.setUser(usuario);
+				request.setAttribute("session", session);
+			}
+			else request.getRequestDispatcher("./Formulario.jsp").forward(request, response);
 			//request.setAttribute("user", usuario);
 
 		} catch (Exception e) {

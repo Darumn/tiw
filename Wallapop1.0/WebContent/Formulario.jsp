@@ -3,7 +3,7 @@
 <div id="section">
 	<div id="section1">
 		<H3>INICIA SESIÓN</H3>
-		<form method="GET" action="./Controller">
+		<form method="post" action="./Controller">
 		<input type="hidden" name="redirect" value="Login">
 			Usuario: <br> <input type="text" name="user" placeholder="Usuario...">
 			</p>
@@ -16,7 +16,7 @@
 	</div>
 	<div id="section2">
 		<H3>REGISTRO</H3>
-		<form method="GET" action="./Controller">
+		<form method="post" action="./Controller">
 		<input type="hidden" name="redirect" value="RegisterUserManager">
 		<h4>Datos personales</h4>
 			Nombre: <br> <input name="name" type="text"
