@@ -46,7 +46,7 @@ List<Product> lista = (List<Product>)o;
 				<div class="card-product">
 				
 					<div class="image-product">
-						<a href="HomeController<%="?id="+1%>"><img src="images/casco.jpg" alt="Casco"></a>
+						<a href="HomeController<%="?id="+1%>"><img src="images/casco.jpg" class="img-responsive" alt="Casco"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">

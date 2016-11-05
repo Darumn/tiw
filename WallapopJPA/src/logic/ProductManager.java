@@ -116,7 +116,7 @@ public class ProductManager {
 		
 		try{
 			//Query query = em.createNamedQuery("Product.findById",Product.class);
-			Query query = em.createQuery("SELECT c FROM Product c WHERE c.id = :varId ");
+			Query query = em.createQuery("SELECT c FROM Product c WHERE c.id = :varID ",Product.class);
 			query.setParameter("varId", product);
 			List<Product> list = query.getResultList();
 			
