@@ -68,17 +68,15 @@ public class Controller extends HttpServlet {
 			} else if (action.equals("Product")) {
 				manager = new ProductViewManager(request, response);
 			}
-
-			request.getRequestDispatcher("./includes/header.jsp").include(request, response);
-			manager.Execute();
-			request.getRequestDispatcher("./includes/footer.jsp").include(request, response);
-
 		}
 		// Caso de index
 		else {
 			manager = new IndexManager(request, response);
-			manager.Execute();
 		}
+		
+		request.getRequestDispatcher("./includes/header.jsp").include(request, response);
+		manager.Execute();
+		request.getRequestDispatcher("./includes/footer.jsp").include(request, response);
 
 	}
 
