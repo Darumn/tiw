@@ -2,6 +2,7 @@ package managers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import logic.*;
 import model.*;
 
@@ -16,18 +17,24 @@ public class LoginAdminManager extends AdminManager {
 	@Override
 	public void Execute() {
 		User usuario = new User();
-		usuario.setEmail(request.getParameter("usuario"));
+		usuario.setEmail(request.getParameter("user"));
 		usuario.setPassword(request.getParameter("password"));
-		usuario.setId(-1);
 		UserManager manager = new UserManager();
 		try {
-			manager.findUser(usuario);
-			request.setAttribute("user", usuario);
+			usuario = manager.findUser(usuario);
+			System.out.println("DEBUG");
+			if (usuario != null && usuario.getIsAdmin()) {
+				SessionManager session = new SessionManager(request, response);
+				session.setUser(usuario);
+				request.setAttribute("sessionUser", session);
+				request.getRequestDispatcher("./index.jsp").include(request, response);
+			} else {
+				request.getRequestDispatcher("./failure.jsp").include(request, response);
+			}
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		// TODO COMPROBAR USUARIO Y CONTRASEÑA EN LA BD, ETC..
 
 	}
 

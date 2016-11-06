@@ -60,6 +60,9 @@ public class Controller extends HttpServlet {
 			} else if (action.equals("DeleteUser")) {
 				manager = new DeleteUser(request, response);
 				manager.Execute();
+			} else if (action.equals("AdminLogin")) {
+				manager = new LoginAdminManager(request, response);
+				manager.Execute();
 			}
 
 			else {
