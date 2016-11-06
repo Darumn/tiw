@@ -1,4 +1,5 @@
 
+<%@page import="managers.UserUpdateManager"%>
 <%@page import="model.User"%>
 <% User usuario=(User)request.getAttribute("user");%>
 <div id="section">
@@ -49,7 +50,8 @@
 			
 			Foto de perfil:<br> <input name="image" type="file" accept="*/image" >
 			<br>
-			
+			<img src="<%= UserUpdateManager.getUrlImage(usuario)%>" /> 
+			<br>
 			<input type="submit" value="Actualizar">
 		</form>
 	</div>

@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
@@ -74,6 +75,7 @@ public class UserUpdateManager extends Manager {
 	}
 	
 	private void manageImage(User usuario) throws IOException, ServletException{
+	
 		Part filePart = request.getPart("image");
 		if(filePart != null){
 			
@@ -84,7 +86,6 @@ public class UserUpdateManager extends Manager {
 		    File file = new File(Manager.userDirectoryFullPath+"/"+usuario.getId()+".jpg");
 
 		    try {
-		    	
 		        Files.copy(fileContent, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
 		    }
 		    catch(IOException e){
@@ -93,6 +94,17 @@ public class UserUpdateManager extends Manager {
 		    }
 		    
 		}
+	}
+	
+	public static String getUrlImage(User usuario){
+		String ret = null;
+		
+		File file = new File(Manager.userDirectoryFullPath+"/"+usuario.getId()+".jpg");
+		if(file.exists()){
+			ret = "./images"+userDirectory+"/"+usuario.getId()+".jpg";
+		}
+		
+		return ret;
 	}
 
 }
