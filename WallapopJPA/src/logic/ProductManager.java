@@ -99,10 +99,7 @@ public class ProductManager {
 	public List<Product> findAllProducts() {
 		List<Product> ret=null;
 		try {
-			
 			Query query = em.createNamedQuery("Product.findAll",Product.class);
-			
-			
 			ret = query.getResultList();
 			
 		} finally {
@@ -136,17 +133,14 @@ public class ProductManager {
 		List<Product> ret=null;
 		
 		try{
-			Query query = em.createNamedQuery("Product.findAll",Product.class);
+			//Query query = em.createNamedQuery("Product.findById",Product.class);
+			Query query = em.createQuery("SELECT c FROM Product c WHERE c.category IN (SELECT a FROM Category a WHERE a.name = :varCategory)",Product.class);
+			query.setParameter("varCategory", category);
 			List<Product> list = query.getResultList();
-			
 			if(list!=null && list.size()>0){
-				for (Product product : list) {
-					if(product.getCategory().getName().equals(category))
-						ret.add(product);
-				}
-			}
-			else{
-				System.out.println("Lista vacia 0000000000000");
+				ret = list;
+			}else{
+				System.out.println("Lista vacia");
 			}
 		}
 		catch (Exception e){

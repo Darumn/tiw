@@ -17,21 +17,18 @@ public class SearchManager extends Manager {
 	@Override
 	public void Execute() {
 		// TODO Auto-generated method stub
+		List<Product> list = null;
 		try{
-			System.out.println("Entramos en el seacrh");
-			String category = (String)request.getAttribute("explorer_input");
+			String category = (String)request.getParameter("search_input");
 			ProductManager manager = new ProductManager();
-			System.out.println("vamos a realziar la busqueda");
-			List<Product> list = manager.findProductByCategory(category.toLowerCase());
-			for (Product product : list) {
-				System.out.println("Producto "+ product.getName());
-			}
+			list = manager.findProductByCategory(category.toLowerCase());			
 			request.setAttribute("product list", list);
-
+			request.getRequestDispatcher("./index.jsp").include(request, response);
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
+		
 	}
 	
 	

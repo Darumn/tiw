@@ -34,7 +34,7 @@
 			<form method="get" action="./Controller">
 			<input type="hidden" name="redirect" value="searchProducts">
 				<input type="text" placeholder="Buscar producto..."
-					name="explorer_input" class="explorer_input" />
+					name="search_input" class="explorer_input" />
 				<button type="submit" class="btn-default" >Buscar</button> 
 			</form>
 		</div>

@@ -102,7 +102,6 @@ public class UserManager {
 			// usuario = (User)query.getResultList();
 			List<User> lista = query.getResultList();
 			if (lista != null && !lista.isEmpty()) {
-				System.out.println("Contraseña 1 " + password + " COntrasela 2 " + lista.get(0).getPassword());
 				if (lista.get(0).getPassword().equals(password))
 					ret = (User) lista.get(0);
 			} else {
@@ -127,7 +126,6 @@ public class UserManager {
 			List lista = query.getResultList();
 			if (lista != null && !lista.isEmpty()) {
 				ret = (User) lista.get(0);
-				System.out.println(ret.getName());
 			} else {
 				System.out.println("Lista vacia ***********");
 			}
