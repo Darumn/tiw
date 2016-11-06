@@ -7,9 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.*;
+import logic.*;
+
+import java.util.List;
+
 public class ShowUsers extends AdminManager {
-	HttpServletRequest request;
-	HttpServletResponse response;
 
 	public ShowUsers(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
@@ -17,13 +20,16 @@ public class ShowUsers extends AdminManager {
 
 	@Override
 	public void Execute() {
-		// TODO Auto-generated method stub
+
+		UserManager users = new UserManager();
+		List<User> usersList;
 		try {
-			request.getRequestDispatcher("./admin.jsp").forward(request, response);
+			usersList = users.showUsers();
+			request.setAttribute("users list", usersList);
+			request.getRequestDispatcher("./UsersList.jsp").forward(request, response);
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
-
 		}
 
 	}

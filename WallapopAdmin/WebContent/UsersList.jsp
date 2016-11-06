@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List"%>
+<%@page import="model.User"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,6 +20,41 @@
 		</div>
 	</div>
 	<h3>LISTA DE USUARIOS</h3>
-	
+	<div>
+
+		<%
+			List<User> usersList = (List<User>) (request.getAttribute("users list"));
+			if (usersList == null || usersList.isEmpty()) {
+				out.println("LISTA NULA");
+			} else if (usersList.isEmpty()) {
+				out.println("LISTA VACIA");
+			}
+
+			for (int i = 0; i < usersList.size(); i++) {
+		%>
+
+		<div name="<%=usersList.get(i).getName()%>">
+			<%=usersList.get(i).getName()%>
+			<form style="display: inline-block;" method="GET"
+				action="./Controller">
+				<input type="hidden" name="redirect" value="SelectEditUser">
+				<input type="hidden" name="id_object" value="<%=i + 1%>"> <input
+					style="display: inline-block;" type="submit" value="Edit">
+			</form>
+
+			<form style="display: inline-block;" method="GET"
+				action="./Controller">
+				<input type="hidden" name="redirect" value="DeleteUser"> <input
+					type="hidden" name="id_object" value="<%=i + 1%>"><input
+					style="display: inline-block;" type="submit" value="Delete">
+			</form>
+		</div>
+		<%
+			}
+		%>
+
+
+	</div>
+
 </body>
 </html>
