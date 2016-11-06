@@ -81,8 +81,6 @@ public class UserUpdateManager extends Manager {
 		    //String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
 		    InputStream fileContent = filePart.getInputStream();
 		    
-		    
-		    
 		    File file = new File(Manager.userDirectoryFullPath+"/"+usuario.getId()+".jpg");
 
 		    try {

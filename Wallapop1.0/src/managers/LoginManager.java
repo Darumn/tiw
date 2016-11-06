@@ -26,9 +26,9 @@ public class LoginManager extends Manager {
 				session.setUser(usuario);
 				request.setAttribute("session", session);
 			}
-			else {
+			/*else {
 				request.getRequestDispatcher("./Formulario.jsp").include(request, response);
-			}
+			}*/
 			//request.setAttribute("user", usuario);
 
 		} catch (Exception e) {
