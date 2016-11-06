@@ -30,8 +30,10 @@
 				<option>Electrodomésticos</option>
 				<option>Servicios</option>
 				<option>Otros</option>
-			</select> <input type="text" placeholder="Buscar producto..."
+			</select> 
+			<input type="text" placeholder="Buscar producto..."
 				name="explorer_input" class="explorer_input" />
+			<button type="submit" class="btn-default" >Buscar</button> 
 		</div>
 <%@page import="managers.SessionManager" %>
 <%@page import="managers.Manager" %>

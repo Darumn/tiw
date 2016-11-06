@@ -54,6 +54,8 @@ public class Controller extends HttpServlet {
 
 			} else if (action.equals("RegisterUserManager")) {
 				manager = new RegisterUserManager(request, response);
+				manager.Execute();
+				manager = new IndexManager(request, response);
 				
 
 			} else if (action.equals("RegisterProductManager")) {

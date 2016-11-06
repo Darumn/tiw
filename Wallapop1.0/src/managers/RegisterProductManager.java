@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import logic.*;
 import model.*;
+import model.Product;
+import model.User;
 
 public class RegisterProductManager extends Manager {
 
