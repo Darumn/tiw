@@ -26,6 +26,8 @@ public class User implements Serializable {
 	private String password;
 
 	private String surname;
+	
+	private boolean isAdmin;
 
 	// bi-directional many-to-one association to Message
 	@OneToMany(mappedBy = "user1")
@@ -88,6 +90,14 @@ public class User implements Serializable {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+	
+	public boolean getIsAdmin() {
+		return this.isAdmin;
+	}
+
+	public void setIsAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 
 	public List<Message> getMessages1() {

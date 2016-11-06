@@ -1,14 +1,14 @@
 
-import model.*;
+import java.io.File;
 import java.io.IOException;
-import java.util.Enumeration;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import managers.*;
 
@@ -18,7 +18,7 @@ import managers.*;
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -27,6 +27,25 @@ public class Controller extends HttpServlet {
 		super();
 	}
 
+	public void init(ServletConfig config) throws ServletException  {
+		Manager.path = getServletContext().getRealPath("/images");
+		
+		Manager.userDirectoryFullPath = Manager.path+Manager.userDirectory;
+		
+		File file = new File(Manager.userDirectoryFullPath);
+		if(!file.exists()){
+			file.mkdir();
+		}
+		
+		Manager.productDirectoryFullPath = Manager.path+Manager.productDirectory;
+		
+		file = new File(Manager.path+Manager.productDirectoryFullPath);
+		if(!file.exists()){
+			file.mkdir();
+		}	
+		
+	}
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -71,6 +90,14 @@ public class Controller extends HttpServlet {
 				
 			} else if (action.equals("Formulario")) {
 				manager = new FormularioManager(request, response);
+				
+			} else if (action.equals("modificarUsuario")){
+				manager = new UserUpdateManager(request, response);
+				manager.Execute();
+				manager = new UserProfileManager(request, response);
+			} else if(action.equals("invalidateSession")){
+				request.getSession(true).invalidate();
+				manager = new IndexManager(request, response);
 			}
 		}
 		// Caso de index
