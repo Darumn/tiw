@@ -39,6 +39,10 @@ List<Product> lista = (List<Product>)o;
 		<h1 style="text-align: center;">BIENVENIDOS A WALLAPOP</h1>
 		<p style="text-align: center;">La web en la que podrás encontrar
 			productos de todo tipo de otros usuarios</p>
+		<% String mensaje = (String)request.getAttribute("mensaje"); %>
+		<% if(mensaje != null && !mensaje.equals("")) { %>
+		<h3><%= mensaje %></h3>
+		<%} %>
 		<div class="row">
 	<% for(int i=0; i<lista.size(); i++){%>
 	
