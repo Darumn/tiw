@@ -39,7 +39,10 @@
 				<input type="hidden" name="redirect" value="ShowUsers"> <input
 					type="submit" value="Usuarios">
 			</form>
-			<li><a href="ProductsList.jsp">Productos</a></li>
+			<form method="GET" action="./Controller">
+				<input type="hidden" name="redirect" value="ShowProducts"> <input
+					type="submit" value="Productos">
+			</form>
 		</ul>
 	</div>
 </body>

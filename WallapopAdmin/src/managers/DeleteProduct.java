@@ -6,22 +6,22 @@ import javax.servlet.http.HttpServletResponse;
 import logic.*;
 import model.*;
 
-public class DeleteUser extends AdminManager {
+public class DeleteProduct extends AdminManager {
 
-	public DeleteUser(HttpServletRequest pRequest, HttpServletResponse pResponse) {
+	public DeleteProduct(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
 	}
 
 	@Override
 	public void Execute() {
-		UserManager manager = new UserManager();
-		User userOld;
+		ProductManager manager = new ProductManager();
+		Product productOld;
 		String id = request.getParameter("id_object");
-		int idUser = Integer.parseInt(id);
+		int idProduct = Integer.parseInt(id);
 
 		try {
-			userOld = manager.findUserById(idUser);
-			manager.deletePersona(userOld);
+			productOld = manager.findProductById(idProduct);
+			manager.deleteProduct(productOld);
 			request.getRequestDispatcher("./index.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

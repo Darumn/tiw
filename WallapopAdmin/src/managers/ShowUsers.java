@@ -28,7 +28,6 @@ public class ShowUsers extends AdminManager {
 			request.setAttribute("users list", usersList);
 			request.getRequestDispatcher("./UsersList.jsp").forward(request, response);
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
 
