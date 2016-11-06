@@ -3,7 +3,9 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,19 +18,38 @@ import managers.*;
  * Servlet implementation class Controller
  */
 @WebServlet("/Controller")
+@MultipartConfig(maxFileSize = 16177215) 
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	private static boolean initilized = false;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 
 	public Controller() {
 		super();
+		
+		/*if(!initilized){
+			initProperties();
+		}*/
 	}
 
-	public void init(ServletConfig config) throws ServletException  {
-		Manager.path = getServletContext().getRealPath("/images");
+	public void service(HttpServletRequest request, HttpServletResponse response){
+		if(!initilized){
+			initProperties();
+		}
+		
+		try {
+			doGet(request, response);
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void initProperties() {
+		ServletContext servletContext = getServletContext();
+		Manager.path = servletContext.getRealPath("/images");
 		
 		Manager.userDirectoryFullPath = Manager.path+Manager.userDirectory;
 		
@@ -42,7 +63,9 @@ public class Controller extends HttpServlet {
 		file = new File(Manager.path+Manager.productDirectoryFullPath);
 		if(!file.exists()){
 			file.mkdir();
-		}	
+		}
+		
+		initilized = true;
 		
 	}
 	
@@ -67,8 +90,12 @@ public class Controller extends HttpServlet {
 			if (action.equals("Login")) {
 				manager = new LoginManager(request, response);
 				manager.Execute();
-				if(request.getAttribute("session") != null) System.out.println("Hay una sesion debtroi ");
-				manager = new IndexManager(request, response);
+				if(request.getAttribute("session") != null) {
+					manager = new IndexManager(request, response);
+				}
+				else{
+					manager = new FormularioManager(request, response);
+				}
 				//request.getRequestDispatcher("./index.jsp").forward(request, response);
 
 			} else if (action.equals("RegisterUserManager")) {
