@@ -15,12 +15,10 @@ public class UserProfileManager extends Manager {
 	@Override
 	public void Execute() {
 		// TODO Auto-generated method stub
-		SessionManager session= new SessionManager(request, response);
 		try{
-			if(session == null) System.out.println("Es null tio");
-			User user= session.getUser();
+			User user= this.session.getUser();
 			request.setAttribute("user", user);
-			request.getRequestDispatcher("./PerfilUsuario.jsp").forward(request, response);
+			request.getRequestDispatcher("./PerfilUsuario.jsp").include(request, response);
 
 		}
 		catch(Exception e){

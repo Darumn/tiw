@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import logic.UserManager;
 import model.User;
 
-public class SessionManager extends Manager{
+public class SessionManager extends IManager{
 
 	private final String CONS_USERID = "userID";
 	
@@ -15,12 +15,6 @@ public class SessionManager extends Manager{
 	public SessionManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
 		// TODO Auto-generated constructor stu
-	}
-
-	@Override
-	public void Execute(){
-		throw new UnsupportedOperationException();
-		
 	}
 	
 	public User getUser(){

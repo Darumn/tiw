@@ -3,7 +3,7 @@ package managers;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public abstract class Manager {
+public abstract class AdminManager {
 	HttpServletRequest request = null;
 	HttpServletResponse response = null;
 	// HEAD
@@ -15,7 +15,7 @@ public abstract class Manager {
 	 * SessionManager session = null; }
 	 */
 
-	public Manager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
+	public AdminManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 
 		// branch "master" of https://github.com/Darumn/tiw
 		this.request = pRequest;

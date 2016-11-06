@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import managers.IndexManager;
-import managers.LoginManager;
-import managers.Manager;
+import managers.IndexAdminManager;
+import managers.LoginAdminManager;
+import managers.AdminManager;
 /*import managers.ProductCatalogManager;
 import managers.RegisterProductManager;
 import managers.RegisterUserManager;
@@ -39,7 +39,7 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 		String action = request.getParameter("redirect");
 
-		Manager manager = null;
+		AdminManager manager = null;
 
 		if (action != null && !action.equals("")) {
 
@@ -56,7 +56,7 @@ public class Controller extends HttpServlet {
 		}
 		// Caso de index
 		else {
-			manager = new IndexManager(request, response);
+			manager = new IndexAdminManager(request, response);
 			manager.Execute();
 		}
 	}

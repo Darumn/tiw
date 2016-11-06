@@ -11,7 +11,7 @@
 <body>
 	<div class="header">
 		<div class="logo">
-			<a href="index.jsp"> <img alt="logo"
+			<a href="/Wallapop1.0/Controller"> <img alt="logo"
 				src="http://es.wallapop.com/images/logos/img_logo_header.png"
 				id="img_logo">
 			</a>
@@ -34,15 +34,23 @@
 				name="explorer_input" class="explorer_input" />
 		</div>
 <%@page import="managers.SessionManager" %>
-<%SessionManager session1 = (SessionManager)request.getAttribute("session"); %>
+<%@page import="managers.Manager" %>
+<%@page import="model.User" %>
+
+<%SessionManager session1 = (SessionManager)request.getAttribute(Manager.CONST_SESSION); 
+User user = null;
+if(session1!=null){
+	user = session1.getUser();
+}
+%>
 		<div class="account">
-		<%if(session1 == null){ %>
-			<a href="Formulario.jsp" class="account_link">INICIAR SESIÓN |
+		<%if(user == null){ %>
+			<a href="./Controller?redirect=Formulario" class="account_link">INICIAR SESIÓN |
 				REGISTRO</a>
 		<%} %>
-		<%if(session1 != null){ %>
+		<%if(user != null){ %>
 			<form method="post" action="./Controller">
-				<button type="submit" class="btn-link"><%= session1.getUser().getName()%></button>
+				<button type="submit" class="btn-link">Hola <%= session1.getUser().getName()%></button>
 				<input type="hidden" name="redirect" value="UserProfile" />
 			</form>
 		<%} %>
