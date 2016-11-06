@@ -127,7 +127,11 @@ public class Controller extends HttpServlet {
 			} else if(action.equals("invalidateSession")){
 				request.getSession(true).invalidate();
 				manager = new IndexManager(request, response);
-			}
+			}else if(action.equals("searchProducts")){
+					manager = new SearchManager(request, response);
+					manager.Execute();
+					manager = new IndexManager(request, response);
+				}
 		}
 		// Caso de index
 		else {

@@ -132,4 +132,29 @@ public class ProductManager {
 		}
 		return ret;
 	}
+	public List<Product> findProductByCategory(String category) throws Exception{
+		List<Product> ret=null;
+		
+		try{
+			Query query = em.createNamedQuery("Product.findAll",Product.class);
+			List<Product> list = query.getResultList();
+			
+			if(list!=null && list.size()>0){
+				for (Product product : list) {
+					if(product.getCategory().getName().equals(category))
+						ret.add(product);
+				}
+			}
+			else{
+				System.out.println("Lista vacia 0000000000000");
+			}
+		}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+		finally {
+			em.close();
+		}
+		return ret;
+	}
 }

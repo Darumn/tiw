@@ -31,9 +31,12 @@
 				<option>Servicios</option>
 				<option>Otros</option>
 			</select> 
-			<input type="text" placeholder="Buscar producto..."
-				name="explorer_input" class="explorer_input" />
-			<button type="submit" class="btn-default" >Buscar</button> 
+			<form method="get" action="./Controller">
+			<input type="hidden" name="redirect" value="searchProducts">
+				<input type="text" placeholder="Buscar producto..."
+					name="explorer_input" class="explorer_input" />
+				<button type="submit" class="btn-default" >Buscar</button> 
+			</form>
 		</div>
 <%@page import="managers.SessionManager" %>
 <%@page import="managers.Manager" %>
