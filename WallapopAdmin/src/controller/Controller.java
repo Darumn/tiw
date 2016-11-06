@@ -11,6 +11,7 @@ import managers.Manager;
 import managers.IndexAdminManager;
 import managers.LoginAdminManager;
 import managers.AdminManager;
+import managers.DeleteUser;
 /*import managers.ProductCatalogManager;
 import managers.RegisterProductManager;
 import managers.RegisterUserManager;
@@ -57,7 +58,7 @@ public class Controller extends HttpServlet {
 				manager = new EditUser(request, response);
 				manager.Execute();
 			} else if (action.equals("DeleteUser")) {
-				manager = new SelectEditUser(request, response);
+				manager = new DeleteUser(request, response);
 				manager.Execute();
 			}
 
