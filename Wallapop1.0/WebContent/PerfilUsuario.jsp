@@ -14,7 +14,7 @@
 			<img alt="foto perfil" src="" id="img_logo">
 			<br>
 
-			<a href="Viewproductsseller.jsp">Ver productos</a>
+			<a href="./Controller?redirect=UserProducts&id=<%=usuario.getId()%>">Ver productos</a>
 			<br>
 
 		</form>
