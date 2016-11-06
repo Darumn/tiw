@@ -12,7 +12,7 @@ import logic.*;
 
 import java.util.List;
 
-public class ShowUsers extends Manager {
+public class ShowUsers extends AdminManager {
 
 	public ShowUsers(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);

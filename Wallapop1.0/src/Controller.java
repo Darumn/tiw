@@ -1,14 +1,16 @@
 
-import model.*;
+import java.io.File;
 import java.io.IOException;
-import java.util.Enumeration;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import managers.*;
 
@@ -16,17 +18,57 @@ import managers.*;
  * Servlet implementation class Controller
  */
 @WebServlet("/Controller")
+@MultipartConfig(maxFileSize = 16177215) 
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private static boolean initilized = false;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 
 	public Controller() {
 		super();
+		
+		/*if(!initilized){
+			initProperties();
+		}*/
 	}
 
+	public void service(HttpServletRequest request, HttpServletResponse response){
+		if(!initilized){
+			initProperties();
+		}
+		
+		try {
+			doGet(request, response);
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void initProperties() {
+		ServletContext servletContext = getServletContext();
+		Manager.path = servletContext.getRealPath("/images");
+		
+		Manager.userDirectoryFullPath = Manager.path+Manager.userDirectory;
+		
+		File file = new File(Manager.userDirectoryFullPath);
+		if(!file.exists()){
+			file.mkdir();
+		}
+		
+		Manager.productDirectoryFullPath = Manager.path+Manager.productDirectory;
+		
+		file = new File(Manager.path+Manager.productDirectoryFullPath);
+		if(!file.exists()){
+			file.mkdir();
+		}
+		
+		initilized = true;
+		
+	}
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -48,8 +90,12 @@ public class Controller extends HttpServlet {
 			if (action.equals("Login")) {
 				manager = new LoginManager(request, response);
 				manager.Execute();
-				if(request.getAttribute("session") != null) System.out.println("Hay una sesion debtroi ");
-				manager = new IndexManager(request, response);
+				if(request.getAttribute("session") != null) {
+					manager = new IndexManager(request, response);
+				}
+				else{
+					manager = new FormularioManager(request, response);
+				}
 				//request.getRequestDispatcher("./index.jsp").forward(request, response);
 
 			} else if (action.equals("RegisterUserManager")) {
@@ -65,8 +111,20 @@ public class Controller extends HttpServlet {
 
 			} else if (action.equals("ProductCatalog")) {
 				manager = new ProductCatalogManager(request, response);
+				
 			} else if (action.equals("Product")) {
 				manager = new ProductViewManager(request, response);
+				
+			} else if (action.equals("Formulario")) {
+				manager = new FormularioManager(request, response);
+				
+			} else if (action.equals("modificarUsuario")){
+				manager = new UserUpdateManager(request, response);
+				manager.Execute();
+				manager = new UserProfileManager(request, response);
+			} else if(action.equals("invalidateSession")){
+				request.getSession(true).invalidate();
+				manager = new IndexManager(request, response);
 			}
 		}
 		// Caso de index

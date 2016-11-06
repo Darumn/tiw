@@ -50,7 +50,7 @@ List<Product> lista = (List<Product>)o;
 					</div>
 					<div class="product-info">
 						<div class="info-container">
-							<p class="product-price"><%= lista.get(i).getPrice() %></p>
+							<p class="product-price"><%= lista.get(i).getPrice() %>&euro;</p>
 						 
 							<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><%= lista.get(i).getName() %></a>
 							

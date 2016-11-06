@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import logic.*;
 import model.*;
 
-public class SelectEditUser extends Manager {
+public class SelectEditUser extends AdminManager {
 
 	public SelectEditUser(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);

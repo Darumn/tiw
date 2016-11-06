@@ -25,7 +25,7 @@ public class IndexManager extends Manager {
 			request.getRequestDispatcher("./index.jsp").include(request, response);
 		}
 		catch(Exception e){
-			
+			System.out.println(e.getMessage());
 		}
 	}
 	

@@ -7,16 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import managers.SelectEditUser;
-import managers.EditUser;
-import managers.IndexManager;
-import managers.LoginManager;
 import managers.Manager;
+import managers.IndexAdminManager;
+import managers.LoginAdminManager;
+import managers.AdminManager;
 /*import managers.ProductCatalogManager;
 import managers.RegisterProductManager;
 import managers.RegisterUserManager;
 import managers.UserProfileManager;*/
 import managers.ShowUsers;
+import managers.SelectEditUser;
+import managers.EditUser;
 
 /**
  * Servlet implementation class Controller
@@ -42,7 +43,7 @@ public class Controller extends HttpServlet {
 
 		String action = request.getParameter("redirect");
 
-		Manager manager = null;
+		AdminManager manager = null;
 
 		if (action != null && !action.equals("")) {
 
@@ -52,11 +53,11 @@ public class Controller extends HttpServlet {
 			} else if (action.equals("SelectEditUser")) {
 				manager = new SelectEditUser(request, response);
 				manager.Execute();
-			} else if(action.equals("EditUser")){
+			} else if (action.equals("EditUser")) {
 				manager = new EditUser(request, response);
 				manager.Execute();
 			}
-			
+
 			else {
 				request.getRequestDispatcher("./failure.jsp").forward(request, response);
 			}
@@ -64,7 +65,7 @@ public class Controller extends HttpServlet {
 		}
 		// Caso de index
 		else {
-			manager = new IndexManager(request, response);
+			manager = new IndexAdminManager(request, response);
 			manager.Execute();
 		}
 	}

@@ -8,9 +8,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class IndexManager extends Manager {
+public class IndexAdminManager extends AdminManager {
 
-	public IndexManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
+	public IndexAdminManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
 		// TODO Auto-generated constructor stub
 	}
@@ -25,7 +25,7 @@ public class IndexManager extends Manager {
 			this.request.setAttribute("product list", lista);
 			request.getRequestDispatcher("./index.jsp").forward(request, response);
 		} catch (Exception e) {
-
+			System.out.println(e.getMessage());
 		}
 	}
 

@@ -5,9 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 import logic.*;
 import model.*;
 
-public class LoginManager extends Manager {
+public class LoginAdminManager extends AdminManager {
 
-	public LoginManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
+	public LoginAdminManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
 
 		// Nothing to do.
