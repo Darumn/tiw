@@ -61,9 +61,13 @@ List<Product> lista = (List<Product>)o;
 							<p class="product-category">Others...</p>
 						</div>
 						<div class="product-owner">
-							<a href="Vendedor.jsp"><p class="owner-name"><%= lista.get(i).getUser().getName()%></p></a>
-							<div class="product-view-info-owner-chat">
-								<button class="btn-success">Contactar</button>
+							<form method="get" action="./Controller">
+							<input type="hidden" name="redirect" value="SellerProfile" />
+							<input type="hidden" name="seller_id" value="<%= lista.get(i).getUser().getId()%>" />
+								<a><p class="owner-name"><%= lista.get(i).getUser().getName()%></p></a>
+								<div class="product-view-info-owner-chat">
+								<button type="submit" class="btn-success">Contactar</button>
+								</form>
 							</div>
 						</div>
 					</div>
