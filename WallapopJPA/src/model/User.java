@@ -4,13 +4,14 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
+
 /**
  * The persistent class for the user database table.
  * 
  */
 @Entity
-@Table(name = "user")
-@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
+@Table(name="user")
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -21,24 +22,25 @@ public class User implements Serializable {
 
 	private String email;
 
+	private boolean isAdmin;
+
 	private String name;
 
 	private String password;
 
 	private String surname;
 	
-	private boolean isAdmin;
 
-	// bi-directional many-to-one association to Message
-	@OneToMany(mappedBy = "user1")
+	//bi-directional many-to-one association to Message
+	@OneToMany(mappedBy="user1")
 	private List<Message> messages1;
 
-	// bi-directional many-to-one association to Message
-	@OneToMany(mappedBy = "user2")
+	//bi-directional many-to-one association to Message
+	@OneToMany(mappedBy="user2")
 	private List<Message> messages2;
 
-	// bi-directional many-to-one association to Product
-	@OneToMany(mappedBy = "user")
+	//bi-directional many-to-one association to Product
+	@OneToMany(mappedBy="user")
 	private List<Product> products;
 
 	public User() {
@@ -68,6 +70,14 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
+	public boolean getIsAdmin() {
+		return this.isAdmin;
+	}
+
+	public void setIsAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
 	public String getName() {
 		return this.name;
 	}
@@ -90,14 +100,6 @@ public class User implements Serializable {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
-	}
-	
-	public boolean getIsAdmin() {
-		return this.isAdmin;
-	}
-
-	public void setIsAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
 	}
 
 	public List<Message> getMessages1() {

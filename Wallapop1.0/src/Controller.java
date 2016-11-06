@@ -100,6 +100,8 @@ public class Controller extends HttpServlet {
 
 			} else if (action.equals("RegisterUserManager")) {
 				manager = new RegisterUserManager(request, response);
+				manager.Execute();
+				manager = new IndexManager(request, response);
 				
 
 			} else if (action.equals("RegisterProductManager")) {
@@ -122,11 +124,16 @@ public class Controller extends HttpServlet {
 				manager = new UserUpdateManager(request, response);
 				manager.Execute();
 				manager = new UserProfileManager(request, response);
+			}else if (action.equals("UserProducts")) {
+				manager = new UserProductsManager(request, response);
+				
 			} else if(action.equals("invalidateSession")){
 				request.getSession(true).invalidate();
 				manager = new IndexManager(request, response);
+			}else if(action.equals("searchProducts")){
+					manager = new SearchManager(request, response);
 			}
-		}
+			}
 		// Caso de index
 		else {
 			manager = new IndexManager(request, response);

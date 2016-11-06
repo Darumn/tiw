@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logic.*;
 import model.*;
+import model.User;
 
 public class LoginManager extends Manager {
 
@@ -22,7 +23,6 @@ public class LoginManager extends Manager {
 		try {
 			usuario = manager.findUser(usuario);
 			if(usuario != null){
-				SessionManager session = new SessionManager(request, response);
 				session.setUser(usuario);
 				request.setAttribute("session", session);
 			}
