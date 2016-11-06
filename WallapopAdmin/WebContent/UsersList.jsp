@@ -44,7 +44,8 @@
 
 			<form style="display: inline-block;" method="GET"
 				action="./Controller">
-				<input type="hidden" name="redirect" value="DeleteUsers"> <input
+				<input type="hidden" name="redirect" value="DeleteUser"> <input
+					type="hidden" name="id_object" value="<%=i + 1%>"><input
 					style="display: inline-block;" type="submit" value="Delete">
 			</form>
 		</div>

@@ -56,6 +56,9 @@ public class Controller extends HttpServlet {
 			} else if (action.equals("EditUser")) {
 				manager = new EditUser(request, response);
 				manager.Execute();
+			} else if (action.equals("DeleteUser")) {
+				manager = new SelectEditUser(request, response);
+				manager.Execute();
 			}
 
 			else {
