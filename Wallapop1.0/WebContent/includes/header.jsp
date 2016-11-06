@@ -55,6 +55,10 @@ if(session1!=null){
 				<button type="submit" class="btn-link">Hola <%= session1.getUser().getName()%></button>
 				<input type="hidden" name="redirect" value="UserProfile" />
 			</form>
+			<form method="post" action="./Controller">
+				<button type="submit" class="btn-link">Cerrar sessión</button>
+				<input type="hidden" name="redirect" value="invalidateSession" />
+			</form>
 		<%} %>
 		</div>
 	</div>
