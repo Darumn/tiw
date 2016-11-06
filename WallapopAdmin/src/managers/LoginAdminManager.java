@@ -22,7 +22,6 @@ public class LoginAdminManager extends AdminManager {
 		UserManager manager = new UserManager();
 		try {
 			usuario = manager.findUser(usuario);
-			System.out.println("DEBUG");
 			if (usuario != null && usuario.getIsAdmin()) {
 				SessionManager session = new SessionManager(request, response);
 				session.setUser(usuario);

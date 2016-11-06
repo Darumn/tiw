@@ -26,12 +26,13 @@
 		%>
 		HOLA
 		<%=sessionUser.getUser().getName()%>
+		<form method="GET" action="./Controller">
+			<input type="hidden" name="redirect" value="CloseSession"> <input
+				style="display: inline-block" name="close session" type="submit"
+				value="Cerrar Sesion">
+		</form>
 		<%
 			}
-		%>
-
-		<%
-			
 		%>
 		<ul>
 			<form method="GET" action="./Controller">

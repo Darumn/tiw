@@ -11,6 +11,7 @@ import managers.Manager;
 import managers.IndexAdminManager;
 import managers.LoginAdminManager;
 import managers.AdminManager;
+import managers.CloseSession;
 import managers.DeleteUser;
 /*import managers.ProductCatalogManager;
 import managers.RegisterProductManager;
@@ -62,6 +63,9 @@ public class Controller extends HttpServlet {
 				manager.Execute();
 			} else if (action.equals("AdminLogin")) {
 				manager = new LoginAdminManager(request, response);
+				manager.Execute();
+			} else if (action.equals("CloseSession")) {
+				manager = new CloseSession(request, response);
 				manager.Execute();
 			}
 
