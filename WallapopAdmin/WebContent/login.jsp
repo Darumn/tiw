@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="model.User"%>
-<%@page import="managers.SessionManager"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="style/styleAdmin.css">
 <link rel="stylesheet" type="text/css"
 	href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-<title>WallapopAdmin</title>
+<title>Login</title>
 </head>
 <body>
 	<div class="header">
@@ -20,29 +18,18 @@
 		</div>
 	</div>
 	<div class="main">
-		<%
-			SessionManager sessionUser = (SessionManager) (request.getAttribute("sessionUser"));
-			if (sessionUser != null) {
-		%>
-		HOLA
-		<%=sessionUser.getUser().getName()%>
 		<form method="GET" action="./Controller">
-			<input type="hidden" name="redirect" value="CloseSession"> <input
-				style="display: inline-block" name="close session" type="submit"
-				value="Cerrar Sesion">
+			<input type="hidden" name="redirect" value="AdminLogin"> <br />Nombre:
+			<br> <input name="user" type="text" placeholder="Usuario...">
+			</p>
+			Contraseña:<br> <input name="password" type="password"
+				placeholder="Introduce la contraseña">
+			</p>
+			<input name="sesion" type="submit" value="Iniciar Sesion">
 		</form>
-		<%
-			}
-		%>
-		<ul>
-			<form method="GET" action="./Controller">
-				<input type="hidden" name="redirect" value="ShowUsers"> <input
-					type="submit" value="Usuarios">
-			</form>
-			<li><a href="ProductsList.jsp">Productos</a></li>
-		</ul>
 	</div>
 </body>
 <footer> <br>
 FOOTER </footer>
+</html>
 </html>
