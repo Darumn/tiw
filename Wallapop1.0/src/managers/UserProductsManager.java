@@ -29,7 +29,7 @@ public class UserProductsManager extends Manager {
 			
 			this.request.setAttribute("mensaje", "Productos del usuario " + user.getName() + " " + user.getSurname());
 			this.request.setAttribute("product list", products);
-			request.getRequestDispatcher("./index.jsp").include(request, response);
+			request.getRequestDispatcher("./Viewproductsseller.jsp").include(request, response);
 		}
 		catch (Exception e) {
 			// TODO: handle exception
