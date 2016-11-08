@@ -50,7 +50,7 @@ List<Product> lista = (List<Product>)o;
 				<div class="card-product">
 				
 					<div class="image-product">
-						<a href="HomeController<%="?id="+1%>"><img src="images/casco.jpg" class="img-responsive" alt="Casco"></a>
+						<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><img src="images/casco.jpg" class="img-responsive" alt="Casco"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">
@@ -62,12 +62,12 @@ List<Product> lista = (List<Product>)o;
 						</div>
 						<div class="product-owner">
 							<form method="get" action="./Controller">
-							<input type="hidden" name="redirect" value="SellerProfile" />
-							<input type="hidden" name="seller_id" value="<%= lista.get(i).getUser().getId()%>" />
-								<a><p class="owner-name"><%= lista.get(i).getUser().getName()%></p></a>
-								<div class="product-view-info-owner-chat">
+								<input type="hidden" name="redirect" value="SellerProfile" />
+								<input type="hidden" name="seller_id" value="<%= lista.get(i).getUser().getId()%>" />
+								<button type="submit" class="btn-link"><%= lista.get(i).getUser().getName() %></button>
+							</form>
+							<div class="product-view-info-owner-chat">
 								<button type="submit" class="btn-success">Contactar</button>
-								</form>
 							</div>
 						</div>
 					</div>
