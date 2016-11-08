@@ -36,7 +36,7 @@
 			<%= usuario.getCity() %>
 			<br>
 			
-			Foto de perfil:<br> <input name="image" type="file" accept="*/image" >
+			Foto de perfil:<br> <img src="<%= UserUpdateManager.getUrlImage(usuario)%>" /> 
 			<br>
 			<form method="get" action="./Controller">
 				<input type="hidden" name="redirect" value="ChatUser" />

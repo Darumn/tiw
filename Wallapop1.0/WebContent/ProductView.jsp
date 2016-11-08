@@ -16,7 +16,11 @@
 				<div class="product-view-info-name"><%= product.getName() %></div>
 				<div class="product-view-info-description"><%= product.getDescription() %></div>
 				<div class="product-view-info-owner-name">
-					<a href="Vendedor.jsp"><%= product.getUser().getName() %></a>
+				<form method="get" action="./Controller">
+					<input type="hidden" name="redirect" value="SellerProfile" />
+					<input type="hidden" name="seller_id" value="<%= product.getUser().getId() %>" />
+					<button type="submit" class="btn-link"><%= product.getUser().getName() %></button>
+				</form>
 				</div>
 				<div class="product-view-info-owner-chat">
 					<button class="btn-success">Contactar</button>
