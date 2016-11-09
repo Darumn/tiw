@@ -12,7 +12,7 @@ List<Product> lista = (List<Product>)o;
 %>
 
 <div class="main">
-	<div style="width: 20%; float: left;">
+	
 		<nav>
 			<h3>Regiones Populares</h3>
 			<ul>
@@ -20,8 +20,8 @@ List<Product> lista = (List<Product>)o;
 				<li><a href="Formulario.jsp">Provincia de Barcelona</a>
 				<li><a href="Formulario.jsp">Provincia de Madrid</a>
 				<li><a href="Formulario.jsp">Provincia de Málaga</a>
-				<li><a href="Formulario.jsp">Sevilla</a>
-				<li><a href="Formulario.jsp">Valencia</a>
+				<li><a href="Formulario.jsp">Provincia de Sevilla</a>
+				<li><a href="Formulario.jsp">Provincia de Valencia</a>
 			</ul>
 			</br>
 			<h3>Ciudades Populares</h3>
@@ -34,7 +34,7 @@ List<Product> lista = (List<Product>)o;
 				<li><a href="Formulario.jsp">Zaragoza</a>
 			</ul>
 		</nav>
-	</div>
+	
 	<div class="container-fluid" style="width: 80%; float: left;">
 		<h1 style="text-align: center;">BIENVENIDOS A WALLAPOP</h1>
 		<p style="text-align: center;">La web en la que podrás encontrar
