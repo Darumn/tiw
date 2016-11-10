@@ -138,6 +138,9 @@ public class Controller extends HttpServlet {
 			else if(action.equals("sendMessage")){
 				manager = new JMSManager(request, response);
 			}
+			else if(action.equals("insertproduct")){
+				manager = new InsertUserProductManager(request,response);
+			}
 		}
 		// Caso de index
 		else {

@@ -15,9 +15,16 @@
 			<br>
 
 			<a href="./Controller?redirect=UserProducts&id=<%=usuario.getId()%>">Ver productos</a>
+		
 			<br>
 
 		</form>
+		<form method="get" action="./Controller">
+				<input type="hidden" name="redirect" value="insertproduct" />
+				<p style="text-align:center"><input type="submit" value="Insertar Productos"></p>
+				
+			</form>
+		
 	</div>
 	<div id="section2">
 		<H3>Cambiar datos</H3>
