@@ -54,13 +54,15 @@ if(session1!=null){
 				REGISTRO</a>
 		<%} %>
 		<%if(user != null){ %>
-			<form method="post" action="./Controller">
-				<button type="submit" class="btn-link">Hola <%= session1.getUser().getName()%></button>
+			<form method="get" action="./Controller">
 				<input type="hidden" name="redirect" value="UserProfile" />
+				<button type="submit" class="btn-link">Hola <%= session1.getUser().getName()%></button>
+				
 			</form>
-			<form method="post" action="./Controller">
-				<button type="submit" class="btn-link">Cerrar sessión</button>
+			<form method="get" action="./Controller">
 				<input type="hidden" name="redirect" value="invalidateSession" />
+				<button type="submit" class="btn-link">Cerrar sessión</button>
+				
 			</form>
 		<%} %>
 		</div>

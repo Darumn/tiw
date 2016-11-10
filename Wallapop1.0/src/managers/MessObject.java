@@ -3,6 +3,10 @@ package managers;
 import java.io.Serializable;
 
 public class MessObject implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int senderId;
 	private int receiverId;
 	private String message;

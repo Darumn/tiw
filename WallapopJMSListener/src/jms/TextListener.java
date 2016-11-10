@@ -2,19 +2,28 @@ package jms;
 
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
+
+import managers.MessObject;
+
+import javax.jms.JMSException;
 import javax.jms.Message;
-//import javax.jms.TextMessage;
-import jms.MessObject;
 
 public class TextListener implements MessageListener {
 
 
     public void onMessage(Message message) {
-        MessObject msg = null;
+      //  MessObject msg = null;
 
-        try {
+      
             if (message instanceof ObjectMessage) {
-            	Object object = ((ObjectMessage) message).getObject();
+            	try {
+					System.out.println(((MessObject)((ObjectMessage)message).getObject()).getMessage());
+				} catch (JMSException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Soy una excepcion");
+					e.printStackTrace();
+				}
+            	//Object object = ((ObjectMessage) message).getObject();
             	//msg = (MessObject) object;
                 //System.out.println("Lectura Asíncrona-->: " + msg.getMessage());
                 //System.out.println(this.getClass().getName()
@@ -22,9 +31,7 @@ public class TextListener implements MessageListener {
             } else {
                 System.err.println("Message is not a TextMessage");
             }
-        } catch (Throwable t) {
-            System.err.println("Exception in onMessage():" + t.getMessage());
-        }
+       
     }
 }
 

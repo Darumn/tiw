@@ -55,9 +55,9 @@ public class JMSManager extends Manager{
 
 			Mpro = QSes.createProducer(cola);
 
-			MessObject obj = new MessObject(1, 2, "Esto es un texto de prueba");
-			ObjectMessage mess =  QSes.createObjectMessage();
-			mess.setObject(obj);
+			MessObject obj = new MessObject(1, 2, "Esto es un texto de prueba"+Math.random());
+			ObjectMessage mess =  QSes.createObjectMessage(obj);
+			//mess.setObject(obj);
 			//javax.jms.TextMessage men = QSes.createTextMessage();
 
 			//men.setText(mensaje);
