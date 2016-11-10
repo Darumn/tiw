@@ -12,7 +12,7 @@ List<Product> lista = (List<Product>)o;
 %>
 
 <div class="main">
-	<div style="width: 20%; float: left;">
+	
 		<nav>
 			<h3>Regiones Populares</h3>
 			<ul>
@@ -20,8 +20,8 @@ List<Product> lista = (List<Product>)o;
 				<li><a href="Formulario.jsp">Provincia de Barcelona</a>
 				<li><a href="Formulario.jsp">Provincia de Madrid</a>
 				<li><a href="Formulario.jsp">Provincia de Málaga</a>
-				<li><a href="Formulario.jsp">Sevilla</a>
-				<li><a href="Formulario.jsp">Valencia</a>
+				<li><a href="Formulario.jsp">Provincia de Sevilla</a>
+				<li><a href="Formulario.jsp">Provincia de Valencia</a>
 			</ul>
 			</br>
 			<h3>Ciudades Populares</h3>
@@ -34,7 +34,7 @@ List<Product> lista = (List<Product>)o;
 				<li><a href="Formulario.jsp">Zaragoza</a>
 			</ul>
 		</nav>
-	</div>
+	
 	<div class="container-fluid" style="width: 80%; float: left;">
 		<h1 style="text-align: center;">BIENVENIDOS A WALLAPOP</h1>
 		<p style="text-align: center;">La web en la que podrás encontrar
@@ -50,7 +50,7 @@ List<Product> lista = (List<Product>)o;
 				<div class="card-product">
 				
 					<div class="image-product">
-						<a href="HomeController<%="?id="+1%>"><img src="images/casco.jpg" class="img-responsive" alt="Casco"></a>
+						<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><img src="images/casco.jpg" class="img-responsive" alt="Casco"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">
@@ -61,9 +61,13 @@ List<Product> lista = (List<Product>)o;
 							<p class="product-category">Others...</p>
 						</div>
 						<div class="product-owner">
-							<a href="Vendedor.jsp"><p class="owner-name"><%= lista.get(i).getUser().getName()%></p></a>
+							<form method="get" action="./Controller">
+								<input type="hidden" name="redirect" value="SellerProfile" />
+								<input type="hidden" name="seller_id" value="<%= lista.get(i).getUser().getId()%>" />
+								<button type="submit" class="btn-link"><%= lista.get(i).getUser().getName() %></button>
+							</form>
 							<div class="product-view-info-owner-chat">
-								<button class="btn-success">Contactar</button>
+								<button type="submit" class="btn-success">Contactar</button>
 							</div>
 						</div>
 					</div>

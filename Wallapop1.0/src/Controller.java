@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import managers.*;
 
 /**
@@ -131,7 +130,13 @@ public class Controller extends HttpServlet {
 				request.getSession(true).invalidate();
 				manager = new IndexManager(request, response);
 			}else if(action.equals("searchProducts")){
-					manager = new SearchManager(request, response);
+				manager = new SearchManager(request, response);
+			}
+			else if(action.equals("SellerProfile")){
+				manager = new SellerProfileManager(request, response);
+			}
+			else if(action.equals("sendMessage")){
+				manager = new JMSManager(request, response);
 			}
 		}
 		// Caso de index

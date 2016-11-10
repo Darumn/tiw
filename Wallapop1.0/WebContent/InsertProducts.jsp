@@ -1,4 +1,4 @@
-
+<div class="main">
 <div id="update-productos">
 	<H3>PRODUCTO</H3>
 	<form method="GET" action="./Controller">
@@ -24,4 +24,5 @@
 		</p>
 		<input type="submit" value="Incluir producto">
 	</form>
+</div>
 </div>

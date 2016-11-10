@@ -11,16 +11,13 @@ import javax.persistence.Query;
 
 import model.*;
 
-@NamedQueries({
-	@NamedQuery(name = "Product.findAll", query = "SELECT c FROM Product c "),
-	@NamedQuery(name = "Product.findById", query = "SELECT c FROM Product c WHERE c.id = :varID "),
-	})
+@NamedQueries({ @NamedQuery(name = "Product.findAll", query = "SELECT c FROM Product c "),
+		@NamedQuery(name = "Product.findById", query = "SELECT c FROM Product c WHERE c.id = :varID "), })
 
 public class ProductManager {
-	
+
 	private EntityManagerFactory emf;
 	public EntityManager em;
-	
 
 	public ProductManager() {
 		// TODO Auto-generated constructor stub
@@ -31,7 +28,6 @@ public class ProductManager {
 	public ProductManager(EntityManagerFactory emf) {
 		this.emf = emf;
 	}
-	
 
 	public void createProduct(Product product) throws Exception {
 		try {
@@ -97,56 +93,58 @@ public class ProductManager {
 	}
 
 	public List<Product> findAllProducts() {
-		List<Product> ret=null;
+		List<Product> ret = null;
 		try {
-			Query query = em.createNamedQuery("Product.findAll",Product.class);
+			Query query = em.createNamedQuery("Product.findAll", Product.class);
 			ret = query.getResultList();
-			
+
 		} finally {
 			em.close();
 		}
 		return ret;
 
 	}
+
 	public Product findProductById(int product) throws Exception {
-		Product ret=null;
-		
-		try{
-			//Query query = em.createNamedQuery("Product.findById",Product.class);
-			Query query = em.createQuery("SELECT c FROM Product c WHERE c.id = :varID ",Product.class);
+		Product ret = null;
+
+		try {
+			// Query query =
+			// em.createNamedQuery("Product.findById",Product.class);
+			Query query = em.createQuery("SELECT c FROM Product c WHERE c.id = :varID ", Product.class);
 			query.setParameter("varID", product);
 			List<Product> list = query.getResultList();
-			
-			if(list!=null && list.size()>0){
+
+			if (list != null && list.size() > 0) {
 				ret = list.get(0);
 			}
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}
-		finally {
+		} finally {
 			em.close();
 		}
 		return ret;
 	}
-	public List<Product> findProductByCategory(String category) throws Exception{
-		List<Product> ret=null;
-		
-		try{
-			//Query query = em.createNamedQuery("Product.findById",Product.class);
-			Query query = em.createQuery("SELECT c FROM Product c WHERE c.category IN (SELECT a FROM Category a WHERE a.name = :varCategory)",Product.class);
+
+	public List<Product> findProductByCategory(String category) throws Exception {
+		List<Product> ret = null;
+
+		try {
+			// Query query =
+			// em.createNamedQuery("Product.findById",Product.class);
+			Query query = em.createQuery(
+					"SELECT c FROM Product c WHERE c.category IN (SELECT a FROM Category a WHERE a.name = :varCategory)",
+					Product.class);
 			query.setParameter("varCategory", category);
 			List<Product> list = query.getResultList();
-			if(list!=null && list.size()>0){
+			if (list != null && list.size() > 0) {
 				ret = list;
-			}else{
+			} else {
 				System.out.println("Lista vacia");
 			}
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}
-		finally {
+		} finally {
 			em.close();
 		}
 		return ret;

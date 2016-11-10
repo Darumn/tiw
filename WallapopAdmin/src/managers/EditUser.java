@@ -3,8 +3,8 @@ package managers;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import logic.UserManager;
-import model.User;
+import logic.*;
+import model.*;
 
 public class EditUser extends AdminManager {
 

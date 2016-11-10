@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="model.User"%>
+<%@page import="managers.SessionManager"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,12 +20,29 @@
 		</div>
 	</div>
 	<div class="main">
+		<%
+			SessionManager sessionUser = (SessionManager) (request.getAttribute("sessionUser"));
+			if (sessionUser != null) {
+		%>
+		HOLA
+		<%=sessionUser.getUser().getName()%>
+		<form method="GET" action="./Controller">
+			<input type="hidden" name="redirect" value="CloseSession"> <input
+				style="display: inline-block" name="close session" type="submit"
+				value="Cerrar Sesion">
+		</form>
+		<%
+			}
+		%>
 		<ul>
 			<form method="GET" action="./Controller">
 				<input type="hidden" name="redirect" value="ShowUsers"> <input
 					type="submit" value="Usuarios">
 			</form>
-			<li><a href="ProductsList.jsp">Productos</a></li>
+			<form method="GET" action="./Controller">
+				<input type="hidden" name="redirect" value="ShowProducts"> <input
+					type="submit" value="Productos">
+			</form>
 		</ul>
 	</div>
 </body>

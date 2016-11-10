@@ -7,18 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import managers.Manager;
-import managers.IndexAdminManager;
-import managers.LoginAdminManager;
-import managers.AdminManager;
-import managers.DeleteUser;
-/*import managers.ProductCatalogManager;
-import managers.RegisterProductManager;
-import managers.RegisterUserManager;
-import managers.UserProfileManager;*/
-import managers.ShowUsers;
-import managers.SelectEditUser;
-import managers.EditUser;
+import managers.*;
 
 /**
  * Servlet implementation class Controller
@@ -60,9 +49,25 @@ public class Controller extends HttpServlet {
 			} else if (action.equals("DeleteUser")) {
 				manager = new DeleteUser(request, response);
 				manager.Execute();
-			}
-
-			else {
+			} else if (action.equals("AdminLogin")) {
+				manager = new LoginAdminManager(request, response);
+				manager.Execute();
+			} else if (action.equals("CloseSession")) {
+				manager = new CloseSession(request, response);
+				manager.Execute();
+			} else if (action.equals("ShowProducts")) {
+				manager = new ShowProducts(request, response);
+				manager.Execute();
+			} else if (action.equals("SelectEditProduct")) {
+				manager = new SelectEditProduct(request, response);
+				manager.Execute();
+			} else if (action.equals("EditProduct")) {
+				manager = new EditProduct(request, response);
+				manager.Execute();
+			} else if (action.equals("DeleteProduct")) {
+				manager = new DeleteProduct(request, response);
+				manager.Execute();
+			} else {
 				request.getRequestDispatcher("./failure.jsp").forward(request, response);
 			}
 
