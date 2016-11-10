@@ -4,7 +4,7 @@
 		<H3>INICIA SESIÓN</H3>
 		<form method="post" action="./Controller">
 		<input type="hidden" name="redirect" value="Login">
-			Usuario: <br> <input type="text" name="user" placeholder="Usuario...">
+			E-mail Usuario: <br> <input type="text" name="user" placeholder="Email usuario...">
 			<br>
 			Contraseña:<br> <input type="password" name="password"
 				placeholder="Introduce la contraseña">
@@ -21,15 +21,12 @@
 			Nombre: <br> <input name="name" type="text"
 				placeholder="Usuario..." required>
 			<br>
-			Primer Apellido: <br> <input name="surname" type="text"
-				placeholder="Usuario..." required>
+			Apellidos: <br> <input name="surname" type="text"
+				placeholder="Apellidos..." required>
 			<br>
 			<h4>Datos de identificación</h4>
 			E-mail:<br> <input name="email" type="text"
-				placeholder="Usuario..." required>
-			<br>
-			Confirmar e-mail:<br> <input name="email2" type="text"
-				placeholder="Repite tu nombre de usuario...">
+				placeholder="Email Usuario..." required>
 			<br>
 			Contraseña:<br> <input name="pass" type="password"
 				placeholder="Introduce la contraseña" required>
@@ -42,7 +39,7 @@
 			<br>
 			<br>
 			
-			<input type="checkbox"> Soy mayor de edad y he leido y acepto
+			<input type="checkbox" required> Soy mayor de edad y he leido y acepto
 			los términos y condiciones de la política de seguridad y
 			confidencialidad de Wallapop
 			<br>

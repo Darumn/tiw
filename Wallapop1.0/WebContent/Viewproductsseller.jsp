@@ -4,7 +4,7 @@
 <%
 //IndexManager manager = new IndexManager();
 //List<Product> lista = manager.Execute();
-Object o=request.getAttribute("product list");
+Object o=request.getAttribute("product_list_advanced");
 List<Product> lista = (List<Product>)o;
 %>
 <div class="main">
@@ -19,15 +19,15 @@ List<Product> lista = (List<Product>)o;
 					</div>
 					<div class="product-info">
 						<div class="info-container">
-							<p >id: <%= lista.get(i).getId() %></p>
+							
 						 
 							<p> Name: <%= lista.get(i).getName() %></p>
 							
 							<p >Description: <%= lista.get(i).getDescription() %></p>
-							<p >Price: <%= lista.get(i).getPrice() %></p>
-							<p >Status: <%= lista.get(i).getStatus() %></p>
+							
+							
 							<p >Category: <%= lista.get(i).getCategory() %></p>
-							<p >User_id: <%= lista.get(i).getUser() %></p>
+							
 							
 						</div>
 						

@@ -12,7 +12,9 @@ import javax.persistence.Query;
 import model.*;
 
 @NamedQueries({ @NamedQuery(name = "Product.findAll", query = "SELECT c FROM Product c "),
-		@NamedQuery(name = "Product.findById", query = "SELECT c FROM Product c WHERE c.id = :varID "), })
+		@NamedQuery(name = "Product.findById", query = "SELECT c FROM Product c WHERE c.id = :varID "), 
+@NamedQuery(name = "Product.findAdvanced", query = "SELECT User.name,User.city,Product.name,Product.description,Category.name FROM User u,Product p,Category c"
+		+ " WHERE u.id=p.user_id AND p.category_id=c.id"), })
 
 public class ProductManager {
 
@@ -105,6 +107,21 @@ public class ProductManager {
 
 	}
 
+	public List<Product> findAdvanced(String namep) {
+		List<Product> ret = null;
+		Product prod=null;
+		
+		try {
+			Query query = em.createNamedQuery("SELECT c FROM Product c WHERE c.name = :varName  ", Product.class);
+			query.setParameter("varID", prod);
+			List<Product> list = query.getResultList();
+
+		} finally {
+			em.close();
+		}
+		return ret;
+
+	}
 	public Product findProductById(int product) throws Exception {
 		Product ret = null;
 

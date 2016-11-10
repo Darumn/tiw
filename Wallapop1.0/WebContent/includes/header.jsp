@@ -16,28 +16,7 @@
 				id="img_logo">
 			</a>
 		</div>
-		<div class="explorer">
-			<select>
-				<option>Tecnología e Informática</option>
-				<option>Coches y Motos</option>
-				<option>Deporte y Ocio</option>
-				<option>Muebles, Deco y Jardín</option>
-				<option>Consolas y Videojuegos</option>
-				<option>Libros, Películas y Música</option>
-				<option>Moda y Accesorios</option>
-				<option>Juguetes, Niños y Bebés</option>
-				<option>Inmobiliaria</option>
-				<option>Electrodomésticos</option>
-				<option>Servicios</option>
-				<option>Otros</option>
-			</select> 
-			<form method="get" action="./Controller">
-			<input type="hidden" name="redirect" value="searchProducts">
-				<input type="text" placeholder="Buscar producto..."
-					name="search_input" class="explorer_input" />
-				<button type="submit" class="btn-default" >Buscar</button> 
-			</form>
-		</div>
+	
 <%@page import="managers.SessionManager" %>
 <%@page import="managers.Manager" %>
 <%@page import="model.User" %>
@@ -48,6 +27,18 @@ if(session1!=null){
 	user = session1.getUser();
 }
 %>
+		<%if(user != null){ %>
+		<div class="explorer">	
+		
+			<form method="get" action="./Controller">
+			<input type="hidden" name="redirect" value="searchProducts">
+				<input type="text" placeholder="Buscar producto..."
+					name="search_input" class="explorer_input" />
+				<button type="submit" class="btn-default" >Buscar</button> 
+			</form>
+			
+		</div>
+		<%}%>
 		<div class="account">
 		<%if(user == null){ %>
 			<a href="./Controller?redirect=Formulario" class="account_link">INICIAR SESIÓN |
