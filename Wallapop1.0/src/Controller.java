@@ -133,7 +133,7 @@ public class Controller extends HttpServlet {
 			}else if(action.equals("searchProducts")){
 					manager = new SearchManager(request, response);
 			}
-			}
+		}
 		// Caso de index
 		else {
 			manager = new IndexManager(request, response);
