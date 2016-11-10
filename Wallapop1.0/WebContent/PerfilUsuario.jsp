@@ -11,7 +11,6 @@
 			<br>
 			Email Usuario:<%= usuario.getEmail() %>
 			<br>
-			Id_usuario: <%= usuario.getId() %>
 			<img alt="foto perfil" src="" id="img_logo">
 			<br>
 
