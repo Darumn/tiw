@@ -7,6 +7,8 @@ import managers.MessObject;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
+import logic.MessageManager;
+
 
 public class TextListener implements MessageListener {
 
@@ -17,6 +19,9 @@ public class TextListener implements MessageListener {
       
             if (message instanceof ObjectMessage) {
             	try {
+            		MessObject msg = (MessObject)((ObjectMessage)message).getObject();
+            		model.Message mensaje = new model.Message();
+            		
 					System.out.println(((MessObject)((ObjectMessage)message).getObject()).getMessage());
 				} catch (JMSException e) {
 					// TODO Auto-generated catch block

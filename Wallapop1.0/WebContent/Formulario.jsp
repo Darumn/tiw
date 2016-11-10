@@ -19,26 +19,26 @@
 		<input type="hidden" name="redirect" value="RegisterUserManager">
 		<h4>Datos personales</h4>
 			Nombre: <br> <input name="name" type="text"
-				placeholder="Usuario...">
+				placeholder="Usuario..." required>
 			<br>
 			Primer Apellido: <br> <input name="surname" type="text"
-				placeholder="Usuario...">
+				placeholder="Usuario..." required>
 			<br>
 			<h4>Datos de identificación</h4>
 			E-mail:<br> <input name="email" type="text"
-				placeholder="Usuario...">
+				placeholder="Usuario..." required>
 			<br>
 			Confirmar e-mail:<br> <input name="email2" type="text"
 				placeholder="Repite tu nombre de usuario...">
 			<br>
 			Contraseña:<br> <input name="pass" type="password"
-				placeholder="Introduce la contraseña">
+				placeholder="Introduce la contraseña" required>
 			<br>
 			Confirmar Contraseña:<br> <input name="pass2" type="password"
 				placeholder="Repite la contraseña">
 			<br>
 			Ciudad:<br> <input name="city" type="text"
-				placeholder="Introduce tu ciudad">
+				placeholder="Introduce tu ciudad" required>
 			<br>
 			<br>
 			

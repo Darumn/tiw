@@ -7,11 +7,11 @@ import javax.servlet.http.HttpSession;
 import logic.UserManager;
 import model.User;
 
-public class SessionManager extends AdminManager {
+public class SessionAdminManager extends AdminManager {
 
 	private final String CONS_USERID = "userID";
 
-	public SessionManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
+	public SessionAdminManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
 		// TODO Auto-generated constructor stu
 	}

@@ -23,7 +23,7 @@ public class LoginAdminManager extends AdminManager {
 		try {
 			usuario = manager.findUser(usuario);
 			if (usuario != null && usuario.getIsAdmin()) {
-				SessionManager session = new SessionManager(request, response);
+				SessionAdminManager session = new SessionAdminManager(request, response);
 				session.setUser(usuario);
 				request.setAttribute("sessionUser", session);
 				request.getRequestDispatcher("./index.jsp").include(request, response);
