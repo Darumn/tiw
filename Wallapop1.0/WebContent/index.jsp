@@ -54,7 +54,7 @@ if(session1!=null){
 								<input type="hidden" name="seller_id" value="<%= lista.get(i).getUser().getId()%>" />
 								<button type="submit" class="btn-link"><%= lista.get(i).getUser().getName() %></button>
 							</form>
-							<div class="product-view-info-owner-chat">
+							<div class="product-view-info-owner-chat" >
 								<button type="submit" class="btn-success">Contactar</button>
 							</div>
 						</div>
@@ -130,7 +130,14 @@ if(session1!=null){
 								<button type="submit" class="btn-link"><%= lista.get(i).getUser().getName() %></button>
 							</form>
 							<div class="product-view-info-owner-chat">
-								<button type="submit" class="btn-success">Contactar</button>
+								
+								<form method="post" action="./Controller">
+									<input type="hidden" name="redirect" value="sendMessage">
+									<input type="hidden" name="sender_id" value="<%= lista.get(i).getUser().getId()%>"/>
+									<input type="text" name="message" placeholder="Contacta con este usuario"/>
+									<button type="submit" class="btn-success">Contactar</button>
+								</form>
+								
 							</div>
 						</div>
 					</div>
