@@ -28,6 +28,10 @@
 	</div>
 	<div id="section2">
 		<H3>Cambiar datos</H3>
+		<form method="get" action="./Controller">
+		<input type="hidden" name="redirect" value="chatRoom">
+		<button type="submit">Mis chats</button>
+	</form>
 		<form method="post" action="./Controller" enctype="multipart/form-data">
 			<input type="hidden" name="redirect" value="modificarUsuario">
 			<input type="hidden" name="id" value="<%=usuario.getId()%>">

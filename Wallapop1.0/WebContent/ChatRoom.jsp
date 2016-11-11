@@ -1,27 +1,19 @@
 <div class="main">
 	<p style="text-align:center;">MENSAJES</p>
 	<div class="contacts-container">
+	<%@page import="model.*" %>
+	<%@page import="java.util.Iterator"%>
+	<%@page import="java.util.List"%>
+	<%@page import="managers.ContactList"%>
+	<%
+	List<ContactList> lista = (List<ContactList>) request.getAttribute("contact_list");
+	for(int i=0; i<lista.size(); i++){%>
 		<div class="contact-container">
-			ANA FERNÁNDEZ
+			<%=lista.get(i).usuario.getName() %>
 		</div>
-		<div class="contact-container">
-			ANA FERNÁNDEZ
-		</div>
-		<div class="contact-container">
-			ANA FERNÁNDEZ
-		</div>
-		<div class="contact-container">
-			ANA FERNÁNDEZ
-		</div>
-		<div class="contact-container">
-			ANA FERNÁNDEZ
-		</div>
-		<div class="contact-container">
-			ANA FERNÁNDEZ
-		</div>
-		<div class="contact-container">
-			ANA FERNÁNDEZ
-		</div>
+	<%} %>
+	
+		
 	</div>
 	<div class="messages-container">
 		<div class="messages">

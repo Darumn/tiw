@@ -17,6 +17,8 @@ import javax.jms.TextMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.User;
+
 public class JMSManager extends Manager{
 
 	public JMSManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
@@ -55,7 +57,9 @@ public class JMSManager extends Manager{
 
 			Mpro = QSes.createProducer(cola);
 
-			MessObject obj = new MessObject(1, 2, "Esto es un texto de prueba"+Math.random());
+			//MessObject obj = new MessObject(1, 2, "Esto es un texto de prueba"+Math.random());
+			User user = session.getUser();
+			MessObject obj = new MessObject(user.getId(), Integer.parseInt(request.getParameter("receiver_id")), request.getParameter("message"));
 			ObjectMessage mess =  QSes.createObjectMessage(obj);
 			//mess.setObject(obj);
 			//javax.jms.TextMessage men = QSes.createTextMessage();
@@ -71,7 +75,7 @@ public class JMSManager extends Manager{
 			
 		}catch (Exception e){
 			System.out.println("En el envio de mensaje");
-			System.out.println(e.getMessage());
+			System.out.println(e.getStackTrace());
 		}
 		 
 

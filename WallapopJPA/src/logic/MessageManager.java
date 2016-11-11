@@ -9,7 +9,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import model.Message;;
+import model.Message;
+import model.Product;;
 
 public class MessageManager {
 	private EntityManagerFactory emf;
@@ -43,5 +44,19 @@ public class MessageManager {
 		} finally {
 			em.close();
 		}
+	}
+	
+	public List<Message> findAllMessages(int id){
+		List<Message> ret = null;
+		
+		try {
+			Query query = em.createNamedQuery("SELECT c FROM Message c WHERE c.user1.id = :varID OR c.user2.id = :varID  ", Message.class);
+			query.setParameter("varID", id);
+			List<Message> list = query.getResultList();
+
+		} finally {
+			em.close();
+		}
+		return ret;
 	}
 }

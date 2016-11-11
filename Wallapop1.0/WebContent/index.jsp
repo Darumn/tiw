@@ -133,7 +133,7 @@ if(session1!=null){
 								
 								<form method="post" action="./Controller">
 									<input type="hidden" name="redirect" value="sendMessage">
-									<input type="hidden" name="sender_id" value="<%= lista.get(i).getUser().getId()%>"/>
+									<input type="hidden" name="receiver_id" value="<%= lista.get(i).getUser().getId()%>"/>
 									<input type="text" name="message" placeholder="Contacta con este usuario"/>
 									<button type="submit" class="btn-success">Contactar</button>
 								</form>
