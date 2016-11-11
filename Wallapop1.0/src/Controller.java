@@ -147,6 +147,12 @@ public class Controller extends HttpServlet {
 			else if(action.equals("chatRoom")){
 				manager = new ChatRoomManager(request,response);
 			}
+			else if(action.equals("updateProduct")){
+				manager= new UpdateProductManager(request,response);
+			}
+			else if(action.equals("DeleteProduct")){
+				manager= new DeleteProductManager(request,response);
+			}
 		}
 		// Caso de index
 		else {

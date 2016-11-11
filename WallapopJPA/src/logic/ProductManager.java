@@ -12,9 +12,9 @@ import javax.persistence.Query;
 import model.*;
 
 @NamedQueries({ @NamedQuery(name = "Product.findAll", query = "SELECT c FROM Product c "),
-		@NamedQuery(name = "Product.findById", query = "SELECT c FROM Product c WHERE c.id = :varID "), 
-@NamedQuery(name = "Product.findAdvanced", query = "SELECT User.name,User.city,Product.name,Product.description,Category.name FROM User u,Product p,Category c"
-		+ " WHERE u.id=p.user_id AND p.category_id=c.id"), })
+		@NamedQuery(name = "Product.findById", query = "SELECT c FROM Product c WHERE c.id = :varID "),
+		@NamedQuery(name = "Product.findAdvanced", query = "SELECT User.name,User.city,Product.name,Product.description,Category.name FROM User u,Product p,Category c"
+				+ " WHERE u.id=p.user_id AND p.category_id=c.id"), })
 
 public class ProductManager {
 
@@ -109,8 +109,8 @@ public class ProductManager {
 
 	public List<Product> findAdvanced(String namep) {
 		List<Product> ret = null;
-		Product prod=null;
-		
+		Product prod = null;
+
 		try {
 			Query query = em.createNamedQuery("SELECT c FROM Product c WHERE c.name = :varName  ", Product.class);
 			query.setParameter("varID", prod);
@@ -122,6 +122,7 @@ public class ProductManager {
 		return ret;
 
 	}
+
 	public Product findProductById(int product) throws Exception {
 		Product ret = null;
 
@@ -143,16 +144,14 @@ public class ProductManager {
 		return ret;
 	}
 
-	public List<Product> findProductByCategory(String category) throws Exception {
+	public List<Product> findProductByCategory(String categoryId) throws Exception {
 		List<Product> ret = null;
 
 		try {
 			// Query query =
 			// em.createNamedQuery("Product.findById",Product.class);
-			Query query = em.createQuery(
-					"SELECT c FROM Product c WHERE c.category IN (SELECT a FROM Category a WHERE a.name = :varCategory)",
-					Product.class);
-			query.setParameter("varCategory", category);
+			Query query = em.createQuery("SELECT c FROM Product c WHERE c.category.id = :varID", Product.class);
+			query.setParameter("varID", categoryId);
 			List<Product> list = query.getResultList();
 			if (list != null && list.size() > 0) {
 				ret = list;

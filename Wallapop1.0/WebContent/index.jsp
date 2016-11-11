@@ -19,6 +19,7 @@ User user = null;
 if(session1!=null){
 	user = session1.getUser();
 }
+
 %>
 <div class="main">
 	<%if(user == null){ %>
@@ -54,9 +55,6 @@ if(session1!=null){
 								<input type="hidden" name="seller_id" value="<%= lista.get(i).getUser().getId()%>" />
 								<button type="submit" class="btn-link"><%= lista.get(i).getUser().getName() %></button>
 							</form>
-							<div class="product-view-info-owner-chat" >
-								<button type="submit" class="btn-success">Contactar</button>
-							</div>
 						</div>
 					</div>
 				
@@ -129,14 +127,33 @@ if(session1!=null){
 								<input type="hidden" name="seller_id" value="<%= lista.get(i).getUser().getId()%>" />
 								<button type="submit" class="btn-link"><%= lista.get(i).getUser().getName() %></button>
 							</form>
+							
 							<div class="product-view-info-owner-chat">
+								<% if(lista.get(i).getUser().getId()!=user.getId()){ %>
+									<form method="post" action="./Controller">
+										<input type="hidden" name="redirect" value="sendMessage">
+										<input type="hidden" name="sender_id" value="<%= lista.get(i).getUser().getId()%>"/>
+										<input type="text" name="message" placeholder="Contacta con este usuario"/>
+										<div class="product-view-info-owner-chat">
+											<button type="submit" class="btn-success">Contactar</button>
+										</div>
+									</form>
+								<%}else{ %>
+									<div class="product-view-info-owner-chat">
+										<button type="submit" class="btn-success">Modificar</button>
+										<a class="btn btn-default" href="./Controller?redirect=DeleteProduct&id=<%=lista.get(i).getId()%>">Eliminar</a>
+									</div>
+								<%}%>
 								
+<<<<<<< HEAD
 								<form method="post" action="./Controller">
 									<input type="hidden" name="redirect" value="sendMessage">
 									<input type="hidden" name="receiver_id" value="<%= lista.get(i).getUser().getId()%>"/>
 									<input type="text" name="message" placeholder="Contacta con este usuario"/>
 									<button type="submit" class="btn-success">Contactar</button>
 								</form>
+=======
+>>>>>>> branch 'master' of https://github.com/Darumn/tiw
 								
 							</div>
 						</div>

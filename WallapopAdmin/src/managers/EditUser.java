@@ -51,6 +51,12 @@ public class EditUser extends AdminManager {
 		}
 
 		try {
+			SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
+
+			if (sessionUser.getUser() != null) {
+				request.setAttribute("sessionUser", sessionUser);
+			}
+
 			if (manager.updatePersona(newUser).equals("")) {
 				request.getRequestDispatcher("./index.jsp").forward(request, response);
 			}

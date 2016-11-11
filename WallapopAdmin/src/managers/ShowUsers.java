@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.*;
 import logic.*;
@@ -25,6 +26,11 @@ public class ShowUsers extends AdminManager {
 		List<User> usersList;
 		try {
 			usersList = users.showUsers();
+			SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
+
+			if (sessionUser.getUser() != null) {
+				request.setAttribute("sessionUser", sessionUser);
+			}
 			request.setAttribute("users list", usersList);
 			request.getRequestDispatcher("./UsersList.jsp").forward(request, response);
 		} catch (Exception e) {

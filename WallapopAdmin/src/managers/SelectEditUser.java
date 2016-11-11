@@ -21,6 +21,11 @@ public class SelectEditUser extends AdminManager {
 
 		try {
 			userOld = manager.findUserById(idUser);
+			SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
+
+			if (sessionUser.getUser() != null) {
+				request.setAttribute("sessionUser", sessionUser);
+			}
 			request.setAttribute("old user", userOld);
 			request.getRequestDispatcher("./SelectEditUser.jsp").forward(request, response);
 		} catch (Exception e) {
