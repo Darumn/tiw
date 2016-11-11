@@ -123,6 +123,9 @@ public class Controller extends HttpServlet {
 				manager = new UserUpdateManager(request, response);
 				manager.Execute();
 				manager = new UserProfileManager(request, response);
+			}else if(action.equals("eliminarUsuario")){
+				manager = new DeleteUserManager(request,response);
+				
 			}else if (action.equals("UserProducts")) {
 				manager = new UserProductsManager(request, response);
 				
