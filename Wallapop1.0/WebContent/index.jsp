@@ -55,9 +55,15 @@ if(session1!=null){
 								<input type="hidden" name="seller_id" value="<%= lista.get(i).getUser().getId()%>" />
 								<button type="submit" class="btn-link"><%= lista.get(i).getUser().getName() %></button>
 							</form>
+							<% if(lista.get(i).getUser().getId()!=user.getId()){ %>
 							<div class="product-view-info-owner-chat">
 								<button type="submit" class="btn-success">Contactar</button>
 							</div>
+							<%}else{ %>
+							<div class="product-view-info-owner-chat">
+								<button type="submit" class="btn-success">Contactar</button>
+							</div>
+							<%} %>
 						</div>
 					</div>
 				
