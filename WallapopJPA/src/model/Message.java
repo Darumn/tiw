@@ -22,7 +22,6 @@ public class Message implements Serializable {
 	@Lob
 	private String message;
 
-	private String messagecol;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -61,13 +60,6 @@ public class Message implements Serializable {
 		this.message = message;
 	}
 
-	public String getMessagecol() {
-		return this.messagecol;
-	}
-
-	public void setMessagecol(String messagecol) {
-		this.messagecol = messagecol;
-	}
 
 	public User getUser1() {
 		return this.user1;

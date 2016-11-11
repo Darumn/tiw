@@ -38,7 +38,6 @@ public class TextListener implements MessageListener {
             		mensaje.setMessage(msg.getMessage());
             		mensaje.setUser1(new UserManager().findUserById(msg.getSenderId()));
             		mensaje.setUser2(new UserManager().findUserById(msg.getReceiverId()));
-            		mensaje.setMessagecol("no se que va a aqui");
             		MessageManager manager = new MessageManager();
             		manager.createMessage(mensaje);
             	
