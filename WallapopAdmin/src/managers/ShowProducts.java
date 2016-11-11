@@ -20,6 +20,12 @@ public class ShowProducts extends AdminManager {
 		List<Product> productsList;
 		try {
 			productsList = products.findAllProducts();
+			SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
+
+			if (sessionUser.getUser() != null) {
+				request.setAttribute("sessionUser", sessionUser);
+			}
+
 			request.setAttribute("products list", productsList);
 			request.getRequestDispatcher("./ProductsList.jsp").forward(request, response);
 		} catch (Exception e) {

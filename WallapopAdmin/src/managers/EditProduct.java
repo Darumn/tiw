@@ -76,7 +76,7 @@ public class EditProduct extends AdminManager {
 				newProduct.setUser(userProduct);
 			}
 
-			List<Product> categoryList = manager.findProductByCategory(finalCategory.getName());
+			List<Product> categoryList = manager.findProductByCategory(String.valueOf(finalCategory.getId()));
 			if (!categoryList.contains(newProduct)) {
 				categoryList.add(newProduct);
 			}
@@ -84,6 +84,12 @@ public class EditProduct extends AdminManager {
 			newProduct.setCategory(finalCategory);
 
 			try {
+				SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
+
+				if (sessionUser.getUser() != null) {
+					request.setAttribute("sessionUser", sessionUser);
+				}
+
 				if (manager.updateProduct(newProduct).equals("")) {
 					request.getRequestDispatcher("./index.jsp").forward(request, response);
 				}
