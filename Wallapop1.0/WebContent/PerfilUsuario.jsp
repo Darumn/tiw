@@ -11,11 +11,11 @@
 			<br>
 			Email Usuario:<%= usuario.getEmail() %>
 			<br>
+			
 			<img alt="foto perfil" src="" id="img_logo">
 			<br>
 
 			<a href="./Controller?redirect=UserProducts&id=<%=usuario.getId()%>">Ver productos</a>
-		
 			<br>
 
 		</form>
@@ -24,7 +24,7 @@
 				<p style="text-align:center"><input type="submit" value="Insertar Productos"></p>
 				
 			</form>
-		
+		<a class="btn btn-default" href="./Controller?redirect=eliminarUsuario&id=<%=usuario.getId()%>">EliminarUsuario</a>
 	</div>
 	<div id="section2">
 		<H3>Cambiar datos</H3>

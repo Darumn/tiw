@@ -1,4 +1,3 @@
-<%@include file="includes/header.jsp"%>
 <div id="update-productos">
 	<H3>PRODUCTO</H3>
 	<form method="POST" action="#">
@@ -36,4 +35,3 @@
 		<input type="submit" value="Modificar">
 	</form>
 </div>
-<%@include file="includes/footer.jsp"%>

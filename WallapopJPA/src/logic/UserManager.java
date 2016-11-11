@@ -45,8 +45,7 @@ public class UserManager {
 			em.close();
 		}
 	}
-
-	public String deletePersona(User user) throws Exception {
+	public String deleteUser(User user) throws Exception {
 		try {
 			em.getTransaction().begin();
 			user = em.merge(user);
