@@ -227,9 +227,11 @@ nav {
 	height: 40px;
 	border-style: solid;
 	border-width: thin;
+	cursor: pointer;
 }
 .messages{
-	height: 400px;
+	max-height: 400px;
+	overflow: scroll;
 }
 .receiver-side{
 	width: 40%;
@@ -240,7 +242,7 @@ nav {
 	float: left;
 	padding-left: 20px;
 }
-..btn-link{
+.btn-link{
   border:none;
   outline:none;
   background:none;
@@ -250,4 +252,10 @@ nav {
   text-decoration:underline;
   font-family:inherit;
   font-size:inherit;
+}
+.messages-container{
+	display:none;
+}
+.selected{
+	background-color: green;
 }

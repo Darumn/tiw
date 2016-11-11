@@ -50,9 +50,9 @@ public class MessageManager {
 		List<Message> ret = null;
 		
 		try {
-			Query query = em.createNamedQuery("SELECT c FROM Message c WHERE c.user1.id = :varID OR c.user2.id = :varID  ", Message.class);
+			Query query = em.createQuery("SELECT c FROM Message c WHERE c.user1.id = :varID OR c.user2.id = :varID  ", Message.class);
 			query.setParameter("varID", id);
-			List<Message> list = query.getResultList();
+			ret = query.getResultList();
 
 		} finally {
 			em.close();
