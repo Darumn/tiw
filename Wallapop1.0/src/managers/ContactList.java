@@ -1,5 +1,6 @@
 package managers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.Message;
@@ -10,6 +11,7 @@ public class ContactList {
 	public List<Message> mensajes;
 	public ContactList() {
 		super();
+		mensajes = new ArrayList<Message>();
 	}
 	
 }
