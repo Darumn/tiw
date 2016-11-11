@@ -19,6 +19,7 @@ User user = null;
 if(session1!=null){
 	user = session1.getUser();
 }
+
 %>
 <div class="main">
 	<%if(user == null){ %>
@@ -129,6 +130,7 @@ if(session1!=null){
 								<input type="hidden" name="seller_id" value="<%= lista.get(i).getUser().getId()%>" />
 								<button type="submit" class="btn-link"><%= lista.get(i).getUser().getName() %></button>
 							</form>
+							
 							<div class="product-view-info-owner-chat">
 								<button type="submit" class="btn-success">Contactar</button>
 							</div>
