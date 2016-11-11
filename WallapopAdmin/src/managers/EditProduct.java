@@ -66,6 +66,16 @@ public class EditProduct extends AdminManager {
 				}
 			}
 
+			if (oldProduct.getCategory().getName().equals(finalCategory.getName())) {
+				finalCategory.setProducts(oldProduct.getCategory().getProducts());
+			} else {
+				List<Product> categoryList = manager.findProductByCategory(String.valueOf(finalCategory.getId()));
+				if (!categoryList.contains(newProduct)) {
+					categoryList.add(newProduct);
+				}
+				finalCategory.setProducts(categoryList);
+			}
+
 			String description = request.getParameter("description");
 			if (description != null) {
 				newProduct.setDescription(description);
@@ -76,11 +86,6 @@ public class EditProduct extends AdminManager {
 				newProduct.setUser(userProduct);
 			}
 
-			List<Product> categoryList = manager.findProductByCategory(String.valueOf(finalCategory.getId()));
-			if (!categoryList.contains(newProduct)) {
-				categoryList.add(newProduct);
-			}
-			finalCategory.setProducts(categoryList);
 			newProduct.setCategory(finalCategory);
 
 			try {
@@ -90,7 +95,7 @@ public class EditProduct extends AdminManager {
 					request.setAttribute("sessionUser", sessionUser);
 				}
 
-				if (manager.updateProduct(newProduct).equals("")) {
+				if (manager.updateProduct(oldProduct).equals("")) {
 					request.getRequestDispatcher("./index.jsp").forward(request, response);
 				}
 			} catch (Exception e) {
