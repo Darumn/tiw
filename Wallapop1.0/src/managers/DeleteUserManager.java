@@ -28,7 +28,7 @@ public class DeleteUserManager extends Manager {
 			manager = new UserManager();
 			manager.deleteUser((userOld));
 			manager = new UserManager();
-			request.getRequestDispatcher("./index.jsp").forward(request, response);
+			request.getRequestDispatcher("./Controller").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

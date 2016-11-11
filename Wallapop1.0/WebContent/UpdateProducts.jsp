@@ -1,37 +1,41 @@
+<%@page import="managers.UserUpdateManager"%>
+<%@page import="model.Product"%>
+<% Product producto=(Product)request.getAttribute("product");%>
 <div id="update-productos">
 	<H3>PRODUCTO</H3>
 	<form method="POST" action="#">
 		<h4>Datos actuales</h4>
-		Name:
+		Name:<%= producto.getName() %>
 		</p>
-		Descripción:
+		Descripción:<%= producto.getDescription() %>
 		</p>
-		Precio:
+		Precio:<%= producto.getPrice() %>
 		</p>
-		Status:
+		Status:<%=producto.getStatus() %>
 		</p>
-		Category_id:
+		Category_id:<%= producto.getCategory() %>
 		</p>
-		User_id:
-		</p>
+		
 		Photo:
 		</p>
 		<br>
-		<h4>Modificar campos</h4>
-		Name: <input type="text" name="productname">
-		</p>
-		Descripción:<input type="text" name="descriptionproduct">
-		</p>
-		Precio:<input type="text" name="pricepproduct">
-		</p>
-		Status:<input type="text" name="statusproduct">
-		</p>
-		Category_id:<input type="text" name="idcategory">
-		</p>
-		User_id:<input type="text" name="iduser">
-		</p>
-		Photo:<input type="file" name="photoproduct">
-		</p>
-		<input type="submit" value="Modificar">
+		<form method="post" action="./Controller" enctype="multipart/form-data">
+			<input type="hidden" name="redirect" value="updateProductUser">
+			<input type="hidden" name="id" value="<%=producto.getId()%>">
+			<h4>Modificar campos</h4>
+			Name: <input type="text" name="name">
+			</p>
+			Descripción:<input type="text" name="descriptionproduct">
+			</p>
+			Precio:<input type="text" name="pricepproduct">
+			</p>
+			Status:<input type="text" name="statusproduct">
+			</p>
+			Category_id:<input type="text" name="idcategory">
+			</p>
+			
+			Photo:<input type="file" name="photoproduct">
+			</p>
+			<a class="btn-success" href="./Controller?redirect=updateProductUser&id=<%=producto.getId()%>">Modificar</a>
 	</form>
 </div>

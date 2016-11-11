@@ -150,8 +150,13 @@ public class Controller extends HttpServlet {
 			else if(action.equals("chatRoom")){
 				manager = new ChatRoomManager(request,response);
 			}
-			else if(action.equals("updateProduct")){
+			else if(action.equals("updateProductUser")){
 				manager= new UpdateProductManager(request,response);
+				manager.Execute();
+				manager = new ViewUpdateProductManager(request, response);
+			}
+			else if(action.equals("viewUpdateProduct")){
+				manager= new ViewUpdateProductManager(request,response);
 			}
 			else if(action.equals("DeleteProduct")){
 				manager= new DeleteProductManager(request,response);

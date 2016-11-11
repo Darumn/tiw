@@ -140,7 +140,7 @@ if(session1!=null){
 									</form>
 								<%}else{ %>
 									<div class="product-view-info-owner-chat">
-										<a class="btn-success" href="./Controller?redirect=updateProduct&id=<%=lista.get(i).getId()%>">Modificar</a>
+										<a class="btn-success" href="./Controller?redirect=viewUpdateProduct&id=<%=lista.get(i).getId()%>">Modificar</a>
 										<a class="btn btn-default" href="./Controller?redirect=DeleteProduct&id=<%=lista.get(i).getId()%>">Eliminar</a>
 									</div>
 								<%}%>
