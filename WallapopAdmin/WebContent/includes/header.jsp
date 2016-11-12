@@ -3,10 +3,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="style/style.css">
+<link rel="stylesheet" type="text/css" href="style/styleAdmin.css">
 <link rel="stylesheet" type="text/css"
 	href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <title>Wallapop</title>
 </head>
 <body>
@@ -17,45 +18,60 @@
 				id="img_logo">
 			</a>
 		</div>
-<%@page import="managers.SessionAdminManager" %>
+		<%@page import="managers.SessionAdminManager"%>
 
-<%@page import="managers.AdminManager" %>
-<%@page import="model.User" %>
+		<%@page import="managers.AdminManager"%>
+		<%@page import="model.User"%>
 
-<%SessionAdminManager session1 = (SessionAdminManager)request.getAttribute(AdminManager.CONST_SESSION); 
-User user = null;
-if(session1!=null){
-	user = session1.getUser();
-}
-%>
-		<%if(user != null){ %>
-		<div class="explorer">	
-		
+		<%
+			SessionAdminManager session1 = (SessionAdminManager) request.getAttribute(AdminManager.CONST_SESSION);
+			User user = null;
+			if (session1 != null) {
+				user = session1.getUser();
+			}
+		%>
+		<%
+			if (user != null) {
+		%>
+		<div class="explorer">
+
 			<form method="get" action="./Controller">
-			<input type="hidden" name="redirect" value="searchProducts">
+				<input type="hidden" name="redirect" value="searchProducts">
 				<input type="text" placeholder="Buscar producto..."
 					name="search_input" class="explorer_input" />
-				<button type="submit" class="btn-default" >Buscar</button> 
+				<button type="submit" class="btn-default">Buscar</button>
 			</form>
-			
+
 		</div>
-		<%}%>
+		<%
+			}
+		%>
 		<div class="account">
-		<%if(user == null){ %>
-			<a href="./Controller?redirect=Formulario" class="account_link">INICIAR SESIÓN |
-				REGISTRO</a>
-		<%} %>
-		<%if(user != null){ %>
+			<%
+				if (user == null) {
+			%>
+			<a href="./Controller?redirect=Formulario" class="account_link">INICIAR
+				SESIÓN | REGISTRO</a>
+			<%
+				}
+			%>
+			<%
+				if (user != null) {
+			%>
 			<form method="get" action="./Controller">
 				<input type="hidden" name="redirect" value="UserProfile" />
-				<button type="submit" class="btn-link">Hola <%= session1.getUser().getName()%></button>
-				
+				<button type="submit" class="btn-link">
+					Hola
+					<%=session1.getUser().getName()%></button>
+
 			</form>
 			<form method="get" action="./Controller">
 				<input type="hidden" name="redirect" value="invalidateSession" />
 				<button type="submit" class="btn-link">Cerrar sessión</button>
-				
+
 			</form>
-		<%} %>
+			<%
+				}
+			%>
 		</div>
 	</div>
