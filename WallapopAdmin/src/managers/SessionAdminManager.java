@@ -13,7 +13,6 @@ public class SessionAdminManager extends AdminManager {
 
 	public SessionAdminManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
-		// TODO Auto-generated constructor stu
 	}
 
 	public User getUser() {

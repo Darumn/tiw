@@ -62,7 +62,6 @@ public class Controller extends HttpServlet {
 		AdminManager manager = null;
 
 		if (action != null && !action.equals("")) {
-
 			if (action.equals("ShowUsers")) {
 				manager = new ShowUsers(request, response);
 				manager.Execute();
@@ -101,10 +100,13 @@ public class Controller extends HttpServlet {
 		// Caso de index
 		else {
 			manager = new IndexAdminManager(request, response);
+			// request.getRequestDispatcher("./includes/header.jsp").include(request,
+			// response);
+			manager.Execute();
+			// request.getRequestDispatcher("./includes/footer.jsp").include(request,
+			// response);
 		}
-		request.getRequestDispatcher("./includes/header.jsp").include(request, response);
-		manager.Execute();
-		request.getRequestDispatcher("./includes/footer.jsp").include(request, response);
+
 	}
 
 	/**
