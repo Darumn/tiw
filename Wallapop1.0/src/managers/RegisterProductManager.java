@@ -34,6 +34,7 @@ public class RegisterProductManager extends Manager {
 			Category cat = cat_manager.findCategoryById(catprod);
 			producto.setCategory(cat);
 			manager.createProduct(producto);
+			request.setAttribute("id", producto.getId());
 			//request.setAttribute("product", producto);
 			//request.getRequestDispatcher("./index.jsp").include(request, response);
 

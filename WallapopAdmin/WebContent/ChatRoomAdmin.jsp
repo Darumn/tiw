@@ -1,3 +1,4 @@
+<%@include file="includes/header.jsp"%>
 <div class="main">
 	<p style="text-align:center;">MENSAJES</p>
 	<div class="contacts-container">
@@ -35,3 +36,4 @@
 	</div>
 	<%} %>
 </div>
+<%@include file="includes/footer.jsp"%>

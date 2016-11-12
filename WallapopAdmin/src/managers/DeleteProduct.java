@@ -23,7 +23,7 @@ public class DeleteProduct extends AdminManager {
 			productOld = manager.findProductById(idProduct);
 			manager = new ProductManager();
 			manager.deleteProduct(productOld);
-			request.getRequestDispatcher("./index.jsp").forward(request, response);
+			request.getRequestDispatcher("./indexAdmin.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -226,7 +226,7 @@ nav ul a {
 }
 .messages-container{
 	float:left;
-	width: 80%;
+	width: 79%;
 	min-height: 450px;
 	border-style: solid;
 	border-width: thin;
@@ -235,9 +235,11 @@ nav ul a {
 	height: 40px;
 	border-style: solid;
 	border-width: thin;
+	cursor: pointer;
 }
 .messages{
-	height: 400px;
+	max-height: 400px;
+	overflow: scroll;
 }
 .receiver-side{
 	width: 40%;
@@ -247,4 +249,21 @@ nav ul a {
 	width: 40%;
 	float: left;
 	padding-left: 20px;
+}
+.btn-link{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color:#0000EE;
+  padding:0;
+  text-decoration:underline;
+  font-family:inherit;
+  font-size:inherit;
+}
+.messages-container{
+	display:none;
+}
+.selected{
+	background-color: green;
 }
