@@ -32,6 +32,10 @@
 				value="Cerrar Sesion">
 		</form>
 		<%
+			} else {
+		%>
+		<jsp:forward page="login.jsp" />
+		<%
 			}
 		%>
 		<%

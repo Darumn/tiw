@@ -21,6 +21,7 @@ public class DeleteProduct extends AdminManager {
 
 		try {
 			productOld = manager.findProductById(idProduct);
+			manager = new ProductManager();
 			manager.deleteProduct(productOld);
 			request.getRequestDispatcher("./index.jsp").forward(request, response);
 		} catch (Exception e) {

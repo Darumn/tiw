@@ -34,6 +34,10 @@
 				value="Cerrar Sesion">
 		</form>
 		<%
+			} else {
+		%>
+		<jsp:forward page="login.jsp" />
+		<%
 			}
 		%>
 		<%
@@ -52,14 +56,16 @@
 			<form style="display: inline-block;" method="GET"
 				action="./Controller">
 				<input type="hidden" name="redirect" value="SelectEditUser">
-				<input type="hidden" name="id_object" value="<%=i + 1%>"> <input
+				<input type="hidden" name="id_object"
+					value="<%=usersList.get(i).getId()%>"> <input
 					style="display: inline-block;" type="submit" value="Edit">
 			</form>
 
 			<form style="display: inline-block;" method="GET"
 				action="./Controller">
 				<input type="hidden" name="redirect" value="DeleteUser"> <input
-					type="hidden" name="id_object" value="<%=i + 1%>"><input
+					type="hidden" name="id_object"
+					value="<%=usersList.get(i).getId()%>"><input
 					style="display: inline-block;" type="submit" value="Delete">
 			</form>
 		</div>
