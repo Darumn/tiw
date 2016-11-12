@@ -6,7 +6,7 @@
 <% Product producto=(Product)request.getAttribute("product");%>
 <div id="update-productos">
 	<H3>PRODUCTO</H3>
-	<form method="POST" action="#">
+	
 		<h4>Datos actuales</h4>
 		Name:<%= producto.getName() %>
 		</p>
@@ -23,8 +23,8 @@
 		</p>
 		<br>
 		<form method="post" action="./Controller" enctype="multipart/form-data">
-			<input type="hidden" name="redirect" value="updateProductUser">
-			<input type="hidden" name="id" value="<%=producto.getId()%>">
+			<input type="hidden" name="redirect" value="modificarproductousuario" />
+			<input type="hidden" name="id" value="<%=producto.getId()%>" />
 			<h4>Modificar campos</h4>
 			Name: <input type="text" name="name">
 			</p>

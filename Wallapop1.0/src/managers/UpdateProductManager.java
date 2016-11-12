@@ -57,8 +57,9 @@ public class UpdateProductManager extends Manager {
 				producto.setStatus(status);
 			}		
 			producto.setCategory(categoria);
+			ProductManager manager2=new ProductManager();
 			
-			manager.updateProduct(producto);
+			manager2.updateProduct(producto);
 			
 			this.manageImage(producto);
 			

@@ -19,10 +19,9 @@ public class IndexAdminManager extends AdminManager {
 	public void Execute() {
 		// TODO Auto-generated method stub
 
-		ProductManager manager = new ProductManager();
+		
 		try {
-			List<Product> lista = manager.findAllProducts();
-			this.request.setAttribute("product list", lista);
+			
 			request.getRequestDispatcher("./index.jsp").forward(request, response);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
