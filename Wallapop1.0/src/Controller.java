@@ -142,6 +142,8 @@ public class Controller extends HttpServlet {
 			}
 			else if(action.equals("sendMessage")){
 				manager = new JMSManager(request, response);
+				manager.Execute();
+				manager = new ChatRoomManager(request,response);
 			}
 			else if(action.equals("insertproduct")){
 				manager = new InsertUserProductManager(request,response);

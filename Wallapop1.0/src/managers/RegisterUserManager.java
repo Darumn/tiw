@@ -24,6 +24,9 @@ public class RegisterUserManager extends Manager{
 		try{
 			manager.createUser(usuario);
 			request.setAttribute("user", usuario);
+			session.setUser(usuario);
+			request.setAttribute("session", session);
+			
 		}
 		 catch (Exception e) {
 			// TODO: handle exception
