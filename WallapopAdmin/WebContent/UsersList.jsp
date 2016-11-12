@@ -68,6 +68,15 @@
 					value="<%=usersList.get(i).getId()%>"><input
 					style="display: inline-block;" type="submit" value="Delete">
 			</form>
+			
+			<form style="display: inline-block;" method="GET"
+				action="./Controller">
+				<input type="hidden" name="redirect" value="sendMessage"> <input
+					type="hidden" name="receiver_id"
+					value="<%=usersList.get(i).getId()%>">
+					<input type="text" name="message" style="display: inline-block;" placeholder="Enviar mensaje.."/>
+					<input style="display: inline-block;" type="submit" value="Enviar mensaje">
+			</form>
 		</div>
 		<%
 			}

@@ -33,6 +33,10 @@
 			<input type="hidden" name="redirect" value="ShowProducts"> <input
 				type="submit" value="Productos">
 		</form>
+		<form method="GET" action="./Controller">
+			<input type="hidden" name="redirect" value="ChatRoom"> <input
+				type="submit" value="Mis chats">
+		</form>
 	</ul>
 </div>
 <%@include file="includes/footer.jsp"%>

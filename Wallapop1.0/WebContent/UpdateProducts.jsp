@@ -6,31 +6,15 @@
 <% Product producto=(Product)request.getAttribute("product");%>
 <div id="update-productos">
 	<H3>PRODUCTO</H3>
-	
-		<h4>Datos actuales</h4>
-		Name:<%= producto.getName() %>
-		</p>
-		Descripción:<%= producto.getDescription() %>
-		</p>
-		Precio:<%= producto.getPrice() %>
-		</p>
-		Status:<%=producto.getStatus() %>
-		</p>
-		Category: <%= producto.getCategory().getName() %>
-		</p>
-		
-		Photo:
-		</p>
-		<br>
 		<form method="post" action="./Controller" enctype="multipart/form-data">
 			<input type="hidden" name="redirect" value="modificarproductousuario" />
 			<input type="hidden" name="id" value="<%=producto.getId()%>" />
 			<h4>Modificar campos</h4>
-			Name: <input type="text" name="name">
+			Name: <input type="text" name="name" value="<%= producto.getName() %>"/>
 			</p>
-			Descripción:<input type="text" name="descriptionproduct">
+			Descripción:<input type="text" name="descriptionproduct" value="<%= producto.getDescription() %>"/>
 			</p>
-			Precio:<input type="text" name="pricepproduct">
+			Precio:<input type="text" name="pricepproduct" value="<%= producto.getPrice() %>">
 			</p>
 			Status:
 			<select name="statusproduct">
