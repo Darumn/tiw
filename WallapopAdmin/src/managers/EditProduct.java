@@ -25,6 +25,11 @@ public class EditProduct extends AdminManager {
 		newProduct.setId(idProduct);
 
 		Product oldProduct = new Product();
+
+		User user = new User();
+		UserManager userManager = new UserManager();
+		String id2 = request.getParameter("id");
+
 		try {
 			oldProduct = manager.findProductById(idProduct);
 			String name = request.getParameter("name");
@@ -110,15 +115,12 @@ public class EditProduct extends AdminManager {
 			}
 
 			try {
-				SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
-
-				if (sessionUser.getUser() != null) {
-					request.setAttribute("sessionUser", sessionUser);
-				}
-
 				manager = new ProductManager();
 
 				if (manager.updateProduct(newProduct).equals("")) {
+					user = userManager.findUserById(Integer.parseInt(id2));
+					session.setUser(user);
+					request.setAttribute("sessionUser", session);
 					request.setAttribute("old product", newProduct);
 					request.getRequestDispatcher("./SelectEditProduct.jsp").forward(request, response);
 				}

@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="model.*"%>
-<%@page import="managers.*"%>
+<%@page import="managers.Manager"%>
+<%@page import="managers.SessionAdminManager"%>
 <%@include file="includes/header.jsp"%>
 
 <div class="main">
 	<%
-		SessionAdminManager sessionUser = (SessionAdminManager) request.getAttribute(AdminManager.CONST_SESSION);
+		SessionAdminManager sessionUser = (SessionAdminManager) (request.getAttribute("sessionUser"));
 		if (sessionUser != null) {
 	%>
 	HOLA
@@ -19,19 +20,31 @@
 	<%
 		} else {
 	%>
-	<jsp:forward page="login.jsp" />
+	<jsession.setUser
+		(user);
+			request.setAttribute("sessionUser", session);session.setUser(user);
+			request.setAttribute("sessionUser", session);session.setUser(user);
+			request.setAttribute("sessionUser", session);session.setUser(user);
+			request.setAttribute("sessionUser", session);sp:forward
+		page="login.jsp" />
 	<%
 		}
 	%>
 	<ul>
 		<form method="GET" action="./Controller">
 			<input type="hidden" name="redirect" value="ShowUsers"> <input
-				type="submit" value="Usuarios">
+				type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>">
+			<input type="submit" value="Usuarios">
 		</form>
 		<form method="GET" action="./Controller">
 			<input type="hidden" name="redirect" value="ShowProducts"> <input
 				type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>">
 			<input type="submit" value="Productos">
+		</form>
+		<form method="GET" action="./Controller">
+			<input type="hidden" name="redirect" value="ChatRoom"> <input
+				type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>">
+			<input type="submit" value="Mis chats">
 		</form>
 	</ul>
 </div>

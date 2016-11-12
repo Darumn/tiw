@@ -108,13 +108,16 @@ public class ProductManager {
 
 	}
 
-	public List<Product> findAdvanced(String namep) {
+	public List<Product> findAdvanced(Product producto) {
 		List<Product> ret = null;
-		Product prod = null;
 
 		try {
-			Query query = em.createNamedQuery("SELECT c FROM Product c WHERE c.name = :varName  ", Product.class);
-			query.setParameter("varID", prod);
+			Query query = em.createQuery("SELECT c FROM Product c WHERE c.name = :varName OR c.description LIKE :varDesc OR c.category.id = :varCategoryId OR c.user.name = :varUserName OR c.user.city = :varUserCity", Product.class);
+			query.setParameter("varName", producto.getName());
+			query.setParameter("varDesc", producto.getDescription());
+			query.setParameter("varCategoryId", producto.getCategory().getId());
+			query.setParameter("varUserName", producto.getUser().getName());
+			query.setParameter("varUserCity", producto.getUser().getCity());
 			ret = query.getResultList();
 
 		} finally {

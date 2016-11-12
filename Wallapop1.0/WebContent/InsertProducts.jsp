@@ -26,8 +26,6 @@
 			Category_id:
 			<select name="idcategory">
 			<% for(int i = 0; i<lista.size(); i++){ %>
-			
-			
 				<option value="<%= lista.get(i).getId()%>"><%=lista.get(i).getName() %></option>
 				<%} %>
 			</select>
