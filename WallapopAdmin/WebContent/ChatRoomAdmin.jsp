@@ -2,22 +2,21 @@
 <div class="main">
 	<%
 		SessionAdminManager sessionUser = (SessionAdminManager) (request.getAttribute("sessionUser"));
-		if (sessionUser != null) {
-	%>
-	HOLA
-	<%=sessionUser.getUser().getName()%>
-	<form method="post" action="./Controller">
-		<input type="hidden" name="redirect" value="CloseSession"> <input
-			style="display: inline-block" name="close session" type="submit"
-			value="Cerrar Sesion">
-	</form>
-	<%
-		} else {
+		if (sessionUser == null) {
 	%>
 	<jsp:forward page="login.jsp" />
 	<%
 		}
 	%>
+
+	<div class="returnIndex">
+		<form method="GET" action="./Controller">
+			<input type="hidden" value="ReturnIndex" name="redirect" id="return" />
+			<input type="hidden" value="<%=sessionUser.getUser().getId()%>"
+				name="id" /> <input type="submit" value="Return" />
+		</form>
+	</div>
+
 	<p style="text-align: center;">MENSAJES</p>
 	<div class="contacts-container">
 		<%@page import="model.*"%>

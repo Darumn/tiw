@@ -8,17 +8,7 @@
 <div class="main">
 	<%
 		SessionAdminManager sessionUser = (SessionAdminManager) (request.getAttribute("sessionUser"));
-		if (sessionUser != null) {
-	%>
-	HOLA
-	<%=sessionUser.getUser().getName()%>
-	<form method="post" action="./Controller">
-		<input type="hidden" name="redirect" value="CloseSession"> <input
-			style="display: inline-block" name="close session" type="submit"
-			value="Cerrar Sesion">
-	</form>
-	<%
-		} else {
+		if (sessionUser == null) {
 	%>
 	<jsp:forward page="login.jsp" />
 	<%
@@ -28,12 +18,12 @@
 		<form method="GET" action="./Controller">
 			<input type="hidden" name="redirect" value="ShowUsers"> <input
 				type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>">
-			<input type="submit" value="Usuarios">
+			<input class="usersButton" type="submit" value="Usuarios">
 		</form>
 		<form method="GET" action="./Controller">
 			<input type="hidden" name="redirect" value="ShowProducts"> <input
 				type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>">
-			<input type="submit" value="Productos">
+			<input class="productsButton" type="submit" value="Productos">
 		</form>
 		<form method="GET" action="./Controller">
 			<input type="hidden" name="redirect" value="ChatRoom"> <input

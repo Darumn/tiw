@@ -26,6 +26,7 @@ public class LoginAdminManager extends AdminManager {
 			if (usuario != null && usuario.getIsAdmin()) {
 				session.setUser(usuario);
 				request.setAttribute("sessionUser", session);
+				request.setAttribute("error", null);
 				request.getRequestDispatcher("./indexAdmin.jsp").include(request, response);
 			} else {
 				request.setAttribute("error", "error");
