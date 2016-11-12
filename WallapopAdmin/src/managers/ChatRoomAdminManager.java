@@ -22,6 +22,11 @@ public class ChatRoomAdminManager extends AdminManager {
 		// TODO Auto-generated method stub
 
 		MessageManager manager = new MessageManager();
+
+		User user = new User();
+		UserManager userManager2 = new UserManager();
+		String id = request.getParameter("id");
+
 		try {
 			List<Message> lista = manager.findAllMessages(session.getUser().getId());
 
@@ -52,6 +57,10 @@ public class ChatRoomAdminManager extends AdminManager {
 				item.mensajes.add(lista.get(i));
 
 			}
+
+			user = userManager2.findUserById(Integer.parseInt(id));
+			session.setUser(user);
+			request.setAttribute("sessionUser", session);
 
 			this.request.setAttribute("contact_list", listac);
 			request.getRequestDispatcher("./ChatRoomAdmin.jsp").include(request, response);

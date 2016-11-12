@@ -20,13 +20,7 @@
 	<%
 		} else {
 	%>
-	<jsession.setUser
-		(user);
-			request.setAttribute("sessionUser", session);session.setUser(user);
-			request.setAttribute("sessionUser", session);session.setUser(user);
-			request.setAttribute("sessionUser", session);session.setUser(user);
-			request.setAttribute("sessionUser", session);sp:forward
-		page="login.jsp" />
+	<jsp:forward page="login.jsp" />
 	<%
 		}
 	%>

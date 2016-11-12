@@ -1,5 +1,23 @@
 <%@include file="includes/header.jsp"%>
 <div class="main">
+	<%
+		SessionAdminManager sessionUser = (SessionAdminManager) (request.getAttribute("sessionUser"));
+		if (sessionUser != null) {
+	%>
+	HOLA
+	<%=sessionUser.getUser().getName()%>
+	<form method="post" action="./Controller">
+		<input type="hidden" name="redirect" value="CloseSession"> <input
+			style="display: inline-block" name="close session" type="submit"
+			value="Cerrar Sesion">
+	</form>
+	<%
+		} else {
+	%>
+	<jsp:forward page="login.jsp" />
+	<%
+		}
+	%>
 	<p style="text-align: center;">MENSAJES</p>
 	<div class="contacts-container">
 		<%@page import="model.*"%>
@@ -42,8 +60,10 @@
 		<div class="send-new-message">
 			<form method="GET" action="./Controller">
 				<input type="hidden" name="redirect" value="sendMessage"> <input
-					type="hidden" name="receiver_id" value="<%=usuario.getId()%>" /> <input
-					type="text" name="message" placeholder="Contacta con este usuario" />
+					type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>">
+				<input type="hidden" name="receiver_id" value="<%=usuario.getId()%>" />
+				<input type="text" name="message"
+					placeholder="Contacta con este usuario" />
 				<button type="submit" class="btn-success">Enviar</button>
 			</form>
 		</div>

@@ -17,36 +17,36 @@ import javax.jms.TextMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import logic.UserManager;
 import model.User;
 
-public class JMSAdminManager extends AdminManager{
+public class JMSAdminManager extends AdminManager {
 
 	public JMSAdminManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
 		// TODO Auto-generated constructor stub
 	}
 
-
-	//private javax.jms.ConnectionFactory factory = null;
+	// private javax.jms.ConnectionFactory factory = null;
 	private javax.naming.InitialContext contextoInicial = null;
-	//private javax.jms.Destination cola = null;
+	// private javax.jms.Destination cola = null;
 	private javax.jms.Connection Qcon = null;
 	private javax.jms.Session QSes = null;
 	private javax.jms.MessageProducer Mpro = null;
 	private javax.jms.MessageConsumer Mcon = null;
-	//private javax.jms.TopicConnection Tcon;
-	
+	// private javax.jms.TopicConnection Tcon;
+
 	@Resource(mappedName = "jms/wallapop")
 	private javax.jms.ConnectionFactory factory;
 	@Resource(mappedName = "jms/wallaqueue")
 	private javax.jms.Destination cola;
-	
+
 	public void Execute() {
 
 		String strQCF = "jms/wallafactory";
 		String strQueueAsync = "jms/wallaqueue";
-		
-		try{
+
+		try {
 			contextoInicial = new javax.naming.InitialContext();
 
 			factory = (javax.jms.ConnectionFactory) contextoInicial.lookup(strQCF);
@@ -57,27 +57,28 @@ public class JMSAdminManager extends AdminManager{
 
 			Mpro = QSes.createProducer(cola);
 
-			//MessObject obj = new MessObject(1, 2, "Esto es un texto de prueba"+Math.random());
+			// MessObject obj = new MessObject(1, 2, "Esto es un texto de
+			// prueba"+Math.random());
 			User user = session.getUser();
-			MessObject obj = new MessObject(user.getId(), Integer.parseInt(request.getParameter("receiver_id")), request.getParameter("message"));
-			ObjectMessage mess =  QSes.createObjectMessage(obj);
-			//mess.setObject(obj);
-			//javax.jms.TextMessage men = QSes.createTextMessage();
+			MessObject obj = new MessObject(user.getId(), Integer.parseInt(request.getParameter("receiver_id")),
+					request.getParameter("message"));
+			ObjectMessage mess = QSes.createObjectMessage(obj);
+			// mess.setObject(obj);
+			// javax.jms.TextMessage men = QSes.createTextMessage();
 
-			//men.setText(mensaje);
-			//men.setJMSCorrelationID(selector);
+			// men.setText(mensaje);
+			// men.setJMSCorrelationID(selector);
 			Qcon.start();
 			Mpro.send(mess);
 
 			this.Mpro.close();
 			this.QSes.close();
 			this.Qcon.close();
-			
-		}catch (Exception e){
+
+		} catch (Exception e) {
 			System.out.println("En el envio de mensaje");
 			System.out.println(e.getStackTrace());
 		}
-		 
 
 	}
 }

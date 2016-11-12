@@ -2,7 +2,7 @@ package managers;
 
 import java.io.Serializable;
 
-public class MessObject implements Serializable{
+public class MessObject implements Serializable {
 	/**
 	 * 
 	 */
@@ -10,7 +10,7 @@ public class MessObject implements Serializable{
 	private int senderId;
 	private int receiverId;
 	private String message;
-	
+
 	public MessObject(int senderId, int receiverId, String message) {
 		super();
 		this.senderId = senderId;
@@ -42,14 +42,12 @@ public class MessObject implements Serializable{
 		this.message = message;
 	}
 
-	/*public ObjectMessage createObjectMessage(String destName,Serializable object) throws MessagingException {
-	    JMSDestination jmsDest = getJMSDestination(destName);
-	    try {
-	        ObjectMessage message = jmsDest.session.createObjectMessage();
-	        message.setObject(object);
-	        return message;
-	    } catch (JMSException e) {
-	        throw new MessagingException(e.getMessage(), e);
-	    }
-	}*/
+	/*
+	 * public ObjectMessage createObjectMessage(String destName,Serializable
+	 * object) throws MessagingException { JMSDestination jmsDest =
+	 * getJMSDestination(destName); try { ObjectMessage message =
+	 * jmsDest.session.createObjectMessage(); message.setObject(object); return
+	 * message; } catch (JMSException e) { throw new
+	 * MessagingException(e.getMessage(), e); } }
+	 */
 }
