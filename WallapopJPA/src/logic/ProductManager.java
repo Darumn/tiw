@@ -25,7 +25,7 @@ public class ProductManager {
 		// TODO Auto-generated constructor stub
 		this.emf = Persistence.createEntityManagerFactory("WallapopJPA");
 		this.em = this.emf.createEntityManager();
-//		manager.deleteAllByIdr();
+		// manager.deleteAllByIdr();
 	}
 
 	public ProductManager(EntityManagerFactory emf) {
@@ -155,7 +155,7 @@ public class ProductManager {
 			// Query query =
 			// em.createNamedQuery("Product.findById",Product.class);
 			Query query = em.createQuery("SELECT c FROM Product c WHERE c.category.id = :varID", Product.class);
-			query.setParameter("varID", categoryId);
+			query.setParameter("varID", Integer.parseInt(categoryId));
 			List<Product> list = query.getResultList();
 			if (list != null && list.size() > 0) {
 				ret = list;
@@ -169,21 +169,20 @@ public class ProductManager {
 		}
 		return ret;
 	}
-	
-	public void deleteAllById(User usuario){
+
+	public void deleteAllById(User usuario) {
 
 		try {
 			// Query query =
 			// em.createNamedQuery("Product.findById",Product.class);
 			Query query = em.createQuery("DELETE FROM Product c WHERE c.user = :varUser", Product.class);
 			query.setParameter("varUser", usuario);
-			
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
 			em.close();
 		}
 	}
-	
+
 }

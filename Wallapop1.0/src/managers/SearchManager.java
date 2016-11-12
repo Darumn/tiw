@@ -1,4 +1,5 @@
 package managers;
+
 import model.*;
 import logic.*;
 
@@ -18,20 +19,16 @@ public class SearchManager extends Manager {
 	public void Execute() {
 		// TODO Auto-generated method stub
 		List<Product> list = null;
-		try{
-			String category = (String)request.getParameter("search_input");
+		try {
+			String category = (String) request.getParameter("search_input");
 			ProductManager manager = new ProductManager();
-			list = manager.findProductByCategory(category.toLowerCase());			
+			list = manager.findProductByCategory(category.toLowerCase());
 			request.setAttribute("product list", list);
 			request.getRequestDispatcher("./index.jsp").include(request, response);
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 	}
-	
-	
-	
 
 }

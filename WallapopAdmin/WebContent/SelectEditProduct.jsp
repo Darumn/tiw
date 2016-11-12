@@ -32,6 +32,10 @@
 				value="Cerrar Sesion">
 		</form>
 		<%
+			} else {
+		%>
+		<jsp:forward page="login.jsp" />
+		<%
 			}
 		%>
 		<%
@@ -98,8 +102,11 @@
 			Price: <br> <input name="price" type="text"
 				placeholder="Price...">
 			</p>
-			Status:<br> <input name="status" type="text"
-				placeholder="Status...">
+			Status:<br> <select name="status">
+				<option value="disponible">Disponible</option>
+				<option value="reservado">Reservado</option>
+				<option value="vendido">Vendido</option>
+			</select>
 			</p>
 			Category:<br> <select name="category">
 				<option value="coche">Coche</option>

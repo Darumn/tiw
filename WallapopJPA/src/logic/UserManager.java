@@ -45,6 +45,7 @@ public class UserManager {
 			em.close();
 		}
 	}
+
 	public String deleteUser(User user) throws Exception {
 		try {
 			em.getTransaction().begin();
