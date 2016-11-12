@@ -18,32 +18,46 @@ public class DeleteUser extends AdminManager {
 	public void Execute() {
 		UserManager manager = new UserManager();
 		User userOld;
-		String id = request.getParameter("id");
+		String id = request.getParameter("id_object");
 		int idUser = Integer.parseInt(id);
+
+		User user = new User();
+		UserManager userManager = new UserManager();
+		String id2 = request.getParameter("id");
+
+		UserManager users;
+		List<User> usersList;
 
 		try {
 			userOld = manager.findUserById(idUser);
-//			ProductManager manager2 = new ProductManager();
+
 			for (Product producto : userOld.getProducts()) {
 				ProductManager p_manager = new ProductManager();
 				p_manager.deleteProduct(producto);
 			}
-			List<Message> lista1=userOld.getMessages1();
+
+			List<Message> lista1 = userOld.getMessages1();
 			for (Message message : lista1) {
-				MessageManager mensajemanager=new MessageManager();
-				mensajemanager.deleteMessage(message);	
+				MessageManager mensajemanager = new MessageManager();
+				mensajemanager.deleteMessage(message);
 			}
-			List<Message> lista2=userOld.getMessages2();
+
+			List<Message> lista2 = userOld.getMessages2();
 			for (Message message : lista2) {
-				MessageManager mensajemanager=new MessageManager();
-				mensajemanager.deleteMessage(message);	
+				MessageManager mensajemanager = new MessageManager();
+				mensajemanager.deleteMessage(message);
 			}
-			
-//			manager2.deleteAllById(userOld);
+
+			users = new UserManager();
 			manager = new UserManager();
-			manager.deleteUser((userOld));
-			manager = new UserManager();			
-						
+			if (manager.deleteUser(userOld).equals("")) {
+				usersList = users.showUsers();
+				user = userManager.findUserById(Integer.parseInt(id2));
+				session.setUser(user);
+				request.setAttribute("users list", usersList);
+				request.setAttribute("sessionUser", session);
+				request.getRequestDispatcher("./UsersList.jsp").forward(request, response);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

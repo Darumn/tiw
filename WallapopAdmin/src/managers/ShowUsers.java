@@ -24,13 +24,17 @@ public class ShowUsers extends AdminManager {
 
 		UserManager users = new UserManager();
 		List<User> usersList;
+		
+		User user = new User();
+		UserManager userManager2 = new UserManager();
+		String id = request.getParameter("id");
 		try {
 			usersList = users.showUsers();
-			SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
+			
+			user = userManager2.findUserById(Integer.parseInt(id));
+			session.setUser(user);
+			request.setAttribute("sessionUser", session);
 
-			if (sessionUser.getUser() != null) {
-				request.setAttribute("sessionUser", sessionUser);
-			}
 			request.setAttribute("users list", usersList);
 			request.getRequestDispatcher("./UsersList.jsp").forward(request, response);
 		} catch (Exception e) {

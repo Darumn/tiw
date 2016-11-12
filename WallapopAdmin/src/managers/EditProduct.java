@@ -25,22 +25,41 @@ public class EditProduct extends AdminManager {
 		newProduct.setId(idProduct);
 
 		Product oldProduct = new Product();
+
+		User user = new User();
+		UserManager userManager = new UserManager();
+		String id2 = request.getParameter("id");
+
 		try {
 			oldProduct = manager.findProductById(idProduct);
 			String name = request.getParameter("name");
-			if (name != null) {
+			if (name != null && name.length() != 0) {
 				newProduct.setName(name);
+			} else {
+				newProduct.setName(oldProduct.getName());
 			}
 
 			String price = request.getParameter("price");
-			if (price != null) {
+			if (price != null && price.length() != 0) {
 				BigDecimal finalPrice = new BigDecimal(price);
 				newProduct.setPrice(finalPrice);
+			} else {
+				newProduct.setPrice(oldProduct.getPrice());
 			}
 
+			// Cambiar a switch
 			String status = request.getParameter("status");
-			if (status != null) {
-				newProduct.setStatus(status);
+			if (status != null && status.length() != 0) {
+				switch (status) {
+				case "disponible":
+				case "reservado":
+				case "vendido":
+					newProduct.setStatus(status);
+					break;
+				}
+
+			} else {
+				newProduct.setStatus(oldProduct.getStatus());
 			}
 
 			String category = request.getParameter("category");
@@ -64,11 +83,14 @@ public class EditProduct extends AdminManager {
 					finalCategory.setName("otros");
 					break;
 				}
+			} else {
+				newProduct.setCategory(oldProduct.getCategory());
 			}
 
 			if (oldProduct.getCategory().getName().equals(finalCategory.getName())) {
 				finalCategory.setProducts(oldProduct.getCategory().getProducts());
 			} else {
+				manager = new ProductManager();
 				List<Product> categoryList = manager.findProductByCategory(String.valueOf(finalCategory.getId()));
 				if (!categoryList.contains(newProduct)) {
 					categoryList.add(newProduct);
@@ -76,27 +98,31 @@ public class EditProduct extends AdminManager {
 				finalCategory.setProducts(categoryList);
 			}
 
+			newProduct.setCategory(finalCategory);
+
 			String description = request.getParameter("description");
-			if (description != null) {
+			if (description != null && description.length() != 0) {
 				newProduct.setDescription(description);
+			} else {
+				newProduct.setDescription(oldProduct.getDescription());
 			}
 
 			User userProduct = oldProduct.getUser();
 			if (userProduct != null) {
 				newProduct.setUser(userProduct);
+			} else {
+				newProduct.setUser(oldProduct.getUser());
 			}
 
-			newProduct.setCategory(finalCategory);
-
 			try {
-				SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
+				manager = new ProductManager();
 
-				if (sessionUser.getUser() != null) {
-					request.setAttribute("sessionUser", sessionUser);
-				}
-
-				if (manager.updateProduct(oldProduct).equals("")) {
-					request.getRequestDispatcher("./index.jsp").forward(request, response);
+				if (manager.updateProduct(newProduct).equals("")) {
+					user = userManager.findUserById(Integer.parseInt(id2));
+					session.setUser(user);
+					request.setAttribute("sessionUser", session);
+					request.setAttribute("old product", newProduct);
+					request.getRequestDispatcher("./SelectEditProduct.jsp").forward(request, response);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

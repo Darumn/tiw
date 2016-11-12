@@ -43,11 +43,11 @@ public class UpdateProductManager extends Manager {
 			CategoryManager cat=new CategoryManager();
 			Category categoria=cat.findCategoryById(Integer.parseInt(request.getParameter("idcategory")));
 			if(name != null && !name.equals("")){
-				producto.setName(name);
+				producto.setName(name.toLowerCase());
 			}
 			
 			if(description != null && !description.equals("")){
-				producto.setDescription(description);
+				producto.setDescription(description.toLowerCase());
 			}
 			
 			producto.setPrice(price);		

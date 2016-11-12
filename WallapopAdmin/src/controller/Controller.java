@@ -93,10 +93,18 @@ public class Controller extends HttpServlet {
 			} else if (action.equals("DeleteProduct")) {
 				manager = new DeleteProduct(request, response);
 				manager.Execute();
+			}else if (action.equals("ChatRoom")) {
+				manager = new ChatRoomAdminManager(request, response);
+				manager.Execute();
+			}else if (action.equals("sendMessage")) {
+				manager = new JMSAdminManager(request, response);
+				manager.Execute();
+				manager = new ChatRoomAdminManager(request, response);
+				manager.Execute();
 			} else {
 				request.getRequestDispatcher("./failure.jsp").forward(request, response);
 			}
-
+			
 		}
 		// Caso de index
 		else {

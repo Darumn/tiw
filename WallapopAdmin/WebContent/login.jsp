@@ -3,6 +3,14 @@
 	pageEncoding="ISO-8859-1"%>
 
 <div class="main">
+	<%
+		String error = (String) request.getAttribute("error");
+		if (error != null && error.equals("error")) {
+	%>
+	<h4>USERNAME OR PASSWORD INVALID</h4>
+	<%
+		}
+	%>
 	<form method="GET" action="./Controller">
 		<input type="hidden" name="redirect" value="AdminLogin"> <br />Nombre:
 		<br> <input name="user" type="text" placeholder="Usuario...">

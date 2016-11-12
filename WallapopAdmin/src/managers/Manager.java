@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 public abstract class Manager {
 	public HttpServletRequest request = null;
 	HttpServletResponse response = null;
+	public static final String CONST_SESSION = "CONST_SESSION";
 	// HEAD
 
 	/*

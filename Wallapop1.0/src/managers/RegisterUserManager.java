@@ -15,12 +15,11 @@ public class RegisterUserManager extends Manager{
 		User usuario = new User();
 		UserManager manager = new UserManager();
 		
-		usuario.setName(((String)request.getParameter("name")));
-		usuario.setSurname((String)request.getParameter("surname"));
+		usuario.setName(((String)request.getParameter("name")).toLowerCase());
+		usuario.setSurname(((String)request.getParameter("surname")).toLowerCase());
 		usuario.setEmail((String)request.getParameter("email"));
 		usuario.setPassword((String)request.getParameter("pass"));
-		System.out.println("La contraseña es: "+usuario.getPassword()+" de : "+ request.getParameter("pass"));
-		usuario.setCity((String)request.getParameter("city"));
+		usuario.setCity(((String)request.getParameter("city")).toLowerCase());
 		try{
 			manager.createUser(usuario);
 			request.setAttribute("user", usuario);

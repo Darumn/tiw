@@ -20,6 +20,9 @@ public class IndexManager extends Manager {
 		
 		ProductManager manager=new ProductManager();
 		try{
+			CategoryManager cat=new CategoryManager();
+			List<Category> cat_list=cat.findAll();
+			this.request.setAttribute("category_list", cat_list);
 			List<Product> lista= manager.findAllProducts();
 			this.request.setAttribute("product list", lista);
 			request.getRequestDispatcher("./index.jsp").include(request, response);
@@ -29,7 +32,4 @@ public class IndexManager extends Manager {
 		}
 	}
 	
-	
-	
-
 }

@@ -19,13 +19,16 @@ public class SelectEditUser extends AdminManager {
 		String id = request.getParameter("id_object");
 		int idUser = Integer.parseInt(id);
 
+		User user = new User();
+		UserManager userManager = new UserManager();
+		String id2 = request.getParameter("id");
+
 		try {
 			userOld = manager.findUserById(idUser);
-			SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
 
-			if (sessionUser.getUser() != null) {
-				request.setAttribute("sessionUser", sessionUser);
-			}
+			user = userManager.findUserById(Integer.parseInt(id2));
+			session.setUser(user);
+			request.setAttribute("sessionUser", session);
 			request.setAttribute("old user", userOld);
 			request.getRequestDispatcher("./SelectEditUser.jsp").forward(request, response);
 		} catch (Exception e) {

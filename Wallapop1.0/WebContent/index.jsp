@@ -70,28 +70,19 @@ if(session1!=null){
 	<%if(user != null){ %>
 		<nav>
 			<h3>Búsqueda avanzada</h3>
-			Categoria: <select>
-				<option>Tecnología e Informática</option>
-				<option>Coches y Motos</option>
-				<option>Deporte y Ocio</option>
-				<option>Muebles, Deco y Jardín</option>
-				<option>Consolas y Videojuegos</option>
-				<option>Libros, Películas y Música</option>
-				<option>Moda y Accesorios</option>
-				<option>Juguetes, Niños y Bebés</option>
-				<option>Inmobiliaria</option>
-				<option>Electrodomésticos</option>
-				<option>Servicios</option>
-				<option>Otros</option>
-			</select> 
-			Ciudad: <input type="text" placeholder="Buscar ciudad..."	name="search_city" class="explorer_input" />
-			Vendedor: <input type="text" placeholder="Buscar Vendedor..."	name="search_seller" class="explorer_input" />
-			Título: <input type="text" placeholder="ítulo producto..."	name="search_title" class="explorer_input" />
-			Descripción: <input type="text" placeholder="Descripción..."	name="search_description" class="explorer_input" />
 			<form method="get" action="./Controller">
-			<input type="hidden" name="redirect" value="searchAllProducts">
-				<input type="text" placeholder="Buscar producto..."
-					name="search_input" class="explorer_input" />
+			<input type="hidden" name="redirect" value="searchAllProducts" />
+				<% List<Category> cat_list= (List<Category>)request.getAttribute("category_list");%>
+				Category:
+				<select name="search_category">
+				<% for(int i = 0; i<cat_list.size(); i++){ %>
+					<option value="<%= cat_list.get(i).getId()%>"><%=cat_list.get(i).getName() %></option>
+					<%} %>
+				</select><br>
+				Ciudad: <input type="text" placeholder="Buscar ciudad..."	name="search_city" class="explorer_input" />
+				Vendedor: <input type="text" placeholder="Buscar Vendedor..."	name="search_seller" class="explorer_input" />
+				Título: <input type="text" placeholder="ítulo producto..."	name="search_title" class="explorer_input" />
+				Descripción: <input type="text" placeholder="Descripción..."	name="search_description" class="explorer_input" />
 				<button type="submit" class="btn-default" >Buscar</button> 
 			</form>
 		</nav>
