@@ -41,11 +41,11 @@ public class UserUpdateManager extends Manager {
 			String city = request.getParameter("city");
 			
 			if(name != null && !name.equals("")){
-				usuario.setName(name);
+				usuario.setName(name.toLowerCase());
 			}
 			
 			if(name != null && !name.equals("")){
-				usuario.setSurname(surname);
+				usuario.setSurname(surname.toLowerCase());
 			}
 			
 			if(name != null && !name.equals("")){
@@ -57,7 +57,7 @@ public class UserUpdateManager extends Manager {
 			}
 			
 			if(name != null && !name.equals("")){
-				usuario.setCity(city);
+				usuario.setCity(city.toLowerCase());
 			}
 			
 			manager.updatePersona(usuario);

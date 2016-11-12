@@ -19,22 +19,20 @@ public class RegisterProductManager extends Manager {
 	public void Execute() {
 		Product producto = new Product();
 		ProductManager manager = new ProductManager();
-		producto.setDescription(((String) request.getParameter("descriptionproduct")));
-		producto.setName(((String) request.getParameter("productname")));
+		producto.setDescription(((String) request.getParameter("descriptionproduct")).toLowerCase());
+		producto.setName(((String) request.getParameter("productname")).toLowerCase());
 		BigDecimal price = new BigDecimal(((String) request.getParameter("pricepproduct")));
 		producto.setPrice(price);
-		producto.setStatus(((String) request.getParameter("statusproduct")));
+		producto.setStatus(((String) request.getParameter("statusproduct")).toLowerCase());
 		Category catproducto = new Category();
 		int catprod = Integer.parseInt((((String) request.getParameter("idcategory"))));
-		catproducto.setId(catprod);
-		catproducto.setName("electronica");
-		producto.setCategory(catproducto);
-		//User userproduct = new User();
+		CategoryManager cat_manager = new CategoryManager();
 		User user = session.getUser();
-		
 		producto.setUser(user);
 
 		try {
+			Category cat = cat_manager.findCategoryById(catprod);
+			producto.setCategory(cat);
 			manager.createProduct(producto);
 			request.setAttribute("product", producto);
 			request.getRequestDispatcher("./index.jsp").include(request, response);

@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import logic.*;
 import model.*;
-import model.Product;
-import model.User;
 
 public class SearchAllProductsManager extends Manager {
 
@@ -21,11 +19,26 @@ public class SearchAllProductsManager extends Manager {
 		
 		Product producto = new Product();
 		ProductManager manager = new ProductManager();
-		
-		
-
+		int cat_id = Integer.parseInt((String)request.getParameter("descriptionproduct"));
+		CategoryManager cat_manager = new CategoryManager();
+		String city = ((String)request.getParameter("search_city")).toLowerCase();
+		String seller = ((String) request.getParameter("search_seller")).toLowerCase();
+		String title = ((String) request.getParameter("search_title")).toLowerCase();
+		String description = ((String) request.getParameter("search_description")).toLowerCase();
 		try {
-			List<Product> lista= manager.findAdvanced("arduino");
+			
+			User user = new User();
+			user.setName(seller);
+			user.setCity(city);
+			
+			Category category = cat_manager.findCategoryById(cat_id);
+			producto.setCategory(category);
+			producto.setName(title);
+			producto.setDescription(description);
+			producto.setUser(user);
+			
+			
+			List<Product> lista= manager.findAdvanced(producto);
 			
 			request.setAttribute("product_list_advanced", lista);
 			request.getRequestDispatcher("./Viewproductsseller.jsp").include(request, response);
