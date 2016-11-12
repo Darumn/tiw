@@ -51,8 +51,6 @@ public class DeleteUser extends AdminManager {
 			if (manager.deleteUser(userOld).equals("")) {
 				request.getRequestDispatcher("./index.jsp").forward(request, response);
 			}
-
-			request.getRequestDispatcher("./index.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
