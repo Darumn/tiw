@@ -1,9 +1,9 @@
+<%@include file="includes/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="model.*"%>
 <%@page import="managers.Manager"%>
 <%@page import="managers.SessionAdminManager"%>
-<%@include file="includes/header.jsp"%>
 
 <div class="main">
 	<%
