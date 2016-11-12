@@ -18,11 +18,12 @@ public class DeleteUser extends AdminManager {
 	public void Execute() {
 		UserManager manager = new UserManager();
 		User userOld;
-		String id = request.getParameter("id_object");
+		String id = request.getParameter("id");
 		int idUser = Integer.parseInt(id);
 
 		try {
 			userOld = manager.findUserById(idUser);
+
 			for (Product producto : userOld.getProducts()) {
 				ProductManager p_manager = new ProductManager();
 				p_manager.deleteProduct(producto);
@@ -40,13 +41,15 @@ public class DeleteUser extends AdminManager {
 				mensajemanager.deleteMessage(message);
 			}
 
-			manager = new UserManager();
-			manager.deleteUser(userOld);
-
 			SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
 
 			if (sessionUser.getUser() != null) {
 				request.setAttribute("sessionUser", sessionUser);
+			}
+
+			manager = new UserManager();
+			if (manager.deleteUser(userOld).equals("")) {
+				request.getRequestDispatcher("./index.jsp").forward(request, response);
 			}
 
 			request.getRequestDispatcher("./index.jsp").forward(request, response);

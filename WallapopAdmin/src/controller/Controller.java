@@ -62,6 +62,7 @@ public class Controller extends HttpServlet {
 		AdminManager manager = null;
 
 		if (action != null && !action.equals("")) {
+
 			if (action.equals("ShowUsers")) {
 				manager = new ShowUsers(request, response);
 				manager.Execute();
