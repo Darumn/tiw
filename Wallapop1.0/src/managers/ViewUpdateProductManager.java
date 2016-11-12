@@ -23,6 +23,9 @@ public class ViewUpdateProductManager extends Manager {
 		ProductManager manager = new ProductManager();
 		try{
 			Product product= manager.findProductById(id);
+			CategoryManager cat=new CategoryManager();
+			List<Category> lista=cat.findAll();
+			this.request.setAttribute("category_list", lista);
 			this.request.setAttribute("product", product);
 			request.getRequestDispatcher("./UpdateProducts.jsp").include(request, response);
 		}

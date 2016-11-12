@@ -21,7 +21,7 @@ public class DeleteUser extends AdminManager {
 
 		try {
 			userOld = manager.findUserById(idUser);
-			manager.deletePersona(userOld);
+			//manager.deletePersona(userOld);
 			request.getRequestDispatcher("./index.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

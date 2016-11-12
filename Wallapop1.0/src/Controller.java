@@ -125,7 +125,9 @@ public class Controller extends HttpServlet {
 				manager = new UserProfileManager(request, response);
 			}else if(action.equals("eliminarUsuario")){
 				manager = new DeleteUserManager(request,response);
-				
+				manager.Execute();
+				request.getSession(true).invalidate();
+				manager = new IndexManager(request, response);
 			}else if (action.equals("UserProducts")) {
 				manager = new UserProductsManager(request, response);
 				

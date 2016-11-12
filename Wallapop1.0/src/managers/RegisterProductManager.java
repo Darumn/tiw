@@ -29,10 +29,10 @@ public class RegisterProductManager extends Manager {
 		catproducto.setId(catprod);
 		catproducto.setName("electronica");
 		producto.setCategory(catproducto);
-		User userproduct = new User();
-		int iduser = Integer.parseInt((((String) request.getParameter("iduser"))));
-		userproduct.setId(iduser);
-		producto.setUser(userproduct);
+		//User userproduct = new User();
+		User user = session.getUser();
+		
+		producto.setUser(user);
 
 		try {
 			manager.createProduct(producto);

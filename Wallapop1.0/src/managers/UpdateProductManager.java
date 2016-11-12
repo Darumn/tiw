@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import logic.ProductManager;
+import logic.CategoryManager;
 import model.Category;
 import model.Product;
 import model.User;
@@ -39,22 +40,23 @@ public class UpdateProductManager extends Manager {
 			String description = request.getParameter("descriptionproduct");			
 			BigDecimal price = new BigDecimal(((String) request.getParameter("pricepproduct")));
 			String status=request.getParameter("statusproduct");	
+			CategoryManager cat=new CategoryManager();
+			Category categoria=cat.findCategoryById(Integer.parseInt(request.getParameter("idcategory")));
 			if(name != null && !name.equals("")){
 				producto.setName(name);
 			}
 			
-			if(name != null && !name.equals("")){
+			if(description != null && !description.equals("")){
 				producto.setDescription(description);
 			}
-			if(name != null && !name.equals("")){
-				producto.setPrice(price);
-			}
+			
+			producto.setPrice(price);		
 			
 			
-			if(name != null && !name.equals("")){
+			if(status != null && !status.equals("")){
 				producto.setStatus(status);
 			}		
-			
+			producto.setCategory(categoria);
 			
 			manager.updateProduct(producto);
 			

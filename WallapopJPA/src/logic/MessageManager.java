@@ -10,7 +10,8 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import model.Message;
-import model.Product;;
+import model.Product;
+import model.User;
 
 public class MessageManager {
 	private EntityManagerFactory emf;
@@ -59,4 +60,27 @@ public class MessageManager {
 		}
 		return ret;
 	}
+	public String deleteMessage(Message message) throws Exception {
+		try {
+			em.getTransaction().begin();
+			message = em.merge(message);
+			em.remove(message);
+			em.getTransaction().commit();
+		} catch (Exception ex) {
+			try {
+				if (em.getTransaction().isActive()) {
+					em.getTransaction().rollback();
+				}
+			} catch (Exception e) {
+				ex.printStackTrace();
+				throw e;
+			}
+			throw ex;
+		} finally {
+			em.close();
+		}
+		return "";
+	}
 }
+	
+

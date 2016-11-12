@@ -1,5 +1,8 @@
 <%@page import="managers.UserUpdateManager"%>
-<%@page import="model.Product"%>
+<%@page import="model.*" %>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="java.math.BigDecimal"%>
 <% Product producto=(Product)request.getAttribute("product");%>
 <div id="update-productos">
 	<H3>PRODUCTO</H3>
@@ -13,7 +16,7 @@
 		</p>
 		Status:<%=producto.getStatus() %>
 		</p>
-		Category_id:<%= producto.getCategory() %>
+		Category: <%= producto.getCategory().getName() %>
 		</p>
 		
 		Photo:
@@ -29,13 +32,25 @@
 			</p>
 			Precio:<input type="text" name="pricepproduct">
 			</p>
-			Status:<input type="text" name="statusproduct">
+			Status:
+			<select name="statusproduct">
+				<option value="disponible">Disponible</option>
+				<option value="reservado">Reservado</option>
+				<option value="vendido">Vendido</option>
+			</select>
 			</p>
-			Category_id:<input type="text" name="idcategory">
-			</p>
+			<% List<Category> lista= (List<Category>)request.getAttribute("category_list");%>
+			Category_id:
+			<select name="idcategory">
+			<% for(int i = 0; i<lista.size(); i++){ %>
+			
+			
+				<option value="<%= lista.get(i).getId()%>"><%=lista.get(i).getName() %></option>
+				<%} %>
+			</select>
 			
 			Photo:<input type="file" name="photoproduct">
 			</p>
-			<a class="btn-success" href="./Controller?redirect=updateProductUser&id=<%=producto.getId()%>">Modificar</a>
+			<button class="btn-success" type="submit">Modificar</a>
 	</form>
 </div>

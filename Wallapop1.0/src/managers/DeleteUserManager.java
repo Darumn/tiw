@@ -25,10 +25,30 @@ public class DeleteUserManager extends Manager {
 
 		try {
 			userOld = manager.findUserById(idUser);
+//			ProductManager manager2 = new ProductManager();
+			for (Product producto : userOld.getProducts()) {
+				ProductManager p_manager = new ProductManager();
+				p_manager.deleteProduct(producto);
+			}
+			List<Message> lista1=userOld.getMessages1();
+			for (Message message : lista1) {
+				MessageManager mensajemanager=new MessageManager();
+				mensajemanager.deleteMessage(message);	
+			}
+			List<Message> lista2=userOld.getMessages2();
+			for (Message message : lista2) {
+				MessageManager mensajemanager=new MessageManager();
+				mensajemanager.deleteMessage(message);	
+			}
+			
+//			manager2.deleteAllById(userOld);
 			manager = new UserManager();
 			manager.deleteUser((userOld));
-			manager = new UserManager();
-			request.getRequestDispatcher("./Controller").forward(request, response);
+			manager = new UserManager();			
+						
+			
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
