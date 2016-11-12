@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="model.*"%>
-<%@page import="managers.Manager"%>
-<%@page import="managers.SessionAdminManager"%>
+<%@page import="managers.*"%>
 <%@include file="includes/header.jsp"%>
 
 <div class="main">
 	<%
-		SessionAdminManager sessionUser = (SessionAdminManager) (request.getAttribute("sessionUser"));
+		SessionAdminManager sessionUser = (SessionAdminManager) request.getAttribute(AdminManager.CONST_SESSION);
 		if (sessionUser != null) {
 	%>
 	HOLA
@@ -31,7 +30,8 @@
 		</form>
 		<form method="GET" action="./Controller">
 			<input type="hidden" name="redirect" value="ShowProducts"> <input
-				type="submit" value="Productos">
+				type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>">
+			<input type="submit" value="Productos">
 		</form>
 	</ul>
 </div>

@@ -18,13 +18,20 @@ public class ShowProducts extends AdminManager {
 	public void Execute() {
 		ProductManager products = new ProductManager();
 		List<Product> productsList;
+		User user = new User();
+		UserManager userManager = new UserManager();
+		String id = request.getParameter("id");
 		try {
 			productsList = products.findAllProducts();
-			SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
+			user = userManager.findUserById(Integer.parseInt(id));
+			session.setUser(user);
+			// SessionAdminManager sessionUser = (SessionAdminManager)
+			// request.getAttribute("sessionUser");
 
-			if (sessionUser.getUser() != null) {
-				request.setAttribute("sessionUser", sessionUser);
-			}
+			/*
+			 * if (session.getUser() != null) {
+			 * request.setAttribute("sessionUser", sessionUser); }
+			 */
 
 			request.setAttribute("products list", productsList);
 			request.getRequestDispatcher("./ProductsList.jsp").forward(request, response);
