@@ -22,7 +22,7 @@ public class IndexAdminManager extends AdminManager {
 		
 		try {
 			
-			request.getRequestDispatcher("./index.jsp").forward(request, response);
+			request.getRequestDispatcher("./login.jsp").forward(request, response);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

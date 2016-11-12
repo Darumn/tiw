@@ -1,7 +1,11 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +17,10 @@ import managers.*;
  * Servlet implementation class Controller
  */
 @WebServlet("/Controller")
+@MultipartConfig(maxFileSize = 16177215) 
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private static boolean initilized = false;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -24,6 +29,26 @@ public class Controller extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void service(HttpServletRequest request, HttpServletResponse response){
+		if(!initilized){
+			initProperties();
+		}
+		
+		try {
+			doGet(request, response);
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void initProperties() {
+		ServletContext servletContext = getServletContext();
+				
+		initilized = true;
+		
+	}
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -36,7 +61,7 @@ public class Controller extends HttpServlet {
 		AdminManager manager = null;
 
 		if (action != null && !action.equals("")) {
-
+			/*
 			if (action.equals("ShowUsers")) {
 				manager = new ShowUsers(request, response);
 				manager.Execute();
@@ -69,7 +94,7 @@ public class Controller extends HttpServlet {
 				manager.Execute();
 			} else {
 				request.getRequestDispatcher("./failure.jsp").forward(request, response);
-			}
+			}*/
 
 		}
 		// Caso de index
