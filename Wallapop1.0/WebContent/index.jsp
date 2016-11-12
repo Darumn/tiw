@@ -75,8 +75,8 @@ if(session1!=null){
 				<% List<Category> cat_list= (List<Category>)request.getAttribute("category_list");%>
 				Category:
 				<select name="search_category">
-				<% for(int i = 0; i<lista.size(); i++){ %>
-					<option value="<%= lista.get(i).getId()%>"><%=lista.get(i).getName() %></option>
+				<% for(int i = 0; i<cat_list.size(); i++){ %>
+					<option value="<%= cat_list.get(i).getId()%>"><%=cat_list.get(i).getName() %></option>
 					<%} %>
 				</select><br>
 				Ciudad: <input type="text" placeholder="Buscar ciudad..."	name="search_city" class="explorer_input" />

@@ -19,7 +19,7 @@ public class SearchAllProductsManager extends Manager {
 		
 		Product producto = new Product();
 		ProductManager manager = new ProductManager();
-		int cat_id = Integer.parseInt((String)request.getParameter("descriptionproduct"));
+		int cat_id = Integer.parseInt((String)request.getParameter("search_category"));
 		CategoryManager cat_manager = new CategoryManager();
 		String city = ((String)request.getParameter("search_city")).toLowerCase();
 		String seller = ((String) request.getParameter("search_seller")).toLowerCase();
@@ -41,7 +41,7 @@ public class SearchAllProductsManager extends Manager {
 			List<Product> lista= manager.findAdvanced(producto);
 			
 			request.setAttribute("product_list_advanced", lista);
-			request.getRequestDispatcher("./Viewproductsseller.jsp").include(request, response);
+			request.getRequestDispatcher("./index.jsp").include(request, response);
 
 		} catch (Exception e) {
 			// TODO: handle exception
