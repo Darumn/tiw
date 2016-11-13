@@ -1,5 +1,8 @@
 package managers;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -36,7 +39,6 @@ public class LoginAdminManager extends AdminManager {
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-
 		}
 
 	}
