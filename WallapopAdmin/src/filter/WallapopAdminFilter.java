@@ -36,7 +36,6 @@ public class WallapopAdminFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("SOY EL FILTRO SIIIIIIIIIIIIIIIIIIIIIIII **************");
 		String action = request.getParameter("redirect");
 		if (action != null) {
 			if (action.equals("AdminLogin")) {
@@ -73,7 +72,6 @@ public class WallapopAdminFilter implements Filter {
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
-		System.out.println("SOY EL FILTRO INICIADO SIIIIIIIIIIIIIIIIIIIIIIII **************");
 		this.config = config;
 	}
 
