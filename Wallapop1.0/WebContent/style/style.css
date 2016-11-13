@@ -94,6 +94,8 @@ nav {
 .product-owner {
 	margin-top: 5px;
 	text-align: center;
+	height: 114px;
+	max-height: 114px;
 }
 
 /*user form*/

@@ -107,7 +107,8 @@ public class UserUpdateManager extends Manager {
 		
 		File file = new File(Manager.userDirectoryFullPath+"/"+usuario.getId()+".jpg");
 		if(file.exists()){
-			ret = "./images"+userDirectory+"/"+usuario.getId()+".jpg";
+			//ret = "./images"+userDirectory+"/"+usuario.getId()+".jpg";
+			ret = Manager.userDirectoryFullPath+"/"+usuario.getId()+".jpg";
 		}
 		
 		return ret;

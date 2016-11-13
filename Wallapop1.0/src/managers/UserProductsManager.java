@@ -7,7 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import logic.CategoryManager;
 import logic.UserManager;
+import model.Category;
 import model.Product;
 import model.User;
 
@@ -27,7 +29,9 @@ public class UserProductsManager extends Manager {
 			UserManager manager = new UserManager();
 			user = manager.findUserById(id);
 			List<Product> products = user.getProducts();
-			
+			CategoryManager cat=new CategoryManager();
+			List<Category> cat_list=cat.findAll();
+			this.request.setAttribute("category_list", cat_list);
 			this.request.setAttribute("mensaje", "Productos del usuario " + user.getName() + " " + user.getSurname());
 			this.request.setAttribute("product list", products);
 			request.getRequestDispatcher("./index.jsp").include(request, response);

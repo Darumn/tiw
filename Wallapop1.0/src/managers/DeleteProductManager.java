@@ -28,12 +28,7 @@ public class DeleteProductManager extends Manager {
 			manager = new ProductManager();
 			manager.deleteProduct(product);
 			
-			manager = new ProductManager();
 			
-			List<Product> lista= manager.findAllProducts();
-			this.request.setAttribute("product list", lista);
-			
-			request.getRequestDispatcher("./index.jsp").include(request, response);
 		}
 		catch(Exception e){
 			//throw new PetadoTotalException();

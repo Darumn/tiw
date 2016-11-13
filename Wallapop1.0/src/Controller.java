@@ -49,6 +49,7 @@ public class Controller extends HttpServlet {
 	private void initProperties() {
 		ServletContext servletContext = getServletContext();
 		Manager.path = servletContext.getRealPath("/images");
+		//Manager.path = "/home/tiw/git/wallapop2.git/tiw/Wallapop1.0/WebContent/images";
 		
 		Manager.userDirectoryFullPath = Manager.path+Manager.userDirectory;
 		
@@ -164,17 +165,20 @@ public class Controller extends HttpServlet {
 			}
 			else if(action.equals("DeleteProduct")){
 				manager= new DeleteProductManager(request,response);
+				manager.Execute();
+				manager = new IndexManager(request, response);
 			}
 		}
 		// Caso de index
 		else {
 			manager = new IndexManager(request, response);
+			
 		}
 		
 		request.getRequestDispatcher("./includes/header.jsp").include(request, response);
 		manager.Execute();
 		request.getRequestDispatcher("./includes/footer.jsp").include(request, response);
-
+		
 	}
 
 	/**
