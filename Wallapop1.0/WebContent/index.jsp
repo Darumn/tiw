@@ -79,18 +79,18 @@ if(session1!=null){
 				<% List<Category> cat_list= (List<Category>)request.getAttribute("category_list");%>
 				Categoría: <br>
 				<select name="search_category" class="form-control">
-					<option default value="vacio"></option>
+					<option default value="vacio">Seleccionar..</option>
 				<% for(int i = 0; i<cat_list.size(); i++){ %>
 					<option value="<%= cat_list.get(i).getId()%>"><%=cat_list.get(i).getName() %></option>
 					<%} %>
 				</select><br>
 				Ciudad: <br> <input type="text" placeholder="Buscar ciudad..."	name="search_city" class="form-control" /> <br>
-				Vendedor: <br><br><input type="text" placeholder="Buscar Vendedor..."	name="search_seller" class="form-control" /> <br>
+				Vendedor: <br><input type="text" placeholder="Buscar Vendedor..."	name="search_seller" class="form-control" /> <br>
 				Título: <br><input type="text" placeholder="ítulo producto..."	name="search_title" class="form-control" /> <br>
 				Descripción: <br><input type="text" placeholder="Descripción..."	name="search_description" class="form-control" /> <br>
 				Estado: <br>
 				<select name="search_status" class="form-control">
-					<option default value="vacio"></option>
+					<option default value="vacio">Seleccionar..</option>
 					<option value="disponible">Disponible</option>
 					<option value="reservado">Reservado</option>
 					<option value="vendido">Vendido</option>
