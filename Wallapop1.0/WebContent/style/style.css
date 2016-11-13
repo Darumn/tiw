@@ -274,9 +274,13 @@ nav {
 .form-control{
 	display: inline;
 	width: 50%;
-	
+	max-width: 230px;
+	min-width: 150px;
 }
 .seller_field{
 	display: inline;
 	font-weight: bold;
+}
+.advanced-search{
+	padding-left: 10px;
 }

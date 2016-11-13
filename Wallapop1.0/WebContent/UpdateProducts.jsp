@@ -10,31 +10,37 @@
 			<input type="hidden" name="redirect" value="modificarproductousuario" />
 			<input type="hidden" name="id" value="<%=producto.getId()%>" />
 			<h4>Modificar campos</h4>
-			Name: <input type="text" name="name" value="<%= producto.getName() %>"/>
-			</p>
-			Descripción:<input type="text" name="descriptionproduct" value="<%= producto.getDescription() %>"/>
-			</p>
-			Precio:<input type="text" name="pricepproduct" value="<%= producto.getPrice() %>">
-			</p>
-			Status:
-			<select name="statusproduct">
+			<div>
+				Name: <br><input type="text" name="name" value="<%= producto.getName() %>" class="form-control"/>
+			</div>
+			<div>
+			Descripción: <br><input type="text" name="descriptionproduct" value="<%= producto.getDescription() %>" class="form-control"/>
+			</div>
+			<div>
+			Precio: <br><input type="text" name="pricepproduct" value="<%= producto.getPrice() %>" class="form-control">
+			</div>
+			<div>
+			Estado: <br>
+			<select name="statusproduct" class="form-control">
 				<option value="disponible">Disponible</option>
 				<option value="reservado">Reservado</option>
 				<option value="vendido">Vendido</option>
 			</select>
-			</p>
+			</div>
+			<div>
 			<% List<Category> lista= (List<Category>)request.getAttribute("category_list");%>
-			Category_id:
-			<select name="idcategory">
+			Categoría: <br>
+			<select name="idcategory" class="form-control">
 			<% for(int i = 0; i<lista.size(); i++){ %>
 			
 			
 				<option value="<%= lista.get(i).getId()%>"><%=lista.get(i).getName() %></option>
 				<%} %>
 			</select>
-			
-			Photo:<input type="file" name="image" value="<%= UpdateProductManager.getUrlImage(producto)%>">
-			</p>
+			</div>
+			<div>
+			Photo: <br> <input type="file" style="display:inline;" name="image" class="form-control" value="<%= UpdateProductManager.getUrlImage(producto)%>">
+			</div>
 			<button class="btn-success" type="submit">Modificar</a>
 	</form>
 </div>
