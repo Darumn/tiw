@@ -34,6 +34,9 @@ if(session1!=null){
 		<h3><%= mensaje %></h3>
 		<%} %>
 		<div class="row">
+		<%if(lista.isEmpty()){ %>
+			<h3> NO SE ENCONTRARON PRODUCTOS</h3>
+			<%} %>
 	<% for(int i=0; i<lista.size(); i++){%>
 	
 			<div class="col-md-3">
@@ -97,6 +100,9 @@ if(session1!=null){
 		<%} %>
 		
 		<div class="row">
+		<%if(lista.isEmpty()){ %>
+			<h3> NO SE ENCONTRARON PRODUCTOS</h3>
+			<%} %>
 	<% for(int i=0; i<lista.size(); i++){%>
 	
 			<div class="col-md-3">
