@@ -265,6 +265,7 @@ nav {
 	width: 140px;
 	max-width: 140px;
 	text-align:center;
+	margin-top: 5px;
 }
 .user_profile_name{
 	text-transform: uppercase;
@@ -274,4 +275,8 @@ nav {
 	display: inline;
 	width: 50%;
 	
+}
+.seller_field{
+	display: inline;
+	font-weight: bold;
 }

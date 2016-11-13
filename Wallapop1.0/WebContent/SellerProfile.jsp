@@ -16,17 +16,17 @@
 	</div>
 	<div id="section2">
 		<H3>Datos del vendedor</H3>
-			Nombre: 
+			<p class="seller_field">Nombre: </p>
 			<%= usuario.getName() %>
 			<br>
-			Primer Apellido: 
+			<p class="seller_field">Primer Apellido: </p>
 			<%= usuario.getSurname() %>
 			<br>
 			<h4>Datos de identificación</h4>
-			E-mail:
+			<p class="seller_field">E-mail: </p>
 			<%= usuario.getEmail() %>
 			<br>
-			Ciudad:
+			<p class="seller_field">Ciudad: </p>
 			<%= usuario.getCity() %>
 			<br>
 			<%SessionManager session1 = (SessionManager)request.getAttribute(Manager.CONST_SESSION); 
