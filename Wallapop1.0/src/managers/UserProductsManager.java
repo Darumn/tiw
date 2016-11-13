@@ -19,8 +19,7 @@ public class UserProductsManager extends Manager {
 	@Override
 	public void Execute() {
 		// TODO Auto-generated method stub
-		String strId = this.request.getParameter("id");
-		int id = Integer.parseInt(strId);
+		int id = session.getUser().getId();
 		User user = null;
 		try{
 			UserManager manager = new UserManager();

@@ -4,6 +4,7 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="java.math.BigDecimal"%>
+<%@page import="managers.UpdateProductManager"%>
 <%
 //IndexManager manager = new IndexManager();
 //List<Product> lista = manager.Execute();
@@ -39,7 +40,7 @@ if(session1!=null){
 				<div class="card-product">
 				
 					<div class="image-product">
-						<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><img src="images/casco.jpg" class="img-responsive" alt="Casco"></a>
+						<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><img src="<%= UpdateProductManager.getUrlImage(lista.get(i)) %>" class="img-responsive" alt="<%= lista.get(i).getName()%>"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">
@@ -102,7 +103,7 @@ if(session1!=null){
 				<div class="card-product">
 				
 					<div class="image-product">
-						<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><img src="images/casco.jpg" class="img-responsive" alt="Casco"></a>
+						<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><img src="<%= UpdateProductManager.getUrlImage(lista.get(i)) %>" class="img-responsive" alt="<%= lista.get(i).getName()%>"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">

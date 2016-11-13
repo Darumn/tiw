@@ -1,4 +1,4 @@
-<%@page import="managers.UserUpdateManager"%>
+<%@page import="managers.UpdateProductManager"%>
 <%@page import="model.*" %>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -33,7 +33,7 @@
 				<%} %>
 			</select>
 			
-			Photo:<input type="file" name="photoproduct">
+			Photo:<input type="file" name="image" value="<%= UpdateProductManager.getUrlImage(producto)%>">
 			</p>
 			<button class="btn-success" type="submit">Modificar</a>
 	</form>

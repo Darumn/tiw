@@ -59,7 +59,7 @@ public class Controller extends HttpServlet {
 		
 		Manager.productDirectoryFullPath = Manager.path+Manager.productDirectory;
 		
-		file = new File(Manager.path+Manager.productDirectoryFullPath);
+		file = new File(Manager.productDirectoryFullPath);
 		if(!file.exists()){
 			file.mkdir();
 		}
@@ -106,7 +106,7 @@ public class Controller extends HttpServlet {
 			} else if (action.equals("RegisterProductManager")) {
 				manager = new RegisterProductManager(request, response);
 				manager.Execute();
-				manager = new ViewUpdateProductManager(request, response);
+				manager = new UserProductsManager(request, response);
 
 			} else if (action.equals("UserProfile")) {
 				manager = new UserProfileManager(request, response);
