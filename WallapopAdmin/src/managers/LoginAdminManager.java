@@ -23,13 +23,10 @@ public class LoginAdminManager extends AdminManager {
 		UserManager manager = new UserManager();
 		try {
 			usuario = manager.findUser(usuario);
-			if (usuario != null && usuario.getIsAdmin()) {
+			if (usuario != null && usuario.getIsAdmin() == 1) {
 				session.setUser(usuario);
 				request.setAttribute("sessionUser", session);
-<<<<<<< HEAD
-=======
 				request.setAttribute("error", null);
->>>>>>> branch 'master' of https://github.com/Darumn/tiw
 				request.getRequestDispatcher("./indexAdmin.jsp").include(request, response);
 			} else {
 				request.setAttribute("error", "error");

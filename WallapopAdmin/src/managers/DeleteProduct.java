@@ -32,16 +32,12 @@ public class DeleteProduct extends AdminManager {
 			productOld = manager.findProductById(idProduct);
 			manager = new ProductManager();
 			manager.deleteProduct(productOld);
-<<<<<<< HEAD
-			request.getRequestDispatcher("./indexAdmin.jsp").forward(request, response);
-=======
 			productsList = products.findAllProducts();
 			user = userManager.findUserById(Integer.parseInt(id2));
 			session.setUser(user);
 			request.setAttribute("products list", productsList);
 			request.setAttribute("sessionUser", session);
 			request.getRequestDispatcher("./ProductsList.jsp").forward(request, response);
->>>>>>> branch 'master' of https://github.com/Darumn/tiw
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
