@@ -79,6 +79,7 @@ if(session1!=null){
 				<% List<Category> cat_list= (List<Category>)request.getAttribute("category_list");%>
 				Category:
 				<select name="search_category">
+					<option default value="vacio"></option>
 				<% for(int i = 0; i<cat_list.size(); i++){ %>
 					<option value="<%= cat_list.get(i).getId()%>"><%=cat_list.get(i).getName() %></option>
 					<%} %>
