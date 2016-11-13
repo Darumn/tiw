@@ -60,7 +60,7 @@ public class LoginAdminManager extends AdminManager {
  
    
  
-    /* Retorna un hash SHA1 a partir de un texto */
+    
     public static String sha1(String txt) {
         return LoginAdminManager.getHash(txt, "SHA1");
     }

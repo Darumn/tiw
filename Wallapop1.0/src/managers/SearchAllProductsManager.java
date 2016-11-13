@@ -41,8 +41,10 @@ public class SearchAllProductsManager extends Manager {
 			
 			
 			List<Product> lista= manager.findAdvanced(producto);
-			
-			request.setAttribute("product_list_advanced", lista);
+			CategoryManager cat=new CategoryManager();
+			List<Category> lista2=cat.findAll();
+			request.setAttribute("product list", lista);
+			request.setAttribute("category_list", lista2);
 			request.getRequestDispatcher("./index.jsp").include(request, response);
 
 		} catch (Exception e) {

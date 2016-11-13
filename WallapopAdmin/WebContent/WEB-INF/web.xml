@@ -3,15 +3,22 @@
   <display-name>WallapopAdmin</display-name>
   <welcome-file-list>
     <welcome-file>Controller</welcome-file>
-    
   </welcome-file-list>
   <error-page>
-  <error-code>500</error-code>
-  <location>/error500.jsp</location>
+    <error-code>500</error-code>
+    <location>/error500.jsp</location>
   </error-page>
-<error-page>
-  <error-code>404</error-code>
-  <location>/error404.jsp</location>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error404.jsp</location>
   </error-page>
-
+  <filter>
+		<filter-name>WallapopAdminFilter</filter-name>
+		<filter-class>filter.WallapopAdminFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>WallapopAdminFilter</filter-name>
+		<url-pattern>/Controller?redirect</url-pattern>
+	</filter-mapping>
 </web-app>
+
