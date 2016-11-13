@@ -112,12 +112,13 @@ public class ProductManager {
 		List<Product> ret = null;
 
 		try {
-			Query query = em.createQuery("SELECT c FROM Product c WHERE c.name = :varName OR c.description LIKE :varDesc OR c.category.id = :varCategoryId OR c.user.name = :varUserName OR c.user.city = :varUserCity", Product.class);
+			Query query = em.createQuery("SELECT c FROM Product c WHERE c.name = :varName OR c.description LIKE :varDesc OR c.category.id = :varCategoryId OR c.user.name = :varUserName OR c.user.city = :varUserCity OR c.status = :varStatus", Product.class);
 			query.setParameter("varName", producto.getName());
 			query.setParameter("varDesc", producto.getDescription());
 			query.setParameter("varCategoryId", producto.getCategory().getId());
 			query.setParameter("varUserName", producto.getUser().getName());
 			query.setParameter("varUserCity", producto.getUser().getCity());
+			query.setParameter("varStatus", producto.getStatus());
 			ret = query.getResultList();
 
 		} finally {

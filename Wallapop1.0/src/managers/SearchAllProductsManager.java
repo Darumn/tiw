@@ -21,12 +21,14 @@ public class SearchAllProductsManager extends Manager {
 		
 		Product producto = new Product();
 		ProductManager manager = new ProductManager();
-		int cat_id = Integer.parseInt((String)request.getParameter("search_category"));
+		int cat_id = -1;
+		if(request.getParameter("search_category") != "") cat_id = Integer.parseInt((String)request.getParameter("search_category"));
 		CategoryManager cat_manager = new CategoryManager();
 		String city = ((String)request.getParameter("search_city")).toLowerCase();
 		String seller = ((String) request.getParameter("search_seller")).toLowerCase();
 		String title = ((String) request.getParameter("search_title")).toLowerCase();
 		String description = ((String) request.getParameter("search_description")).toLowerCase();
+		String status = ((String) request.getParameter("search_status")).toLowerCase();
 		try {
 			
 			User user = new User();
@@ -38,6 +40,7 @@ public class SearchAllProductsManager extends Manager {
 			producto.setName(title);
 			producto.setDescription(description);
 			producto.setUser(user);
+			producto.setStatus(status);
 			
 			
 			List<Product> lista= manager.findAdvanced(producto);
