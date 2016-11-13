@@ -63,8 +63,6 @@ public class UpdateProductManager extends Manager {
 			
 			this.manageImage(producto);
 			
-			//request.setAttribute("user", usuario);
-			//request.getRequestDispatcher("./PerfilUsuario.jsp").include(request, response);
 		}
 		 catch (Exception e) {
 			// TODO: handle exception

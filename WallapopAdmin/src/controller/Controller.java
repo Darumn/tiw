@@ -38,7 +38,6 @@ public class Controller extends HttpServlet {
 		try {
 			doGet(request, response);
 		} catch (ServletException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -79,7 +78,8 @@ public class Controller extends HttpServlet {
 				manager = new LoginAdminManager(request, response);
 				manager.Execute();
 			} else if (action.equals("CloseSession")) {
-				manager = new CloseSession(request, response);
+				request.getSession(true).invalidate();
+				manager = new IndexAdminManager(request, response);
 				manager.Execute();
 			} else if (action.equals("ShowProducts")) {
 				manager = new ShowProducts(request, response);
@@ -104,16 +104,17 @@ public class Controller extends HttpServlet {
 			} else if (action.equals("ReturnIndex")) {
 				manager = new ReturnIndex(request, response);
 				manager.Execute();
-			} 
+			}
 		}
 		// Caso de index
 		else {
 			manager = new IndexAdminManager(request, response);
 			manager.Execute();
 		}
-		//request.getRequestDispatcher("./includes/header.jsp").include(request, response);
-		
-		//request.getRequestDispatcher("./includes/footer.jsp").include(request,response);
+		// request.getRequestDispatcher("./includes/header.jsp").include(request,
+		// response);
+
+		// request.getRequestDispatcher("./includes/footer.jsp").include(request,response);
 
 	}
 
