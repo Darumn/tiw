@@ -39,7 +39,7 @@ if(session1!=null){
 			<%} %>
 	<% for(int i=0; i<lista.size(); i++){%>
 	
-			<div class="col-md-3">
+			<div class="col-xs-3 col-md-3">
 				<div class="card-product">
 				
 					<div class="image-product">
@@ -114,7 +114,7 @@ if(session1!=null){
 			<%} %>
 	<% for(int i=0; i<lista.size(); i++){%>
 	
-			<div class="col-md-3">
+			<div class="col-xs-3 col-md-3">
 				<div class="card-product">
 				
 					<div class="image-product">

@@ -24,7 +24,7 @@ public class UserProductsManager extends Manager {
 	public void Execute() {
 		// TODO Auto-generated method stub
 		int id;
-		if(request.getParameter("id") != ""){
+		if(request.getParameter("id") != null && request.getParameter("id") != ""){
 			id = Integer.parseInt(request.getParameter("id"));
 		}else{
 			id = session.getUser().getId();
