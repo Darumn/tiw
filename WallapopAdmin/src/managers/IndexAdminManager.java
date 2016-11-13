@@ -19,11 +19,14 @@ public class IndexAdminManager extends AdminManager {
 	@Override
 	public void Execute() {
 		try {
-			request.getRequestDispatcher("./login.jsp").forward(request, response);
+			// request.getRequestDispatcher("./login.jsp").forward(request,
+			// response);
+			String url = request.getContextPath() + "/login.jsp";
+			response.sendRedirect(url);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			try {
-				request.getRequestDispatcher("./login.jsp").include(request, response);
+				request.getRequestDispatcher("./login.jsp").forward(request, response);
 			} catch (ServletException e1) {
 				e1.printStackTrace();
 			} catch (IOException e1) {

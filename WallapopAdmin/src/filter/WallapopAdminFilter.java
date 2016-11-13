@@ -10,13 +10,14 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-import logic.UserManager;
-import model.User;
+import logic.*;
+import managers.*;
+import model.*;
 
 /**
  * Servlet Filter implementation class WallapopAdminFIlter
  */
-@WebFilter("/WallapopAdminFIlter")
+@WebFilter("/WallapopAdminFilter")
 public class WallapopAdminFilter implements Filter {
 
 	FilterConfig config;
@@ -34,20 +35,22 @@ public class WallapopAdminFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		System.out.println("SOY EL FILTRO SIIIIIIIIIIIIIIIIIIIIIIII **************");
-		if (request.getParameter("redirect") != null) {
-			String password = request
-					.getParameter(WallapopAdminFilter.getHash((String) request.getParameter("password"), "SHA-1"));
-			UserManager manager = new UserManager();
-			User admin = manager.findAdmin();
-			String admin_pass = admin.getPassword();
-			if (!password.equals(admin_pass)) {
-				RequestDispatcher reqDis = request.getRequestDispatcher("./login.jsp");
-				reqDis.forward(request, response);
+		String action = request.getParameter("redirect");
+		if (action != null) {
+			if (action.equals("AdminLogin")) {
+				String password = WallapopAdminFilter.getHash((String) request.getParameter("password"), "SHA-1");
+				UserManager manager = new UserManager();
+				User admin = manager.findAdmin();
+				String admin_pass = admin.getPassword();
+				if (!password.equals(admin_pass)) {
+					RequestDispatcher reqDis = request.getRequestDispatcher("./login.jsp");
+					reqDis.forward(request, response);
+				}
+			} else {
+				
 			}
-			// pass the request along the filter chain
-			chain.doFilter(request, response);
 		}
-
+		chain.doFilter(request, response);
 	}
 
 	/**
