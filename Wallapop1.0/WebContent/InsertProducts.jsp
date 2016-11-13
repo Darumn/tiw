@@ -9,26 +9,29 @@
 			<input type="hidden" name="redirect" value="RegisterProductManager">
 			<h4>Insertar datos producto</h4>
 			<div>
-			Name: <input type="text" name="productname">
+			Name: <br> <input type="text" name="productname" class="form-control">
 			</div>
 			<div>
-				Descripción:<input type="text" name="descriptionproduct">
+				Descripción: <br><input type="text" name="descriptionproduct" class="form-control">
 			</div>
+			<br>
 			<div>
-				Precio:<input type="text" name="pricepproduct">
+				Precio: <br><input type="text" name="pricepproduct" class="form-control">
 			</div>
+			<br>
 			<div>
-				Status:
-				<select name="statusproduct">
+				Estado: <br>
+				<select name="statusproduct" class="form-control">
 					<option value="disponible">Disponible</option>
 					<option value="reservado">Reservado</option>
 					<option value="vendido">Vendido</option>
 				</select>
 			</div>
+			<br>
 			<div>
 				<% List<Category> lista= (List<Category>)request.getAttribute("category_list");%>
-				Category_id:
-				<select name="idcategory">
+				Categoría: <br>
+				<select name="idcategory" class="form-control">
 				<% for(int i = 0; i<lista.size(); i++){ %>
 					<option value="<%= lista.get(i).getId()%>"><%=lista.get(i).getName() %></option>
 					<%} %>
@@ -36,7 +39,7 @@
 			</div>
 						
 			
-			<button class="btn-default" type="submit" >Guardar</button>
+			<button class="btn-success" type="submit" >Guardar</button>
 		</form>
 	</div>
 </div>

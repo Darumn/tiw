@@ -33,8 +33,8 @@ if(session1!=null){
 			<form method="get" action="./Controller">
 			<input type="hidden" name="redirect" value="searchProducts">
 				<input type="text" placeholder="Buscar producto..."
-					name="search_input" class="explorer_input" />
-				<button type="submit" class="btn-default" >Buscar</button> 
+					name="search_input" class="form-control" />
+				<button type="submit" class="btn-info" >Buscar</button> 
 			</form>
 			
 		</div>
