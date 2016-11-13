@@ -225,16 +225,10 @@ nav ul a {
 	border-width: thin;
 	width: 20%;
 }
-<<<<<<< HEAD
-.messages-container{
-	float:left;
-	width: 79%;
-=======
 
 .messages-container {
 	float: left;
 	width: 80%;
->>>>>>> branch 'master' of https://github.com/Darumn/tiw
 	min-height: 450px;
 	border-style: solid;
 	border-width: thin;
@@ -246,15 +240,10 @@ nav ul a {
 	border-width: thin;
 	cursor: pointer;
 }
-<<<<<<< HEAD
-.messages{
-	max-height: 400px;
-	overflow: scroll;
-=======
 
 .messages {
-	height: 400px;
->>>>>>> branch 'master' of https://github.com/Darumn/tiw
+	max-height: 400px;
+	overflow: scroll;
 }
 
 .receiver-side {
@@ -267,25 +256,26 @@ nav ul a {
 	float: left;
 	padding-left: 20px;
 }
-<<<<<<< HEAD
-.btn-link{
-  border:none;
-  outline:none;
-  background:none;
-  cursor:pointer;
-  color:#0000EE;
-  padding:0;
-  text-decoration:underline;
-  font-family:inherit;
-  font-size:inherit;
+
+.btn-link {
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
+	color: #0000EE;
+	padding: 0;
+	text-decoration: underline;
+	font-family: inherit;
+	font-size: inherit;
 }
-.messages-container{
-	display:none;
+
+.messages-container {
+	display: none;
 }
-.selected{
+
+.selected {
 	background-color: green;
 }
-=======
 
 .footer {
 	margin-top: 2%;
@@ -326,4 +316,3 @@ nav ul a {
 	margin-top: 1%;
 	margin-left: 1%;
 }
->>>>>>> branch 'master' of https://github.com/Darumn/tiw

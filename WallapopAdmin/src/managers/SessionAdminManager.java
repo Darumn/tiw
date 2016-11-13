@@ -35,10 +35,8 @@ public class SessionAdminManager extends IManager {
 				try {
 					request.getRequestDispatcher("./login.jsp").include(request, response);
 				} catch (ServletException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
