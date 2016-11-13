@@ -15,7 +15,7 @@
 			<div class="product-view-info-container">
 				<div class="product-view-info-price">Precio Producto: <%= product.getPrice() %>&euro;</div>
 				<div class="product-view-info-name">Nombre producto: <%= product.getName() %></div>
-				<div class="product-view-info-description">Descripción del producto<%= product.getDescription() %></div>
+				<div class="product-view-info-description">Descripción del producto: <%= product.getDescription() %></div>
 				<div class="product-view-info-owner-name">
 				<form method="get" action="./Controller">
 					<input type="hidden" name="redirect" value="SellerProfile" />
