@@ -3,10 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="style/style.css">
-<link rel="stylesheet" type="text/css"
-	href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <title>Wallapop</title>
 </head>
 <body>
@@ -34,8 +33,8 @@ if(session1!=null){
 			<form method="get" action="./Controller">
 			<input type="hidden" name="redirect" value="searchProducts">
 				<input type="text" placeholder="Buscar producto..."
-					name="search_input" class="explorer_input" />
-				<button type="submit" class="btn-default" >Buscar</button> 
+					name="search_input" class="form-control" />
+				<button type="submit" class="btn-info" >Buscar</button> 
 			</form>
 			
 		</div>
@@ -48,12 +47,12 @@ if(session1!=null){
 		<%if(user != null){ %>
 			<form method="get" action="./Controller">
 				<input type="hidden" name="redirect" value="UserProfile" />
-				<button type="submit" class="btn-link" style="color:white;">Hola <%= session1.getUser().getName()%></button>
+				<button type="submit" class="btn-link" style="color:white;;font-weight:900">Hola <%= session1.getUser().getName()%></button>
 				
 			</form>
 			<form method="get" action="./Controller">
 				<input type="hidden" name="redirect" value="invalidateSession" />
-				<button type="submit" class="btn-link" style="color:white;">Cerrar sessión</button>
+				<button type="submit" class="btn-link" style="color:white;;font-weight:900">Cerrar sessión</button>
 				
 			</form>
 		<%} %>

@@ -102,8 +102,11 @@ public class UserManager {
 			// usuario = (User)query.getResultList();
 			List<User> lista = query.getResultList();
 			if (lista != null && !lista.isEmpty()) {
-				if (lista.get(0).getPassword().equals(password))
-					ret = (User) lista.get(0);
+				for (User user : lista) {
+					if(user.getPassword().equals(password)){
+						ret = user;
+					}
+				}
 			} else {
 				System.out.println("Lista vacia ***********");
 			}
