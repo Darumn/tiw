@@ -1,5 +1,8 @@
 package managers;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -31,6 +34,15 @@ public class SessionManager extends IManager{
 			}
 			catch (Exception e){
 				System.out.println(e.getMessage());
+				try {
+					request.getRequestDispatcher("./index.jsp").include(request, response);
+				} catch (ServletException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 			
 			

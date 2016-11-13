@@ -1,8 +1,10 @@
 package managers;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -46,6 +48,15 @@ public class SearchAllProductsManager extends Manager {
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
+			try {
+				request.getRequestDispatcher("./index.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 
 		}
 

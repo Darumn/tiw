@@ -41,14 +41,20 @@ public class RegisterProductManager extends Manager {
 			Category cat = cat_manager.findCategoryById(catprod);
 			producto.setCategory(cat);
 			manager.createProduct(producto);
-			request.setAttribute("id", producto.getId());
-			//request.setAttribute("product", producto);
-			//request.getRequestDispatcher("./index.jsp").include(request, response);
 
-
+			 request.setAttribute("id", producto.getId());
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
+			try {
+				request.getRequestDispatcher("./index.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 
 		}
 

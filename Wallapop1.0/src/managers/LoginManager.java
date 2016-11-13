@@ -1,5 +1,8 @@
 package managers;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logic.*;
@@ -20,31 +23,35 @@ public class LoginManager extends Manager {
 		usuario.setEmail(request.getParameter("user"));
 		
 		usuario.setPassword(RegisterUserManager.getHash((String)request.getParameter("password"), "SHA-1"));
-		//System.out.println("Clave cifrada login: "+RegisterUserManager.getHash((String)request.getParameter("pass"), "SHA-1"));
 		UserManager manager = new UserManager();
 		try {
 			usuario = manager.findUser(usuario);
 			if(usuario != null){
 				session.setUser(usuario);
 				request.setAttribute("session", session);
-			}
-			/*else {
-				request.getRequestDispatcher("./Formulario.jsp").include(request, response);
-			}*/
-			//request.setAttribute("user", usuario);
+			}		
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			try {
+				request.getRequestDispatcher("./index.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
-		// TODO COMPROBAR USUARIO Y CONTRASEÑA EN LA BD, ETC..
+	
 
 	}
 	
-	public static String getHash(String txt, String hashType) {
+	public static String getHash(String password, String hashType) {
         try {
             java.security.MessageDigest md = java.security.MessageDigest
                     .getInstance(hashType);
-            byte[] array = md.digest(txt.getBytes());
+            byte[] array = md.digest(password.getBytes());
             StringBuffer sb = new StringBuffer();
             for (int i = 0; i < array.length; ++i) {
                 sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100)
@@ -59,7 +66,7 @@ public class LoginManager extends Manager {
  
    
  
-    /* Retorna un hash SHA1 a partir de un texto */
+    
     public static String sha1(String txt) {
         return RegisterUserManager.getHash(txt, "SHA1");
     }

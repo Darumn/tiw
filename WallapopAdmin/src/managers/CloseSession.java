@@ -21,6 +21,15 @@ public class CloseSession extends AdminManager {
 			request.getRequestDispatcher("./login.jsp").include(request, response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
+			try {
+				request.getRequestDispatcher("./login.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 	}
 

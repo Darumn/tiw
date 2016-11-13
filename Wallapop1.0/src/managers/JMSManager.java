@@ -1,5 +1,6 @@
 package managers;
 
+import java.io.IOException;
 import java.util.Enumeration;
 
 import javax.jms.ObjectMessage;
@@ -14,6 +15,7 @@ import javax.jms.Queue;
 import javax.jms.QueueBrowser;
 import javax.jms.Session;
 import javax.jms.TextMessage;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -57,15 +59,10 @@ public class JMSManager extends Manager{
 
 			Mpro = QSes.createProducer(cola);
 
-			//MessObject obj = new MessObject(1, 2, "Esto es un texto de prueba"+Math.random());
 			User user = session.getUser();
 			MessObject obj = new MessObject(user.getId(), Integer.parseInt(request.getParameter("receiver_id")), request.getParameter("message"));
 			ObjectMessage mess =  QSes.createObjectMessage(obj);
-			//mess.setObject(obj);
-			//javax.jms.TextMessage men = QSes.createTextMessage();
-
-			//men.setText(mensaje);
-			//men.setJMSCorrelationID(selector);
+			
 			Qcon.start();
 			Mpro.send(mess);
 
@@ -76,6 +73,15 @@ public class JMSManager extends Manager{
 		}catch (Exception e){
 			System.out.println("En el envio de mensaje");
 			System.out.println(e.getStackTrace());
+			try {
+				request.getRequestDispatcher("./index.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		 
 

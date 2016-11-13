@@ -39,6 +39,15 @@ public class ShowUsers extends AdminManager {
 			request.getRequestDispatcher("./UsersList.jsp").forward(request, response);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			try {
+				request.getRequestDispatcher("./login.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 
 	}

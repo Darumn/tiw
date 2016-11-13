@@ -16,7 +16,7 @@
 <body>
 	<div class="header">
 		<div class="logo">
-			<a href="/Wallapop1.0/Controller"> <img alt="logo"
+			<a href="/WallapopAdmin/Controller"> <img alt="logo"
 				src="http://es.wallapop.com/images/logos/img_logo_header.png"
 				id="img_logo">
 			</a>
