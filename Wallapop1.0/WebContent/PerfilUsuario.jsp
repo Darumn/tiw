@@ -5,20 +5,16 @@
 <div id="section">
 	<div id="section1">
 		<H3>Detalles del perfil</H3>
-		<form method="POST" action="#">
-			Nombre Usuario:
+		
+			Nombre :
 			<%= usuario.getName() %>
 			<br>
-			Email Usuario:<%= usuario.getEmail() %>
+			Email:<%= usuario.getEmail() %>
 			<br>
-			
-			<img alt="foto perfil" src="" id="img_logo">
-			<br>
-
-			<a href="./Controller?redirect=UserProducts&id=<%=usuario.getId()%>">Ver productos</a>
+			<a class="btn-link" href="./Controller?redirect=UserProducts&id=<%=usuario.getId()%>">Ver productos</a>
 			<br>
 
-		</form>
+		
 		<form method="get" action="./Controller">
 				<input type="hidden" name="redirect" value="insertproduct" />
 				<p style="text-align:center"><input type="submit" value="Insertar Productos"></p>
@@ -54,11 +50,6 @@
 			<br>
 			Ciudad:<br> <input name="city" type="text"
 				placeholder="Introduce tu ciudad">
-			<br>
-			
-			Foto de perfil:<br> <input name="image" type="file" accept="*/image" >
-			<br>
-			<img src="<%= UserUpdateManager.getUrlImage(usuario)%>" /> 
 			<br>
 			<input type="submit" value="Actualizar">
 		</form>
