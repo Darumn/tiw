@@ -112,14 +112,16 @@ public class ProductManager {
 		List<Product> ret = null;
 
 		try {
+
 			Query query = em.createQuery(
-					"SELECT c FROM Product c WHERE c.name = :varName OR c.description LIKE :varDesc OR c.category.id = :varCategoryId OR c.user.name = :varUserName OR c.user.city = :varUserCity",
+					"SELECT c FROM Product c WHERE c.name = :varName OR c.description LIKE :varDesc OR c.category.id = :varCategoryId OR c.user.name = :varUserName OR c.user.city = :varUserCity OR c.status = :varStatus",
 					Product.class);
 			query.setParameter("varName", producto.getName());
 			query.setParameter("varDesc", producto.getDescription());
 			query.setParameter("varCategoryId", producto.getCategory().getId());
 			query.setParameter("varUserName", producto.getUser().getName());
 			query.setParameter("varUserCity", producto.getUser().getCity());
+			query.setParameter("varStatus", producto.getStatus());
 			ret = query.getResultList();
 
 		} finally {
@@ -150,14 +152,14 @@ public class ProductManager {
 		return ret;
 	}
 
-	public List<Product> findProductByCategory(String categoryId) throws Exception {
+	public List<Product> findProductByCategory(String category) throws Exception {
 		List<Product> ret = null;
 
 		try {
 			// Query query =
 			// em.createNamedQuery("Product.findById",Product.class);
-			Query query = em.createQuery("SELECT c FROM Product c WHERE c.category.id = :varID", Product.class);
-			query.setParameter("varID", Integer.parseInt(categoryId));
+			Query query = em.createQuery("SELECT c FROM Product c WHERE c.category.name = :varName", Product.class);
+			query.setParameter("varName", category);
 			List<Product> list = query.getResultList();
 			if (list != null && list.size() > 0) {
 				ret = list;

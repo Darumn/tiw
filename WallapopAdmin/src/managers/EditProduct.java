@@ -49,7 +49,6 @@ public class EditProduct extends AdminManager {
 				newProduct.setPrice(oldProduct.getPrice());
 			}
 
-			// Cambiar a switch
 			String status = request.getParameter("status");
 			if (status != null && status.length() != 0) {
 				switch (status) {
@@ -64,34 +63,15 @@ public class EditProduct extends AdminManager {
 				newProduct.setStatus(oldProduct.getStatus());
 			}
 
-			int category = Integer.parseInt(request.getParameter("category"));
-			CategoryManager cat_man = new CategoryManager();
-			Category categoria = cat_man.findCategoryById(category);
+			String categoryId = request.getParameter("category");
+			CategoryManager catManager = new CategoryManager();
+			Category category = catManager.findCategoryById(Integer.parseInt(categoryId));
 
-			Category finalCategory = new Category();
-			/*
-			 * String category; if (category != null) { switch (category) { case
-			 * "coche": finalCategory.setId(1); finalCategory.setName("coche");
-			 * break; case "copa": finalCategory.setId(2);
-			 * finalCategory.setName("copa"); break; case "electronica":
-			 * finalCategory.setId(3); finalCategory.setName("electronica");
-			 * break; case "otros": finalCategory.setId(4);
-			 * finalCategory.setName("otros"); break; } } else {
-			 * newProduct.setCategory(oldProduct.getCategory()); }
-			 */
-
-			if (oldProduct.getCategory().getName().equals(finalCategory.getName())) {
-				finalCategory.setProducts(oldProduct.getCategory().getProducts());
+			if (category != null) {
+				newProduct.setCategory(category);
 			} else {
-				manager = new ProductManager();
-				List<Product> categoryList = manager.findProductByCategory(String.valueOf(finalCategory.getId()));
-				if (!categoryList.contains(newProduct)) {
-					categoryList.add(newProduct);
-				}
-				finalCategory.setProducts(categoryList);
+				newProduct.setCategory(oldProduct.getCategory());
 			}
-
-			newProduct.setCategory(finalCategory);
 
 			String description = request.getParameter("description");
 			if (description != null && description.length() != 0) {
@@ -127,10 +107,8 @@ public class EditProduct extends AdminManager {
 			try {
 				request.getRequestDispatcher("./login.jsp").include(request, response);
 			} catch (ServletException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

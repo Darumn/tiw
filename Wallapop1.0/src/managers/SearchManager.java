@@ -25,6 +25,10 @@ public class SearchManager extends Manager {
 			String category = (String) request.getParameter("search_input");
 			ProductManager manager = new ProductManager();
 			list = manager.findProductByCategory(category.toLowerCase());
+			
+			CategoryManager cat=new CategoryManager();
+			List<Category> cat_list=cat.findAll();
+			this.request.setAttribute("category_list", cat_list);
 			request.setAttribute("product list", list);
 			request.getRequestDispatcher("./index.jsp").include(request, response);
 		} catch (Exception e) {

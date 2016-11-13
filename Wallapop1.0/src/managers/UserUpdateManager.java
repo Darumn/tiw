@@ -62,7 +62,6 @@ public class UserUpdateManager extends Manager {
 			
 			manager.updatePersona(usuario);
 			
-			this.manageImage(usuario);
 			
 		}
 		 catch (Exception e) {
@@ -80,39 +79,7 @@ public class UserUpdateManager extends Manager {
 		}
 	}
 	
-	private void manageImage(User usuario) throws IOException, ServletException{
 	
-		Part filePart = request.getPart("image");
-		if(filePart != null){
-			
-			
-		    //String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-		    InputStream fileContent = filePart.getInputStream();
-		    
-		    File file = new File(Manager.userDirectoryFullPath+"/"+usuario.getId()+".jpg");
-
-		    try {
-		        Files.copy(fileContent, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-		    }
-		    catch(IOException e){
-		    	
-		    	
-		    }
-		    
-		}
-	}
-	
-	public static String getUrlImage(User usuario){
-		String ret = null;
-		
-		File file = new File(Manager.userDirectoryFullPath+"/"+usuario.getId()+".jpg");
-		if(file.exists()){
-			//ret = "./images"+userDirectory+"/"+usuario.getId()+".jpg";
-			ret = Manager.userDirectoryFullPath+"/"+usuario.getId()+".jpg";
-		}
-		
-		return ret;
-	}
 
 	public static String getHash(String password, String hashType) {
         try {

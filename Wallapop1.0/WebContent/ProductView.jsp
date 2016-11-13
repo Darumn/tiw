@@ -1,5 +1,7 @@
-<%@page import="model.Product" %>
+<%@page import="model.*" %>
 <%@page import="managers.UpdateProductManager"%>
+<%@page import="managers.SessionManager" %>
+<%@page import="managers.Manager" %>
 <% Product product=(Product)request.getAttribute("product");%>
 
 <div class="row">
@@ -23,9 +25,23 @@
 					<button type="submit" class="btn-link"><%= product.getUser().getName() %></button>
 				</form>
 				</div>
+				<%
+				SessionManager session1 = (SessionManager)request.getAttribute(Manager.CONST_SESSION); 
+				User user = null;
+				if(session1!=null){
+					user = session1.getUser();
+				}
+				if(user != null){%>
 				<div class="product-view-info-owner-chat">
-					<button class="btn-success">Contactar</button>
+					<form method="post" action="./Controller">
+						<input type="hidden" name="redirect" value="sendMessage">
+						<input type="hidden" name="receiver_id" value="<%= product.getUser().getId()%>"/>
+						<input type="text" name="message" placeholder="Contacta con este usuario"/>
+						<div class="product-view-info-owner-chat">
+						<button type="submit" class="btn-success">Contactar</button>
+					</form>
 				</div>
+				<%} %>
 			</div>
 		</div>
 	</div>

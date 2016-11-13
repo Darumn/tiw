@@ -15,12 +15,7 @@
 </head>
 <body>
 	<div class="header">
-		<div class="logo">
-			<a href="/WallapopAdmin/Controller"> <img alt="logo"
-				src="http://es.wallapop.com/images/logos/img_logo_header.png"
-				id="img_logo">
-			</a>
-		</div>
+
 
 
 		<%
@@ -31,11 +26,21 @@
 			}
 		%>
 
-		<div class="account">
 
-			<%
-				if (user != null) {
-			%>
+
+		<%
+			if (user != null) {
+		%>
+		<div class="logo">
+			<form method="GET" action="./Controller">
+				<input type="hidden" value="ReturnIndex" name="redirect" id="return" />
+				<input type="hidden" value="<%=session1.getUser().getId()%>"
+					name="id" /> <input type="image" alt="Submit"
+					src="http://es.wallapop.com/images/logos/img_logo_header.png"
+					id="img_logo" />
+			</form>
+		</div>
+		<div class="account">
 			<form method="get" action="./Controller">
 				<input type="hidden" name="redirect" value="UserProfile" />
 				<button type="submit" class="btn-link">
@@ -47,6 +52,15 @@
 				<input type="hidden" name="redirect" value="CloseSession">
 				<button type="submit" class="btn-link">Logout</button>
 			</form>
+			<%
+				} else {
+			%>
+			<div class="logo">
+				<a href="/WallapopAdmin/Controller"> <img alt="logo"
+					src="http://es.wallapop.com/images/logos/img_logo_header.png"
+					id="img_logo">
+				</a>
+			</div>
 			<%
 				}
 			%>

@@ -29,10 +29,9 @@ public class IndexManager extends Manager {
 			this.request.setAttribute("category_list", cat_list);
 			List<Product> lista = manager.findAllProducts();
 			this.request.setAttribute("product list", lista);
-			// request.getRequestDispatcher("./index.jsp").include(request,
-			// response);
-			String url = request.getContextPath() + "/index.jsp";
-			response.sendRedirect(url);
+			request.getRequestDispatcher("./index.jsp").include(request, response);
+			//String url = request.getContextPath() + "/index.jsp";
+			//response.sendRedirect(url);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			try {
