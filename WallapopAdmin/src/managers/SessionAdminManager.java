@@ -21,8 +21,7 @@ public class SessionAdminManager extends IManager {
 	public User getUser() {
 		User ret = null;
 		HttpSession session = this.request.getSession(true);
-		// SessionManager session =(SessionManager)
-		// request.getAttribute("session");
+
 		String userID = String.valueOf(session.getAttribute(CONS_USERID));
 		if (userID != null) {
 			try {

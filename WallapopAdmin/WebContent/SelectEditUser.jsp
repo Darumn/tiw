@@ -66,20 +66,19 @@
 				type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>">
 			<input type="hidden" value="<%=userOld.getId()%>" name="oldId" /> <br />
 			<br />Nombre: <br> <input name="name" type="text"
-				placeholder="Usuario...">
+				placeholder="Name...">
 			</p>
 
 			Primer Apellido: <br> <input name="surname" type="text"
-				placeholder="Usuario...">
+				placeholder="Surname...">
 			</p>
 			E-mail:<br> <input name="email" type="text"
-				placeholder="Usuario...">
+				placeholder="Email...">
 			</p>
 			Contraseña:<br> <input name="password" type="password"
-				placeholder="Introduce la contraseña">
+				placeholder="Password...">
 			</p>
-			Ciudad:<br> <input name="city" type="text"
-				placeholder="Introduce tu ciudad">
+			Ciudad:<br> <input name="city" type="text" placeholder="City...">
 			</p>
 			<input type="submit" value="Actualizar">
 		</form>

@@ -19,8 +19,6 @@ public class IndexAdminManager extends AdminManager {
 	@Override
 	public void Execute() {
 		try {
-			// request.getRequestDispatcher("./login.jsp").forward(request,
-			// response);
 			String url = request.getContextPath() + "/login.jsp";
 			response.sendRedirect(url);
 		} catch (Exception e) {

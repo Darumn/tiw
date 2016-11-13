@@ -1,5 +1,5 @@
 <div class="main">
-	<p style="text-align:center;">MENSAJES</p>
+	<h1 style="text-align:center;">MENSAJES</h1>
 	<div class="contacts-container">
 	<%@page import="model.*" %>
 	<%@page import="java.util.Iterator"%>
@@ -27,7 +27,7 @@
 			<form method="GET" action="./Controller">
 				<input type="hidden" name="redirect" value="sendMessage">
 				<input type="hidden" name="receiver_id" value="<%= usuario.getId()%>"/>
-				<input type="text" name="message" placeholder="Contacta con este usuario"/>
+				<input type="text" name="message" placeholder="Contacta con este usuario" class="form-control"/>
 				<button type="submit" class="btn-success" >Enviar</button>
 			</form>
 		</div>
@@ -40,7 +40,7 @@
 	<form method="GET" action="./Controller">
 		<input type="hidden" name="redirect" value="sendMessage">
 		<input type="hidden" name="receiver_id" value="<%= admin.getId()%>"/>
-		<input type="text" name="message" placeholder="Escribe al administrador.."/>
+		<input type="text" name="message" placeholder="Escribe al administrador.." class="form-control"/>
 		<button type="submit" class="btn-success" >Enviar</button>
 	</form>
 	<%} %>

@@ -6,18 +6,21 @@
 
 <div class="row">
 	<div class="product-view-container">
-		<!-- Product images -->
-		<div class="col-xs-6 col-md-6 col-sm-6">
-			<div class="product-view-img-container">
-				<img src="<%= UpdateProductManager.getUrlImage(product)%>" class="img-responsive" alt="<%= product.getName()%>">
-			</div>
-		</div>
+			
 		<!-- Product info -->
-		<div class="col-xs-6 col-md-6 col-sm-6">
+		
 			<div class="product-view-info-container">
-				<div class="product-view-info-price">Precio Producto: <%= product.getPrice() %>&euro;</div>
-				<div class="product-view-info-name">Nombre producto: <%= product.getName() %></div>
-				<div class="product-view-info-description">Descripción del producto: <%= product.getDescription() %></div>
+				<div class="product-view-info-picture">
+					<img src="<%= UpdateProductManager.getUrlImage(product)%>" class="img-responsive" style="width:100%;
+    				border-width: thin;
+   					border-radius: 16px;" alt="<%= product.getName()%>">
+					</br>
+				</div>
+				<div class="product-view-info-price"><b class="text-product">Precio Producto:</b> <%= product.getPrice() %>&euro;</div>
+				<div class="product-view-info-name"><b class="text-product">Nombre producto: </b><%= product.getName() %></div>
+				<div class="product-view-info-description"><b class="text-product">Descripción del producto: </b><%= product.getDescription() %></div>
+				<div class="product-view-info-category"><b class="text-product">Categoria del producto: </b><%=product.getCategory().getName() %></div>
+				<div class="product-view-info-city"><b class="text-product">Ubicación: </b><%=product.getUser().getCity() %></div>
 				<div class="product-view-info-owner-name">
 				<form method="get" action="./Controller">
 					<input type="hidden" name="redirect" value="SellerProfile" />
@@ -43,7 +46,7 @@
 				</div>
 				<%} %>
 			</div>
-		</div>
+		
 	</div>
 </div>
 

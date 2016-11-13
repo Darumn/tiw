@@ -9,12 +9,12 @@
 		}
 	%>
 	<div class="adminLogin">
-		<form method="GET" action="./Controller">
+		<form method="POST" action="./Controller">
 			<input type="hidden" name="redirect" value="AdminLogin"> <br />Name:
-			<br> <input name="user" type="text" placeholder="Usuario...">
+			<br> <input name="user" type="text" placeholder="User...">
 			</p>
 			Password:<br> <input name="password" type="password"
-				placeholder="Introduce la contraseña">
+				placeholder="Password...">
 			</p>
 			<input class="loginButton" name="sesion" type="submit" value="Login">
 		</form>

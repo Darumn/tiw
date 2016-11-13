@@ -15,9 +15,6 @@
 </head>
 <body>
 	<div class="header">
-
-
-
 		<%
 			SessionAdminManager session1 = (SessionAdminManager) request.getAttribute(AdminManager.CONST_SESSION);
 			User user = null;
@@ -25,9 +22,6 @@
 				user = session1.getUser();
 			}
 		%>
-
-
-
 		<%
 			if (user != null) {
 		%>
@@ -41,13 +35,11 @@
 			</form>
 		</div>
 		<div class="account">
-			<form method="get" action="./Controller">
-				<input type="hidden" name="redirect" value="UserProfile" />
-				<button type="submit" class="btn-link">
-					Hello
-					<%=session1.getUser().getName()%></button>
 
-			</form>
+			<input type="text" name="redirect"
+				value="Hello <%=session1.getUser().getName()%>" class="btn-link" />
+
+
 			<form method="post" action="./Controller">
 				<input type="hidden" name="redirect" value="CloseSession">
 				<button type="submit" class="btn-link">Logout</button>
