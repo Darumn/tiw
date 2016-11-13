@@ -15,9 +15,9 @@
 		<!-- Product info -->
 		<div class="col-xs-6 col-md-6 col-sm-6">
 			<div class="product-view-info-container">
-				<div class="product-view-info-price"><%= product.getPrice() %>&euro;</div>
-				<div class="product-view-info-name"><%= product.getName() %></div>
-				<div class="product-view-info-description"><%= product.getDescription() %></div>
+				<div class="product-view-info-price">Precio Producto: <%= product.getPrice() %>&euro;</div>
+				<div class="product-view-info-name">Nombre producto: <%= product.getName() %></div>
+				<div class="product-view-info-description">Descripción del producto: <%= product.getDescription() %></div>
 				<div class="product-view-info-owner-name">
 				<form method="get" action="./Controller">
 					<input type="hidden" name="redirect" value="SellerProfile" />

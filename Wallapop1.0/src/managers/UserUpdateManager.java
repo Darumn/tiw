@@ -37,26 +37,26 @@ public class UserUpdateManager extends Manager {
 			String name = request.getParameter("name");
 			String surname = request.getParameter("surname");
 			String email = request.getParameter("email");
-			String pass = request.getParameter("pass");
+			String pass = RegisterUserManager.getHash((String)request.getParameter("pass"), "SHA-1");
 			String city = request.getParameter("city");
 			
 			if(name != null && !name.equals("")){
 				usuario.setName(name.toLowerCase());
 			}
 			
-			if(name != null && !name.equals("")){
+			if(surname != null && !surname.equals("")){
 				usuario.setSurname(surname.toLowerCase());
 			}
 			
-			if(name != null && !name.equals("")){
+			if(email != null && !email.equals("")){
 				usuario.setEmail(email);
 			}
 			
-			if(name != null && !name.equals("")){
+			if(pass != null && !pass.equals("")){
 				usuario.setPassword(pass);
 			}
 			
-			if(name != null && !name.equals("")){
+			if(city != null && !city.equals("")){
 				usuario.setCity(city.toLowerCase());
 			}
 			
@@ -81,4 +81,28 @@ public class UserUpdateManager extends Manager {
 	
 	
 
+	public static String getHash(String password, String hashType) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest
+                    .getInstance(hashType);
+            byte[] array = md.digest(password.getBytes());
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < array.length; ++i) {
+                sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100)
+                        .substring(1, 3));
+            }
+            return sb.toString();
+        } catch (java.security.NoSuchAlgorithmException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+ 
+   
+ 
+    
+    public static String sha1(String txt) {
+        return RegisterUserManager.getHash(txt, "SHA1");
+    }
+	
 }

@@ -1,4 +1,5 @@
 package managers;
+
 import model.*;
 import logic.*;
 
@@ -20,17 +21,18 @@ public class IndexManager extends Manager {
 	@Override
 	public void Execute() {
 		// TODO Auto-generated method stub
-		
-		ProductManager manager=new ProductManager();
-		try{
-			CategoryManager cat=new CategoryManager();
-			List<Category> cat_list=cat.findAll();
+
+		ProductManager manager = new ProductManager();
+		try {
+			CategoryManager cat = new CategoryManager();
+			List<Category> cat_list = cat.findAll();
 			this.request.setAttribute("category_list", cat_list);
-			List<Product> lista= manager.findAllProducts();
+			List<Product> lista = manager.findAllProducts();
 			this.request.setAttribute("product list", lista);
 			request.getRequestDispatcher("./index.jsp").include(request, response);
-		}
-		catch(Exception e){
+			//String url = request.getContextPath() + "/index.jsp";
+			//response.sendRedirect(url);
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			try {
 				request.getRequestDispatcher("./index.jsp").include(request, response);
@@ -43,5 +45,5 @@ public class IndexManager extends Manager {
 			}
 		}
 	}
-	
+
 }
