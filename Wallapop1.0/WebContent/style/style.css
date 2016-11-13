@@ -258,7 +258,7 @@ nav {
 	border-style: solid;
 	border-width: thin;
 	width: 20%;
-	text-font:900;
+	    font-size: initial;
 	
 }
 .messages-container{
@@ -303,6 +303,8 @@ nav {
 }
 .selected{
 	background-color: green;
+	color:white;
+	    font-size: initial;
 }
 .user_profile_buttons>form>button{
 	width: 140px;
