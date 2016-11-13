@@ -9,7 +9,7 @@
 		}
 	%>
 	<div class="adminLogin">
-		<form method="GET" action="./Controller">
+		<form method="POST" action="./Controller">
 			<input type="hidden" name="redirect" value="AdminLogin"> <br />Name:
 			<br> <input name="user" type="text" placeholder="User...">
 			</p>
