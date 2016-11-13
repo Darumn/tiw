@@ -78,7 +78,7 @@
 			Contraseña:<br> <input name="password" type="password"
 				placeholder="Password...">
 			</p>
-			Ciudad:<br> <input name="city" type="text" placeholder="Cuty...">
+			Ciudad:<br> <input name="city" type="text" placeholder="City...">
 			</p>
 			<input type="submit" value="Actualizar">
 		</form>

@@ -39,6 +39,11 @@ public class LoginAdminManager extends AdminManager {
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			try {
+				request.getRequestDispatcher("./login.jsp").include(request, response);
+			} catch (ServletException | IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 
 	}
