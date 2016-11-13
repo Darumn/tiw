@@ -261,3 +261,17 @@ nav {
 .selected{
 	background-color: green;
 }
+.user_profile_buttons>form>button{
+	width: 140px;
+	max-width: 140px;
+	text-align:center;
+}
+.user_profile_name{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.form-control{
+	display: inline;
+	width: 50%;
+	
+}
