@@ -9,9 +9,10 @@ import model.User;
 public class ContactAdminList {
 	public User usuario;
 	public List<Message> mensajes;
+
 	public ContactAdminList() {
 		super();
 		mensajes = new ArrayList<Message>();
 	}
-	
+
 }

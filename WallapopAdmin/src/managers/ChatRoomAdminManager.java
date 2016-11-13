@@ -1,4 +1,5 @@
 package managers;
+
 import model.*;
 import logic.*;
 
@@ -19,55 +20,53 @@ public class ChatRoomAdminManager extends AdminManager {
 	@Override
 	public void Execute() {
 		// TODO Auto-generated method stub
-		
-		MessageManager manager=new MessageManager();
-		try{
-			List<Message> lista= manager.findAllMessages(session.getUser().getId());
-			
+
+		MessageManager manager = new MessageManager();
+
+		User user = new User();
+		UserManager userManager2 = new UserManager();
+		String id = request.getParameter("id");
+
+		try {
+			List<Message> lista = manager.findAllMessages(session.getUser().getId());
+
 			List<ContactAdminList> listac = new ArrayList<ContactAdminList>();
-			
-			for(int i = 0;i<lista.size();i++){
-				
+
+			for (int i = 0; i < lista.size(); i++) {
+
 				ContactAdminList item = null;
-				
-				for(int j = 0;j<listac.size() && item == null;j++){
-					if(listac.get(j).usuario.getId()==lista.get(i).getUser1().getId())
-					{
+
+				for (int j = 0; j < listac.size() && item == null; j++) {
+					if (listac.get(j).usuario.getId() == lista.get(i).getUser1().getId()) {
 						item = listac.get(j);
-					}
-					else if(listac.get(j).usuario.getId()==lista.get(i).getUser2().getId())
-					{
+					} else if (listac.get(j).usuario.getId() == lista.get(i).getUser2().getId()) {
 						item = listac.get(j);
 					}
 				}
-				
-				if(item == null){
+
+				if (item == null) {
 					item = new ContactAdminList();
-					if(lista.get(i).getUser1().getId()!=this.session.getUser().getId()){
+					if (lista.get(i).getUser1().getId() != this.session.getUser().getId()) {
 						item.usuario = lista.get(i).getUser1();
-					}
-					else{
+					} else {
 						item.usuario = lista.get(i).getUser2();
 					}
 					listac.add(item);
 				}
-				
+
 				item.mensajes.add(lista.get(i));
-				
-				
-				
+
 			}
-			
+
+			user = userManager2.findUserById(Integer.parseInt(id));
+			session.setUser(user);
+			request.setAttribute("sessionUser", session);
+
 			this.request.setAttribute("contact_list", listac);
 			request.getRequestDispatcher("./ChatRoomAdmin.jsp").include(request, response);
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	
-	
-	
 
 }
-

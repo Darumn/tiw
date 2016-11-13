@@ -38,6 +38,7 @@ public class RegisterProductManager extends Manager {
 			//request.setAttribute("product", producto);
 			//request.getRequestDispatcher("./index.jsp").include(request, response);
 
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());

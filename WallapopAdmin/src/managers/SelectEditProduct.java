@@ -19,13 +19,15 @@ public class SelectEditProduct extends AdminManager {
 		String id = request.getParameter("id_object");
 		int idProduct = Integer.parseInt(id);
 
-		try {
-			SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
+		User user = new User();
+		UserManager userManager = new UserManager();
+		String id2 = request.getParameter("id");
 
-			if (sessionUser.getUser() != null) {
-				request.setAttribute("sessionUser", sessionUser);
-			}
-			
+		try {
+			user = userManager.findUserById(Integer.parseInt(id2));
+			session.setUser(user);
+			request.setAttribute("sessionUser", session);
+
 			productOld = manager.findProductById(idProduct);
 			request.setAttribute("old product", productOld);
 			request.getRequestDispatcher("./SelectEditProduct.jsp").forward(request, response);

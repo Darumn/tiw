@@ -24,13 +24,16 @@ public class LoginAdminManager extends AdminManager {
 		try {
 			usuario = manager.findUser(usuario);
 			if (usuario != null && usuario.getIsAdmin()) {
-				//SessionAdminManager sessionUser = new SessionAdminManager(request, response);
-				//sessionUser.setUser(usuario);
 				session.setUser(usuario);
 				request.setAttribute("sessionUser", session);
+<<<<<<< HEAD
+=======
+				request.setAttribute("error", null);
+>>>>>>> branch 'master' of https://github.com/Darumn/tiw
 				request.getRequestDispatcher("./indexAdmin.jsp").include(request, response);
 			} else {
-				request.getRequestDispatcher("./failure.jsp").include(request, response);
+				request.setAttribute("error", "error");
+				request.getRequestDispatcher("./login.jsp").include(request, response);
 			}
 
 		} catch (Exception e) {

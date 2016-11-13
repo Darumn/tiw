@@ -14,12 +14,14 @@ a {
 .header {
 	height: 50px;
 	background-color: rgba(19, 193, 172, 93);
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .logo {
 	display: inline-block;
 	float: left;
-	width: 33%;
+	width: 80%;
 	height: 100%;
 }
 
@@ -36,8 +38,7 @@ a {
 
 .account {
 	display: inline-block;
-	float: left;
-	width: 33%;
+	width: 20%;
 	height: 100%;
 }
 
@@ -65,19 +66,16 @@ nav ul a {
 
 /*Product card in index*/
 .card-product {
-	
 	margin-right: 3px;
 	margin-left: 3px;
 	border-style: solid;
 	border-width: thin;
 	border-radius: 16px;
-	
 }
 
 .image-product {
 	height: 150px;
 	border-radius: 16px;
-
 }
 
 .image-product>a>img {
@@ -137,11 +135,13 @@ nav ul a {
 	border-radius: 16px;
 	border-width: thin;
 }
-.product-view-container{
+
+.product-view-container {
 	max-width: 1180px;
 	margin: 0 auto;
 	padding-top: 4px;
 }
+
 .product-view-info-container {
 	padding-left: 5px;
 	margin-top: 10px;
@@ -168,16 +168,19 @@ nav ul a {
 	margin-top: 20px;
 	padding-bottom: 10px;
 }
-.product-view-info-owner-name{
+
+.product-view-info-owner-name {
 	text-align: center;
 	font-weight: bold;
 	padding-bottom: 5px;
 }
-.product-view-info-owner-chat{
+
+.product-view-info-owner-chat {
 	text-align: center;
 	padding-bottom: 30px;
 }
-.other-products-container{
+
+.other-products-container {
 	padding-left: 5px;
 	margin-top: 7px;
 	margin-right: 5px;
@@ -185,71 +188,86 @@ nav ul a {
 	border-width: thin;
 	border-radius: 16px;
 }
-.other-products-img{
+
+.other-products-img {
 	width: 100%;
 	height: 100%;
 	cursor: pointer;
 }
 
 /* Sellers */
-
-#viewseller{
-	background-color:black;
-	color:black;
+#viewseller {
+	background-color: black;
+	color: black;
 }
 
-.card-profile-seller{
-	background-color: rgba(255,255,255,.95);
-    width: 460px;
-    padding: 2rem 4rem;
-    pointer-events: auto;
-    text-align: center;
+.card-profile-seller {
+	background-color: rgba(255, 255, 255, .95);
+	width: 460px;
+	padding: 2rem 4rem;
+	pointer-events: auto;
+	text-align: center;
 }
 
-.totalproductsseller{
-	text-align:center;
+.totalproductsseller {
+	text-align: center;
 }
 
 /* UPDATE PRODUCTS */
-#update-productos{
-	text-align:center;
+#update-productos {
+	text-align: center;
 }
 
-
 /*CHAT ROOM*/
-.contacts-container{
-	float:left;
+.contacts-container {
+	float: left;
 	border-style: solid;
 	border-width: thin;
 	width: 20%;
-	
 }
+<<<<<<< HEAD
 .messages-container{
 	float:left;
 	width: 79%;
+=======
+
+.messages-container {
+	float: left;
+	width: 80%;
+>>>>>>> branch 'master' of https://github.com/Darumn/tiw
 	min-height: 450px;
 	border-style: solid;
 	border-width: thin;
 }
-.contact-container{
+
+.contact-container {
 	height: 40px;
 	border-style: solid;
 	border-width: thin;
 	cursor: pointer;
 }
+<<<<<<< HEAD
 .messages{
 	max-height: 400px;
 	overflow: scroll;
+=======
+
+.messages {
+	height: 400px;
+>>>>>>> branch 'master' of https://github.com/Darumn/tiw
 }
-.receiver-side{
+
+.receiver-side {
 	width: 40%;
 	float: left;
 }
-.sender-side{
+
+.sender-side {
 	width: 40%;
 	float: left;
 	padding-left: 20px;
 }
+<<<<<<< HEAD
 .btn-link{
   border:none;
   outline:none;
@@ -267,3 +285,45 @@ nav ul a {
 .selected{
 	background-color: green;
 }
+=======
+
+.footer {
+	margin-top: 2%;
+	margin-left: 5%;
+}
+
+.usersButton {
+	margin-bottom: 1%;
+}
+
+.productsButton {
+	margin-bottom: 1%;
+}
+
+.usersList {
+	margin-top: 2%;
+	margin-left: 1em;
+}
+
+.productsList {
+	margin-top: 2%;
+	margin-left: 1em;
+}
+
+.adminLogin {
+	text-align: center;
+}
+
+.rowsUsers {
+	margin-bottom: 1%;
+}
+
+.rowsProducts {
+	margin-bottom: 1%;
+}
+
+.returnIndex {
+	margin-top: 1%;
+	margin-left: 1%;
+}
+>>>>>>> branch 'master' of https://github.com/Darumn/tiw

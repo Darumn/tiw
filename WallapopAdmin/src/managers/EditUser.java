@@ -21,6 +21,11 @@ public class EditUser extends AdminManager {
 		newUser.setId(Integer.parseInt(id));
 
 		User oldUser;
+
+		User user = new User();
+		UserManager userManager = new UserManager();
+		String id2 = request.getParameter("id");
+
 		try {
 			oldUser = manager.findUserById(Integer.parseInt(id));
 			String name = (String) request.getParameter("name");
@@ -66,15 +71,12 @@ public class EditUser extends AdminManager {
 			}
 
 			try {
-				SessionAdminManager sessionUser = new SessionAdminManager(this.request, this.response);
-
-				if (sessionUser.getUser() != null) {
-					request.setAttribute("sessionUser", sessionUser);
-				}
-
 				manager = new UserManager();
 
 				if (manager.updatePersona(newUser).equals("")) {
+					user = userManager.findUserById(Integer.parseInt(id2));
+					session.setUser(user);
+					request.setAttribute("sessionUser", session);
 					request.setAttribute("old user", newUser);
 					request.getRequestDispatcher("./SelectEditUser.jsp").forward(request, response);
 				}

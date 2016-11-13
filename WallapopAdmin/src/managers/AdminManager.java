@@ -19,12 +19,10 @@ public abstract class AdminManager extends IManager {
 	public AdminManager(HttpServletRequest pRequest, HttpServletResponse pResponse) {
 		super(pRequest, pResponse);
 
-		
-		  if(this.session==null){ 
-			  this.session = new SessionAdminManager(pRequest, pResponse);
-			  this.request.setAttribute(CONST_SESSION, this.session); 
-		  }
-	
+		if (this.session == null) {
+			this.session = new SessionAdminManager(pRequest, pResponse);
+			this.request.setAttribute(CONST_SESSION, this.session);
+		}
 	}
 
 	public abstract void Execute();
