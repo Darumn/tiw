@@ -104,10 +104,7 @@ public class Controller extends HttpServlet {
 			} else if (action.equals("ReturnIndex")) {
 				manager = new ReturnIndex(request, response);
 				manager.Execute();
-			} else {
-				request.getRequestDispatcher("./failure.jsp").forward(request, response);
-			}
-
+			} 
 		}
 		// Caso de index
 		else {

@@ -42,12 +42,4 @@ public class MessObject implements Serializable {
 		this.message = message;
 	}
 
-	/*
-	 * public ObjectMessage createObjectMessage(String destName,Serializable
-	 * object) throws MessagingException { JMSDestination jmsDest =
-	 * getJMSDestination(destName); try { ObjectMessage message =
-	 * jmsDest.session.createObjectMessage(); message.setObject(object); return
-	 * message; } catch (JMSException e) { throw new
-	 * MessagingException(e.getMessage(), e); } }
-	 */
 }

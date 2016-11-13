@@ -1,8 +1,10 @@
 package managers;
 
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,7 +26,7 @@ public class RegisterUserManager extends Manager{
 		usuario.setEmail((String)request.getParameter("email"));
 		
 		usuario.setPassword(RegisterUserManager.getHash((String)request.getParameter("pass"), "SHA-1"));
-		System.out.println("Clave cifrada insert: "+RegisterUserManager.getHash((String)request.getParameter("pass"), "SHA-1"));
+		
 		usuario.setCity(((String)request.getParameter("city")).toLowerCase());
 		try{
 			manager.createUser(usuario);
@@ -36,6 +38,15 @@ public class RegisterUserManager extends Manager{
 		 catch (Exception e) {
 			// TODO: handle exception
 			 System.out.println(e.getMessage());
+			 try {
+				request.getRequestDispatcher("./index.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			 
 		}
 		

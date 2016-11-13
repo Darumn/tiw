@@ -2,8 +2,10 @@ package managers;
 import model.*;
 import logic.*;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,7 +27,6 @@ public class DeleteUserManager extends Manager {
 
 		try {
 			userOld = manager.findUserById(idUser);
-//			ProductManager manager2 = new ProductManager();
 			for (Product producto : userOld.getProducts()) {
 				ProductManager p_manager = new ProductManager();
 				p_manager.deleteProduct(producto);
@@ -41,7 +42,6 @@ public class DeleteUserManager extends Manager {
 				mensajemanager.deleteMessage(message);	
 			}
 			
-//			manager2.deleteAllById(userOld);
 			manager = new UserManager();
 			manager.deleteUser((userOld));
 			manager = new UserManager();			
@@ -51,6 +51,16 @@ public class DeleteUserManager extends Manager {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			try {
+				request.getRequestDispatcher("./index.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		}
 	}
 }

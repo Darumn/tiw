@@ -1,5 +1,6 @@
 package managers;
 
+import java.io.IOException;
 import java.util.Enumeration;
 
 import javax.jms.ObjectMessage;
@@ -14,6 +15,7 @@ import javax.jms.Queue;
 import javax.jms.QueueBrowser;
 import javax.jms.Session;
 import javax.jms.TextMessage;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -78,6 +80,15 @@ public class JMSAdminManager extends AdminManager {
 		} catch (Exception e) {
 			System.out.println("En el envio de mensaje");
 			System.out.println(e.getStackTrace());
+			try {
+				request.getRequestDispatcher("./login.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 
 	}

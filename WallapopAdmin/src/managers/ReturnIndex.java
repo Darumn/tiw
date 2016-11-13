@@ -1,5 +1,8 @@
 package managers;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,6 +28,15 @@ public class ReturnIndex extends AdminManager {
 			request.getRequestDispatcher("./indexAdmin.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
+			try {
+				request.getRequestDispatcher("./login.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 
 	}

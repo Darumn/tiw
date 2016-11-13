@@ -1,5 +1,8 @@
 package managers;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -82,9 +85,19 @@ public class EditUser extends AdminManager {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
+				request.getRequestDispatcher("./login.jsp").include(request, response);
 			}
 		} catch (Exception e1) {
 			e1.printStackTrace();
+			try {
+				request.getRequestDispatcher("./login.jsp").include(request, response);
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 	}

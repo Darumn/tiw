@@ -1,9 +1,12 @@
 package managers;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Category;
 import logic.CategoryManager;
+
+import java.io.IOException;
 import java.util.List;
 public class InsertUserProductManager extends Manager{
 
@@ -22,6 +25,15 @@ public class InsertUserProductManager extends Manager{
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
+			try {
+				request.getRequestDispatcher("./index.jsp").include(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 	}
 
