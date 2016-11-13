@@ -6,16 +6,12 @@
 <% User usuario=(User)request.getAttribute("user");%>
 <div id="section">
 	<div id="section1">
-		<H3>Detalles del perfil</H3>
-			Usuario:
-			<%= usuario.getName() %>
-			<br>
-			Email:
-			<%= usuario.getEmail() %>rc="" id="img_logo">
-			<br>
-
-			<a href="./Controller?redirect=UserProducts&id=<%=usuario.getId()%>">Ver productos</a>
-			<br>
+		<H3>Detalles del perfil de, <p class="user_profile_name"><%= usuario.getName()%></p></H3>
+			<form method="get" action="./Controller">
+				<input type="hidden" name="redirect" value="UserProducts" />
+				<input type="hidden" name="id" value="<%= usuario.getId()%>" />
+				<button type="submit" class="btn-default">Ver productos</button> 
+			</form>
 
 	</div>
 	<div id="section2">
