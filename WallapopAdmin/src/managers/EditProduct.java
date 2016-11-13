@@ -64,30 +64,21 @@ public class EditProduct extends AdminManager {
 				newProduct.setStatus(oldProduct.getStatus());
 			}
 
-			String category = request.getParameter("category");
+			int category = Integer.parseInt(request.getParameter("category"));
+			CategoryManager cat_man = new CategoryManager();
+			Category categoria = cat_man.findCategoryById(category);
+
 			Category finalCategory = new Category();
-			if (category != null) {
-				switch (category) {
-				case "coche":
-					finalCategory.setId(1);
-					finalCategory.setName("coche");
-					break;
-				case "copa":
-					finalCategory.setId(2);
-					finalCategory.setName("copa");
-					break;
-				case "electronica":
-					finalCategory.setId(3);
-					finalCategory.setName("electronica");
-					break;
-				case "otros":
-					finalCategory.setId(4);
-					finalCategory.setName("otros");
-					break;
-				}
-			} else {
-				newProduct.setCategory(oldProduct.getCategory());
-			}
+			/*
+			 * String category; if (category != null) { switch (category) { case
+			 * "coche": finalCategory.setId(1); finalCategory.setName("coche");
+			 * break; case "copa": finalCategory.setId(2);
+			 * finalCategory.setName("copa"); break; case "electronica":
+			 * finalCategory.setId(3); finalCategory.setName("electronica");
+			 * break; case "otros": finalCategory.setId(4);
+			 * finalCategory.setName("otros"); break; } } else {
+			 * newProduct.setCategory(oldProduct.getCategory()); }
+			 */
 
 			if (oldProduct.getCategory().getName().equals(finalCategory.getName())) {
 				finalCategory.setProducts(oldProduct.getCategory().getProducts());
