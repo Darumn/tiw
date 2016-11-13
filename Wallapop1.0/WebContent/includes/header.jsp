@@ -42,7 +42,7 @@ if(session1!=null){
 		<%}%>
 		<div class="account">
 		<%if(user == null){ %>
-			<a href="./Controller?redirect=Formulario" class="account_link">INICIAR SESIÓN |
+			<a href="./Controller?redirect=Formulario" class="account_link" style="color:white;font-weight:900">INICIAR SESIÓN |
 				REGISTRO</a>
 		<%} %>
 		<%if(user != null){ %>
