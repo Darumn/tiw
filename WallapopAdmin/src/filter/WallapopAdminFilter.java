@@ -9,6 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import logic.*;
 import managers.*;
@@ -47,7 +49,20 @@ public class WallapopAdminFilter implements Filter {
 					reqDis.forward(request, response);
 				}
 			} else {
-				
+				HttpServletRequest req = (HttpServletRequest) request;
+				HttpServletResponse rep = (HttpServletResponse) response;
+
+				SessionAdminManager sessionUser = new SessionAdminManager(req, rep);
+
+				if (sessionUser == null) {
+					RequestDispatcher reqDis = request.getRequestDispatcher("./login.jsp");
+					reqDis.forward(request, response);
+				} else {
+					if (sessionUser.getUser() == null) {
+						RequestDispatcher reqDis = request.getRequestDispatcher("./login.jsp");
+						reqDis.forward(request, response);
+					}
+				}
 			}
 		}
 		chain.doFilter(request, response);

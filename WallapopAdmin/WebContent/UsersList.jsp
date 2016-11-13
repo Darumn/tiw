@@ -8,12 +8,8 @@
 <div class="main">
 	<%
 		SessionAdminManager sessionUser = (SessionAdminManager) (request.getAttribute("sessionUser"));
-		if (sessionUser == null) {
 	%>
-	<jsp:forward page="login.jsp" />
-	<%
-		}
-	%>
+
 	<%
 		List<User> usersList = (List<User>) (request.getAttribute("users list"));
 		if (usersList == null || usersList.isEmpty()) {
