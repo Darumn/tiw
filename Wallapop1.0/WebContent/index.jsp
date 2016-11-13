@@ -47,17 +47,18 @@ if(session1!=null){
 					</div>
 					<div class="product-info">
 						<div class="info-container">
-							<p class="product-price"><%= lista.get(i).getPrice() %>&euro;</p>
+							<div class="product-view-info-price"><b class="text-product">Precio Producto: </b><%= lista.get(i).getPrice() %>&euro;</p></div>
 						 
-							<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><%= lista.get(i).getName() %></a>
-							
-							<p class="product-category">Others...</p>
+							<div class="product-view-info-name"><b class="text-product">Nombre producto: </b><a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><%= lista.get(i).getName() %></a></div>
+							<div class="product-view-info-category"><b class="text-product">Categoria del producto: </b><%=lista.get(i).getCategory().getName() %></div>
+							<div class="product-view-info-city"><b class="text-product">Ubicación: </b><%=lista.get(i).getUser().getCity() %></div>
+						
 						</div>
 						<div class="product-owner">
 							<form method="get" action="./Controller">
 								<input type="hidden" name="redirect" value="SellerProfile" />
 								<input type="hidden" name="seller_id" value="<%= lista.get(i).getUser().getId()%>" />
-								<button type="submit" class="btn-link"><%= lista.get(i).getUser().getName() %></button>
+								<button type="submit" class="btn-user"><%= lista.get(i).getUser().getName() %></button>
 							</form>
 						</div>
 					</div>
