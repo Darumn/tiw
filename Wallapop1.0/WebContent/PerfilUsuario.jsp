@@ -5,7 +5,6 @@
 <div id="section">
 	<div id="section1">
 		<H3>Detalles del perfil</H3>
-		<form method="POST" action="#">
 			Nombre :
 			<%= usuario.getName() %>
 			<br>
@@ -13,8 +12,6 @@
 			<br>
 			<a class="btn-link" href="./Controller?redirect=UserProducts&id=<%=usuario.getId()%>">Ver productos</a>
 			<br>
-
-		</form>
 		<form method="get" action="./Controller">
 				<input type="hidden" name="redirect" value="insertproduct" />
 				<p style="text-align:center"><input type="submit" value="Insertar Productos"></p>

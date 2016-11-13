@@ -1,4 +1,4 @@
-<%@page import="model.Product" %>
+<%@page import="model.*" %>
 <%@page import="managers.UpdateProductManager"%>
 <%@page import="managers.SessionManager" %>
 <%@page import="managers.Manager" %>
@@ -27,7 +27,11 @@
 				</div>
 				<%
 				SessionManager session1 = (SessionManager)request.getAttribute(Manager.CONST_SESSION); 
-				if(session1 != null){ %>
+				User user = null;
+				if(session1!=null){
+					user = session1.getUser();
+				}
+				if(user != null){%>
 				<div class="product-view-info-owner-chat">
 					<form method="post" action="./Controller">
 						<input type="hidden" name="redirect" value="sendMessage">

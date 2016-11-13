@@ -23,7 +23,12 @@ public class UserProductsManager extends Manager {
 	@Override
 	public void Execute() {
 		// TODO Auto-generated method stub
-		int id = session.getUser().getId();
+		int id;
+		if(request.getParameter("id") != ""){
+			id = Integer.parseInt(request.getParameter("id"));
+		}else{
+			id = session.getUser().getId();
+		}
 		User user = null;
 		try{
 			UserManager manager = new UserManager();
