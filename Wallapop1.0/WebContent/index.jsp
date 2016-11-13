@@ -86,7 +86,7 @@ if(session1!=null){
 				</select><br>
 				Ciudad: <br> <input type="text" placeholder="Buscar ciudad..."	name="search_city" class="form-control" /> <br>
 				Vendedor: <br><input type="text" placeholder="Buscar Vendedor..."	name="search_seller" class="form-control" /> <br>
-				Título: <br><input type="text" placeholder="ítulo producto..."	name="search_title" class="form-control" /> <br>
+				Título: <br><input type="text" placeholder="Título producto..."	name="search_title" class="form-control" /> <br>
 				Descripción: <br><input type="text" placeholder="Descripción..."	name="search_description" class="form-control" /> <br>
 				Estado: <br>
 				<select name="search_status" class="form-control">
@@ -147,7 +147,7 @@ if(session1!=null){
 									</form>
 								<%}else{ %>
 									<div class="product-view-info-owner-chat">
-										<a class="btn-success" href="./Controller?redirect=viewUpdateProduct&id=<%=lista.get(i).getId()%>">Modificar</a>
+										<a class="btn btn-success" href="./Controller?redirect=viewUpdateProduct&id=<%=lista.get(i).getId()%>">Modificar</a>
 										<a class="btn btn-default" href="./Controller?redirect=DeleteProduct&id=<%=lista.get(i).getId()%>">Eliminar</a>
 									</div>
 								<%}%>
