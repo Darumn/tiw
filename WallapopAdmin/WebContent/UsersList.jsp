@@ -8,17 +8,7 @@
 <div class="main">
 	<%
 		SessionAdminManager sessionUser = (SessionAdminManager) (request.getAttribute("sessionUser"));
-		if (sessionUser != null) {
-	%>
-	HOLA
-	<%=sessionUser.getUser().getName()%>
-	<form method="GET" action="./Controller">
-		<input type="hidden" name="redirect" value="CloseSession"> <input
-			style="display: inline-block" name="close session" type="submit"
-			value="Cerrar Sesion">
-	</form>
-	<%
-		} else {
+		if (sessionUser == null) {
 	%>
 	<jsp:forward page="login.jsp" />
 	<%
@@ -31,44 +21,61 @@
 		} else if (usersList.isEmpty()) {
 			out.println("LISTA VACIA");
 		}
-
-		for (int i = 0; i < usersList.size(); i++) {
 	%>
 
-	<div name="<%=usersList.get(i).getName()%>">
-		<%=usersList.get(i).getName()%>
-		<form style="display: inline-block;" method="GET"
-			action="./Controller">
-			<input type="hidden" name="redirect" value="SelectEditUser">
-			<input type="hidden" name="id"
-				value="<%=sessionUser.getUser().getId()%>"> <input
-				type="hidden" name="id_object" value="<%=usersList.get(i).getId()%>">
-			<input style="display: inline-block;" type="submit" value="Edit">
-		</form>
-
-		<form style="display: inline-block;" method="GET"
-			action="./Controller">
-			<input type="hidden" name="redirect" value="DeleteUser"> <input
-				type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>"><input
-				type="hidden" name="id_object" value="<%=usersList.get(i).getId()%>"><input
-				style="display: inline-block;" type="submit" value="Delete">
-		</form>
-
-		<form style="display: inline-block;" method="GET"
-			action="./Controller">
-			<input type="hidden" name="redirect" value="sendMessage"> <input
-				type="hidden" name="receiver_id"
-				value="<%=usersList.get(i).getId()%>"> <input type="hidden"
-				name="id" value="<%=sessionUser.getUser().getId()%>"> <input
-				type="text" name="message" style="display: inline-block;"
-				placeholder="Enviar mensaje.." /> <input
-				style="display: inline-block;" type="submit" value="Enviar mensaje">
+	<div class="returnIndex">
+		<form method="GET" action="./Controller">
+			<input type="hidden" value="ReturnIndex" name="redirect" id="return" />
+			<input type="hidden" value="<%=sessionUser.getUser().getId()%>"
+				name="id" /> <input type="submit" value="Return" />
 		</form>
 	</div>
-	<%
-		}
-	%>
 
 
+	<div class="usersList">
+		<%
+			for (int i = 0; i < usersList.size(); i++) {
+		%>
+		<div class="rowsUsers">
+			<div name="<%=usersList.get(i).getName()%>">
+				<%=usersList.get(i).getName()%>
+			</div>
+			<div>
+				<form style="display: inline-block;" method="GET"
+					action="./Controller">
+					<input type="hidden" name="redirect" value="SelectEditUser">
+					<input type="hidden" name="id"
+						value="<%=sessionUser.getUser().getId()%>"> <input
+						type="hidden" name="id_object"
+						value="<%=usersList.get(i).getId()%>"> <input
+						style="display: inline-block;" type="submit" value="Edit">
+				</form>
+
+				<form style="display: inline-block;" method="GET"
+					action="./Controller">
+					<input type="hidden" name="redirect" value="DeleteUser"> <input
+						type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>"><input
+						type="hidden" name="id_object"
+						value="<%=usersList.get(i).getId()%>"><input
+						style="display: inline-block;" type="submit" value="Delete">
+				</form>
+
+				<form style="display: inline-block;" method="GET"
+					action="./Controller">
+					<input type="hidden" name="redirect" value="sendMessage"> <input
+						type="hidden" name="receiver_id"
+						value="<%=usersList.get(i).getId()%>"> <input
+						type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>">
+					<input type="text" name="message" style="display: inline-block;"
+						placeholder="Enviar mensaje.." /> <input
+						style="display: inline-block;" type="submit"
+						value="Enviar mensaje">
+				</form>
+			</div>
+		</div>
+		<%
+			}
+		%>
+	</div>
 </div>
 <%@include file="includes/footer.jsp"%>

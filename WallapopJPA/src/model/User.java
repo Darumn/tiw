@@ -22,7 +22,7 @@ public class User implements Serializable {
 
 	private String email;
 
-	private boolean isAdmin;
+	private int isAdmin;
 
 	private String name;
 
@@ -70,11 +70,11 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public boolean getIsAdmin() {
+	public int getIsAdmin() {
 		return this.isAdmin;
 	}
 
-	public void setIsAdmin(boolean isAdmin) {
+	public void setIsAdmin(int isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 

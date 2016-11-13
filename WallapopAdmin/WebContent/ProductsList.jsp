@@ -8,17 +8,7 @@
 <div class="main">
 	<%
 		SessionAdminManager sessionUser = (SessionAdminManager) (request.getAttribute("sessionUser"));
-		if (sessionUser != null) {
-	%>
-	HOLA
-	<%=sessionUser.getUser().getName()%>
-	<form method="GET" action="./Controller">
-		<input type="hidden" name="redirect" value="CloseSession"> <input
-			style="display: inline-block" name="close session" type="submit"
-			value="Cerrar Sesion">
-	</form>
-	<%
-		} else {
+		if (sessionUser == null) {
 	%>
 	<jsp:forward page="login.jsp" />
 	<%
@@ -31,34 +21,49 @@
 		} else if (productsList.isEmpty()) {
 			out.println("LISTA VACIA");
 		}
-
-		for (int i = 0; i < productsList.size(); i++) {
 	%>
-
-	<div name="<%=productsList.get(i).getName()%>">
-		<%=productsList.get(i).getName()%>
-		<%=productsList.get(i).getPrice()%>
-		<form style="display: inline-block;" method="GET"
-			action="./Controller">
-			<input type="hidden" name="redirect" value="SelectEditProduct">
-			<input type="hidden" name="id"
-				value="<%=sessionUser.getUser().getId()%>"> <input
-				type="hidden" name="id_object"
-				value="<%=productsList.get(i).getId()%>"> <input
-				style="display: inline-block;" type="submit" value="Edit">
-		</form>
-
-		<form style="display: inline-block;" method="GET"
-			action="./Controller">
-			<input type="hidden" name="redirect" value="DeleteProduct"> <input
-				type="hidden" name="id" value="<%=sessionUser.getUser().getId()%>">
-			<input type="hidden" name="id_object"
-				value="<%=productsList.get(i).getId()%>"><input
-				style="display: inline-block;" type="submit" value="Delete">
+	<div class="returnIndex">
+		<form method="GET" action="./Controller">
+			<input type="hidden" value="ReturnIndex" name="redirect" id="return" />
+			<input type="hidden" value="<%=sessionUser.getUser().getId()%>"
+				name="id" /> <input type="submit" value="Return" />
 		</form>
 	</div>
-	<%
-		}
-	%>
+
+	<div class="productsList">
+		<%
+			for (int i = 0; i < productsList.size(); i++) {
+		%>
+		<div class="rowsProducts">
+			<div name="<%=productsList.get(i).getName()%>">
+				<%=productsList.get(i).getName()%>
+				<%=productsList.get(i).getPrice()%>
+			</div>
+			<div>
+				<form style="display: inline-block;" method="GET"
+					action="./Controller">
+					<input type="hidden" name="redirect" value="SelectEditProduct">
+					<input type="hidden" name="id"
+						value="<%=sessionUser.getUser().getId()%>"> <input
+						type="hidden" name="id_object"
+						value="<%=productsList.get(i).getId()%>"> <input
+						style="display: inline-block;" type="submit" value="Edit">
+				</form>
+
+				<form style="display: inline-block;" method="GET"
+					action="./Controller">
+					<input type="hidden" name="redirect" value="DeleteProduct">
+					<input type="hidden" name="id"
+						value="<%=sessionUser.getUser().getId()%>"> <input
+						type="hidden" name="id_object"
+						value="<%=productsList.get(i).getId()%>"><input
+						style="display: inline-block;" type="submit" value="Delete">
+				</form>
+			</div>
+		</div>
+		<%
+			}
+		%>
+	</div>
 </div>
 <%@include file="includes/footer.jsp"%>

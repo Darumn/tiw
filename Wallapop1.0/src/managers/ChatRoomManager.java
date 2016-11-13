@@ -57,7 +57,10 @@ public class ChatRoomManager extends Manager {
 				
 				
 			}
+			UserManager user_manager = new UserManager();
+			User admin = user_manager.findAdmin();
 			
+			this.request.setAttribute("admin", admin);
 			this.request.setAttribute("contact_list", listac);
 			request.getRequestDispatcher("./ChatRoom.jsp").include(request, response);
 		}

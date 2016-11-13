@@ -19,7 +19,9 @@ public class ViewUpdateProductManager extends Manager {
 		// TODO Auto-generated method stub
 		
 		String idStr = this.request.getParameter("id");
-		if(idStr == null) idStr = String.valueOf(request.getAttribute("id"));
+
+		if(idStr == null) idStr = String.valueOf(this.request.getAttribute("id"));
+
 		int id = Integer.parseInt(idStr);
 		ProductManager manager = new ProductManager();
 		try{

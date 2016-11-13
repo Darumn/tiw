@@ -137,9 +137,23 @@ public class UserManager {
 	}
 
 	public List<User> showUsers() {
-		List<User> users;
-		Query query = em.createQuery("SELECT c FROM User c");
-		users = query.getResultList();
+		List<User> users = null;
+		try{
+			Query query = em.createQuery("SELECT c FROM User c");
+			users = query.getResultList();
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+		}
 		return users;
+	}
+	public User findAdmin(){
+		User ret = null;
+		try{
+			Query query = em.createQuery("SELECT c FROM User c WHERE c.isAdmin = 1", User.class);
+			ret = (User) query.getResultList().get(0);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		return ret;
 	}
 }

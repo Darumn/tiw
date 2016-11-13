@@ -34,4 +34,14 @@
 		
 	</div>
 	<%} %>
+	<%User admin = (User) request.getAttribute("admin");
+	if(admin != null) {%>
+	Enviar mensaje al administrador:
+	<form method="GET" action="./Controller">
+		<input type="hidden" name="redirect" value="sendMessage">
+		<input type="hidden" name="receiver_id" value="<%= admin.getId()%>"/>
+		<input type="text" name="message" placeholder="Escribe al administrador.."/>
+		<button type="submit" class="btn-success" >Enviar</button>
+	</form>
+	<%} %>
 </div>
