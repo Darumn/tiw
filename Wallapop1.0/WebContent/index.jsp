@@ -40,7 +40,7 @@ if(session1!=null){
 				<div class="card-product">
 				
 					<div class="image-product">
-						<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><img src="<%= UpdateProductManager.getUrlImage(lista.get(i)) %>" class="img-responsive" alt="<%= lista.get(i).getName()%>"></a>
+						<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><img src="<%=UpdateProductManager.getUrlImage(lista.get(i)) %>" class="img-responsive" alt="<%= lista.get(i).getName()%>"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">
@@ -103,7 +103,7 @@ if(session1!=null){
 				<div class="card-product">
 				
 					<div class="image-product">
-						<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><img src="<%= UpdateProductManager.getUrlImage(lista.get(i)) %>" class="img-responsive" alt="<%= lista.get(i).getName()%>"></a>
+						<a href="Controller?redirect=Product&id=<%=lista.get(i).getId()%>"><img src="<%=UpdateProductManager.getUrlImage(lista.get(i)) %>" class="img-responsive" alt="<%= lista.get(i).getName()%>"></a>
 					</div>
 					<div class="product-info">
 						<div class="info-container">

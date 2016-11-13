@@ -7,7 +7,7 @@
 		<!-- Product images -->
 		<div class="col-xs-6 col-md-6 col-sm-6">
 			<div class="product-view-img-container">
-				<img src="<%= UpdateProductManager.getUrlImage(product) %>" class="img-responsive" alt="<%= product.getName()%>">
+				<img src="<%= UpdateProductManager.getUrlImage(product)%>" class="img-responsive" alt="<%= product.getName()%>">
 			</div>
 		</div>
 		<!-- Product info -->
