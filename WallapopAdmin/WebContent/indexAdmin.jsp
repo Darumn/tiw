@@ -8,12 +8,8 @@
 <div class="main">
 	<%
 		SessionAdminManager sessionUser = (SessionAdminManager) (request.getAttribute("sessionUser"));
-		if (sessionUser == null) {
 	%>
-	<jsp:forward page="login.jsp" />
-	<%
-		}
-	%>
+
 	<ul>
 		<form method="GET" action="./Controller">
 			<input type="hidden" name="redirect" value="ShowUsers"> <input
